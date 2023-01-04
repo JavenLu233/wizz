@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>投递简历</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="container">
+        <img class="background" src="./蓝色弧线背景.png" alt="">
+        <div class="header">
+            <ul class="menu">
+                <li class="icon"><img class="logo" src="./为之logo.png" alt=""></li>
+                <li class="helper"><a href="../Home/index.html">招新小助手</a></li>
+                <li><a href="../Position/index.html">岗位展示</a>
+                </li>
+                <li><a href="#">投递简历</a>
+                </li>
+                <li><a href="../Progress/index.html">面试进度查询</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>投递简历</h2>
+            <form id="form" target="myIframe">
+                <table>
+                    <thead></thead>
+                    <tr class="media">
+                        <td colspan="6">
+                            <span>了解渠道：</span>
+                            <label><input type="radio" name="access" id="posters" class="formVal" required>海报</label>
+                            <label><input type="radio" name="access" id="camps" class="formVal">冬/夏令营</label>
+                            <label><input type="radio" name="access" id="others" class="formVal">其他</label>
+                        </td>
+                        <td colspan="1" class="key" id="refferrer_key">
+                            内推人:
+                        </td>
+                        <td><input type="text" class="formVal refferrerInput" id="referrer"></td>
+                    </tr>
+                    <tr>
+                        <td class="key">姓名</td>
+                        <td><input type="text" class="formVal longtext" name="name" id="name" required></td>
+                        <td class="key">性别</td>
+                        <td>
+                            <select class="gender formVal" id="gender">
+                                <option value="男">男</option>
+                                <option value="女">女</option>
+                            </select required>
+                        </td>
+                        <td class="key">生日</td>
+                        <td class="birthday_td">
+                            <select name="birthday" id="birthday" class="formVal">
+                                <option value="gre">阳历</option>
+                                <option value="lun">阴历</option>
+                            </select>
+                            <input type="text" class="formVal" id="month">月
+                            <input type="text" class="formVal" id="day">日
+
+                        </td>
+
+                        <td class="key">岗位</td>
+                        <td>
+                            <select class="position formVal" id="target_position" required>
+
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+
+                        <td class="key">专业</td>
+                        <td><input type="text" class="formVal longtext" id="major" required></td>
+                        <td class="key">年级</td>
+                        <td>
+                            <select class="grade formVal" id="grade">
+                                <option value="大一">大一</option>
+                                <option value="大二">大二</option>
+                                <option value="大三">大三</option>
+                                <option value="大四">大四</option>
+                                <option value="研一">研一</option>
+                                <option value="研二">研二</option>
+                                <option value="研三">研三</option>
+                                <option value="博一">博一</option>
+                                <option value="博二">博二</option>
+                                <option value="博三">博三</option>
+                            </select>
+                        </td>
+                        <td class="key">邮箱</td>
+                        <td><input type="email" class="formVal longtext" id="email" required></td>
+                        <td class="key phone ">手机</td>
+                        <td><input type="text" class="formVal longtext" id="phone" required></td>
+
+                    </tr>
+                    <tr class="experience">
+                        <td>相关项目实习经历</td>
+                        <td colspan="7">
+                            <textarea class="detail formVal" id="experience" required></textarea>
+                            <span>上传附件(3MB以内的 pdf文件):</span>
+                            <input type="file" id="file" accept=".pdf">
+                        </td>
+                    </tr>
+                    <tr class="reason">
+                        <td>加入我们的原因</td>
+                        <td colspan="7">
+                            <textarea class="detail formVal" id="reason" required></textarea>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="btnBox">
+                    <button id="submit">提交</button>
+                    <button type="button" id="save">保存</button>
+                    <button type="reset" id="reset">重置</button>
+                </div>
+            </form>
+
+            <iframe id="myIframe" name="myIframe" style="display: none;"></iframe>
+        </div>
+    </div>
+
+    <div class="message" id="message">
+
+
+        <div class="tip" id="tip">
+            <h2 class="succeed" id="succeed">发送成功</h2>
+            <h2 class="fail" id="fail">发送失败</h2>
+            <button class="close" id="close">关闭</button>
+        </div>
+
+        <div class="replace" id="replace">
+            <h2>重复提交简历，是否覆盖？</h2>
+            <span id="replaceTip">覆盖失败！</span>
+            <div class="btnBox">
+                <button class="confirm" id="confirm">确定</button>
+
+                <button class="cancel" id="cancel">取消</button>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>面试进度查询</title>
+    <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+    <div class="container">
+        <img class="background" id="background" src="./蓝色弧线背景+左下图片.jpg" alt="">
+        <div class="header">
+            <ul class="menu">
+                <li class="icon"><img class="logo" src="./为之logo.png" alt=""></li>
+                <li class="helper"><a href="../Home/index.html">招新小助手</a></li>
+                <li><a href="../Position/index.html">岗位展示</a>
+                </li>
+                <li><a href="../Submit/index.html">投递简历</a>
+                </li>
+                <li><a href="./index.html">面试进度查询</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <div class="text">
+                <span class="tip">当前面试进度...</span>
+                <br>
+                <span class="result" id="result">等待查看</span>
+            </div>
+
+            <div class="appraise">
+                <table>
+                    <tr>
+                        <td class="module">模块</td>
+                        <td class="mark">打分</td>
+                        <td class="explain">分数解释<span>(满分10分)</span></td>
+
+                    </tr>
+                    <tr>
+                        <td class="moduleValue">积极性</td>
+                        <td class="markValue"></td>
+                        <td class="explainValue"></td>
+
+                    </tr>
+                    <tr>
+                        <td class="moduleValue">行业认识能力</td>
+                        <td class="markValue"></td>
+                        <td class="explainValue"></td>
+
+                    </tr>
+                    <tr>
+                        <td class="moduleValue">表达能力</td>
+                        <td class="markValue"></td>
+                        <td class="explainValue"></td>
+
+                    </tr>
+                    <tr>
+                        <td class="moduleValue">项目经历</td>
+                        <td class="markValue"></td>
+                        <td class="explainValue"></td>
+
+                    </tr>
+                    <tr>
+                        <td class="moduleValue">未来发展契合度</td>
+                        <td class="markValue"></td>
+                        <td class="explainValue"></td>
+
+                    </tr>
+                    <tr>
+                        <td class="moduleValue">总评</td>
+                        <td class="markValue"></td>
+                        <td class="explainValue"></td>
+
+                    </tr>
+                </table>
+
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="message" id="message">
+        <div class="login">
+            <h2>请输入递交简历时的手机号：</h2>
+            <input type="text" class="phone" id="phone">
+            <h2>请选择投递的岗位：</h2>
+            <select class="target_position formVal" id="target_position" required>
+            </select>
+            <span class="errTip" id="errTip">输入有误，请重试</span>
+            <div class="btnBox">
+                <button class="submit" id="submit">提交</button>
+                <button class="cancel" id="cancel">取消</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>

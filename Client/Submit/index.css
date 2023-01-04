@@ -1,0 +1,353 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    user-select: none;
+}
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    min-width: 1000px;
+    min-height: 600px;
+    z-index: -1;
+}
+
+body {
+    min-width: 1200px;
+    min-height: 100vh;
+    background-color: rgb(255, 255, 255);
+}
+
+.message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    /* display: flex; */
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .7);
+
+    z-index: 100;
+}
+
+.message .tip {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 20px;
+    line-height: 40px;
+    width: 300px;
+    background-color: rgb(217, 217, 217);
+    border-radius: 20px;
+}
+
+.message h2 {
+
+    text-align: center;
+    margin: 10px auto;
+    font-size: 20px;
+    font-family: STZhongSong;
+}
+
+.message .tip .succeed {
+    display: none;
+}
+
+.message .tip .fail {
+    display: none;
+}
+
+.message .replace {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    line-height: 40px;
+
+    background-color: rgb(217, 217, 217);
+    border-radius: 20px;
+}
+
+.message .replace span {
+    display: none;
+    color: rgb(220, 130, 130);
+}
+
+
+.message .replace .btnBox {
+    display: flex;
+    justify-content: space-around;
+    width: 300px;
+
+}
+
+.message button {
+
+    width: 100px;
+    height: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    border: 2px solid #000;
+    border-radius: 18px;
+    font-family: STZhongSong;
+    background-color: #fff;
+}
+
+
+
+
+
+.message button:hover {
+    box-shadow: 2px 2px 5px #555;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+
+    height: 90px;
+    border-bottom: 1px #fff solid;
+}
+
+
+
+.header ul li {
+    float: left;
+    margin: 0 30px;
+    height: 60px;
+    font-size: 28px;
+    line-height: 60px;
+    color: #fff;
+}
+
+.header ul li.icon {
+    width: 160px;
+    height: 60px;
+    padding-right: 10px;
+
+}
+
+.header .logo {
+    position: relative;
+    top: 10px;
+    width: 160px;
+    height: auto;
+    filter: invert(95%) sepia(95%) saturate(20%) hue-rotate(15deg) brightness(106%) contrast(104%);
+}
+
+.header .helper {
+    padding-left: 50px;
+    border-left: 2px #fff solid;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+.header a:link {
+    color: #fff;
+}
+
+.header a:visited {
+    color: #fff;
+}
+
+.header a:active {
+    color: #fff;
+}
+
+.container h2 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 30px;
+    color: #fff;
+}
+
+.content {
+
+    margin: 20px auto;
+    width: 1000px;
+    height: 400px;
+    font-family: STZhongSong;
+
+}
+
+
+
+.content table,
+.content table tr td {
+    background-color: #fff;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+.content table tr {
+    border: #000 1px solid;
+}
+
+.content table tr td.key {
+    width: 80px;
+    font-size: 20px;
+
+}
+
+
+.content td {
+    width: 170px;
+    height: 40px;
+    border: #000 1px solid;
+    border-collapse: collapse;
+}
+
+.media td {
+    font-size: 16px;
+    border-left: none;
+    border-right: none;
+}
+
+.media #refferrer_key {
+    font-size: 16px;
+}
+
+.refferrerInput {
+    width: 80%;
+    text-align: center;
+    font-family: STZhongSong;
+}
+
+.media label {
+    display: flex;
+    align-items: center;
+}
+
+.media span,
+.media label {
+    margin-left: 10px;
+    text-align: center;
+    float: left;
+
+}
+
+
+
+.content table tr td input[type=checkbox] {
+    position: relative;
+    top: 2px;
+    width: 14px;
+    height: 14px;
+}
+
+.content input.longtext {
+
+    border: none;
+    text-align: center;
+    width: 170px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.content input:focus {
+    outline: none;
+}
+
+.content select {
+    text-align: center;
+    font-family: STZhongSong;
+    border: none;
+}
+
+.content select:focus {
+    outline: none;
+}
+
+.content .position,
+.content .grade,
+.content .gender {
+    width: 170px;
+    height: 40px;
+    font-size: 20px;
+}
+
+.content .birthday_td {
+    display: flex;
+    align-items: center;
+    border: none;
+}
+
+.content #birthday {
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 5px;
+    float: left;
+}
+
+.content #month,
+.content #day {
+    margin-left: 5px;
+    width: 30px;
+    text-align: center;
+}
+
+
+
+
+.content table tr.exp td,
+.content table tr.reason td {
+    height: 140px;
+    font-size: 16px;
+}
+
+
+.content table .detail {
+    vertical-align: bottom;
+    resize: none;
+    padding: 10px;
+    width: 920px;
+    height: 140px;
+    font-size: 18px;
+}
+
+.content table .detail:focus {
+    outline: none;
+}
+
+.content table .experience span {
+    display: inline-block;
+    margin: 20px 5px;
+    font-size: 18px;
+}
+
+.content table .experience input[type=file] {
+    width: 600px;
+}
+
+.btnBox {
+    width: 1000px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content button {
+    margin: 0 20px;
+    width: 100px;
+    height: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    border: 2px solid #000;
+    border-radius: 18px;
+    font-family: STZhongSong;
+    background-color: #fff;
+}
+
+.content button:hover {
+    box-shadow: 2px 2px 5px #555;
+}
