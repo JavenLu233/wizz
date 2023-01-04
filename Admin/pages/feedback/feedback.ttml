@@ -1,0 +1,46 @@
+<view class="container">
+    <image class="backgroundImg" src="/images/管理员端背景.png"></image>
+    <view class="component-wrapper">
+        <login-header is-login="{{isLogin}}" avatar-url="{{feishuUserInfo.avatarUrl}}"
+            name="{{feishuUserInfo.nickName}}" bindtoLogin="toLogin"></login-header>
+    </view>
+
+    <view class="page-title">
+        <view class="title">{{pageTitle}}</view>
+    </view>
+
+    <view class="head-wrapper">
+        <picker mode="selector" value="{{index}}" range="{{pickerList}}" bindchange="pickerUpdate">
+            <view class="picker">{{picked}}<image src="/images/picker.png" mode="aspectFit" style="width:30rpx; height:30rpx;"></image></view>
+        </picker>
+
+        <view class="search">
+            <input placeholder="输入搜索内容" bindblur="inputUpdate"></input>
+            <view class="searchIcon">
+                <image src="/images/放大镜.png" bindtap="searchProject"></image>
+            </view>
+        </view>
+        
+    </view>
+
+
+    <scroll-view class="table-wrapper" scroll-y>
+        <view class="table-box feedback-data">
+
+
+            <view class="tbody itemBox">
+                <view class="item" tt:for="{{feedbackDataList}}" tt:key="id">
+                    <view class="td id short">{{item.id}}</view>
+                    <view class="td name long">{{item.name}}</view>
+                    <view class="td position long">{{item.position}}</view>
+                    <view class="td feedback long">{{item.feedback}}</view>
+                </view>
+            </view>
+        </view>
+
+
+
+    </scroll-view>
+
+
+</view>

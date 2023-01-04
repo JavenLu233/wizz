@@ -1,0 +1,69 @@
+<view class="container">
+    <image class="backgroundImg" src="/images/管理员端背景.png"></image>
+    <view class="component-wrapper">
+        <login-header is-login="{{isLogin}}" avatar-url="{{feishuUserInfo.avatarUrl}}"
+            name="{{feishuUserInfo.nickName}}" bindtoLogin="toLogin"></login-header>
+    </view>
+
+    <view class="page-title">
+        <view class="title">{{pageTitle}}</view>
+    </view>
+
+    <view class="head-wrapper">
+        <button class="add-button" bindtap="addInterviewer">添加面试官</button>
+        <picker mode="selector" value="{{index}}" range="{{pickerList}}" bindchange="pickerUpdate">
+            <view class="picker">{{picked}}<image src="/images/picker.png" mode="aspectFit" style="width:30rpx; height:30rpx;"></image></view>
+            
+        </picker>
+
+        <view class="search">
+            <input placeholder="输入搜索内容" bindblur="inputUpdate"></input>
+            <view class="searchIcon">
+                <image src="/images/放大镜.png" bindtap="searchByKey"></image>
+            </view>
+        </view>
+
+    </view>
+
+
+    <view class="table-wrapper">
+        <view class="table-box interviewer-data">
+            <scroll-view class="tbody itemBox" scroll-x scroll-y>
+
+                <view class="item" tt:for="{{interviewerDataList}}" tt:key="id">
+                    <view class="td name"><text selectable="true">{{item.name}}</text></view>
+                    <view class="td phone">{{item.phone}}</view>
+                    <view class="td total_interview">{{item.total_interview}}</view>
+                    
+                    <!-- <view class="td is_activate">
+                        <view tt:if="{{item.is_activate==='接收简历'}}">{{item.is_activate}}</view>
+                        <view tt:if="{{item.is_activate!=='接收简历'}}" class="switch-box">
+                            <switch checked="{{item.is_activate===true}}" bindchange="switchUpdate"
+                                data-id="{{item.id}}"></switch>
+                        </view>
+                    </view> -->
+                    <view class="td operate_1">
+                        <view tt:if="{{item.operate_1==='操作1'}}">编辑</view>
+                        <view tt:if="{{item.operate_1!=='操作1'}}" class="edit-nav" data-id="{{item.id}}"
+                            bindtap="toEdit">编辑</view>
+                    </view>
+                    <!-- <view class="td operate_2">
+                        <view tt:if="{{item.operate_2==='操作2'}}">删除</view>
+                        <view tt:if="{{item.operate_2!=='操作2'}}" class="delete-nav" data-id="{{item.id}}"
+                            bindtap="toDelete">删除</view>
+                    </view> -->
+                    
+
+
+                </view>
+
+            </scroll-view>
+        </view>
+    </view>
+
+
+
+
+
+
+</view>

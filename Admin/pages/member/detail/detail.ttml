@@ -1,0 +1,21 @@
+<view class="container">
+    <view class="component-wrapper">
+        <edit-form bindcancel="cancel" bindformsubmit="formSubmit" edit-title="{{editTitle}}">
+
+
+            <view class="edit-item" tt:for="{{editList}}" tt:key="id">
+                <view class="key">{{item.name}}</view>
+                <view class="value">
+                    <input tt:if="{{item.isInput}}" id="{{item.key}}" bindblur="inputUpdate" value="{{formData[item.key]}}"></input>
+                    <textarea tt:if="{{item.isTextarea}}" id="{{item.key}}" bindblur="textareaUpdate" value="{{formData[item.key]}}"></textarea>
+                    <picker tt:if="{{item.isPicker}}" range="{{item.range}}" id="{{item.key}}" bindchange="pickerUpdate">
+                        <view class="picker">{{formData[item.key]!==null?formData[item.key]:""}}</view>
+                    </picker>
+                </view>
+
+            </view>
+
+        </edit-form>
+    </view>
+
+</view>

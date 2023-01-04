@@ -1,0 +1,256 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.component-wrapper {
+    width: 95%;
+    height: 90%;
+}
+
+.edit-window .content-box {
+    padding: 0 5%;
+}
+
+.item-value {
+    border: 1rpx solid #000;
+    padding: 0 2%;
+    height: 1.5rem;
+}
+
+/* 来自简历详情的 ttss */
+
+
+.resume .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+
+
+.resume .resume-content {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 80vh;
+    /* background-color: #bfa; */
+
+    border: 2rpx solid #000;
+    background-color: #fff;
+    
+}
+
+.resume .media {
+    padding: 4rpx 30rpx;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1rpx solid #000;
+    font-size: 0.8rem;
+}
+
+
+.resume .info .line {
+    height: 6vh;
+    display: flex;
+}
+
+.resume .info .line .td:first-child {
+    border-left: 1rpx solid #000;
+}
+
+.resume .info .line .td:nth-child(odd) {
+    width: 18%;
+    font-family: STXinwei;
+}
+
+.resume .info .line .td:nth-child(even) {
+    width: 32%;
+    white-space: nowrap;
+    overflow: scroll;
+    
+}
+
+.resume .info .line .td.long {
+    width: 82%;
+}
+
+.resume .info .line .td {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* border: 1rpx solid #000; */
+    border-right: 1rpx solid #000;
+    border-bottom: 1rpx solid #000;
+
+    
+}
+
+
+.resume .detail {
+    flex: 1;
+    overflow: hidden;
+}
+
+
+.resume .detail .key {
+    margin: 0;
+    flex: 1;
+    /* border: 1rpx solid #000; */
+    border-left: 1rpx solid #000;
+    border-right: 1rpx solid #000;
+    border-bottom: 1rpx solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    font-family: STXinwei;
+}
+
+.resume .detail .reason .key {
+    border-bottom: none;
+}
+
+.resume .detail .reason .value {
+    border-bottom: none;
+}
+
+.resume .detail .key text {
+    text-align: center;
+}
+
+.resume .detail .key button {
+    text-align: center;
+    
+}
+
+.resume .detail .experience {
+    display: flex;
+    height: 50%;
+}
+
+
+.resume .detail .reason {
+    height: 50%;
+    display: flex;
+}
+
+.resume .detail .value {
+    display: flex;
+    flex-direction: column;
+    padding: 8rpx;
+    width: 75%;
+    /* border: 1rpx solid #000; */
+    border-right: 1rpx solid #000;
+    border-bottom: 1rpx solid #000;
+}
+
+
+/* 来自面试评价的 ttss */
+
+.result {
+    margin-top: 10vh;
+}
+
+.result .evaluateBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.result .content {
+    /* width: 90vw; */
+    width: 100%;
+    max-height: 60vh;
+    margin: 20rpx 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+}
+
+
+
+.result .thead {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.result .thead .td {
+    border-top: 1rpx solid #000;
+}
+
+.result .td {
+    height: 6vh;
+    border-bottom: 1rpx solid #000;
+    
+    border-right: 1rpx solid #000;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.result .td:first-child {
+    border-left: 1rpx solid #000;
+}
+
+.result .td.module {
+    flex: 2;
+}
+
+.result .td.mark {
+    flex: 1;
+}
+
+.result .td.explain {
+    flex: 3;
+}
+
+.result .markValue,
+.result .explainValue {
+    vertical-align: middle;
+    text-align: center;
+    line-height: 100%;
+}
+
+.result .itemBox {
+    width: 100%;
+    margin-bottom: 20rpx;
+}
+
+.result .evaluateItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* 重新设置按钮布局 */
+.edit-window .button-box {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

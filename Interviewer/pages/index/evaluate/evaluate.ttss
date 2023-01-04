@@ -1,0 +1,98 @@
+
+.title {
+    margin: 2vh 0;
+    font-family: STXinwei;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.evaluateBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    width: 90vw;
+    max-height: 60vh;
+    margin: 20rpx 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+}
+
+
+
+.thead {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.thead .td {
+    border-top: 1rpx solid #000;
+}
+
+.td {
+    height: 6vh;
+    border-bottom: 1rpx solid #000;
+    border-right: 1rpx solid #000;
+    text-align: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.td:first-child {
+    border-left: 1rpx solid #000;
+}
+
+.td.module {
+    flex: 2;
+}
+
+.td.mark {
+    flex: 1;
+}
+
+.td.explain {
+    flex: 3;
+}
+
+input {
+    vertical-align: middle;
+    text-align: center;
+    line-height: 100%;
+}
+
+.itemBox {
+    width: 100%;
+    margin-bottom: 20rpx;
+}
+
+.evaluateItem {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    margin: 20rpx auto;
+    width: 40vw;
+    text-align: center;
+    color: #fff;
+}
+
+.pass {
+    background-color: #4E79F8;
+}
+
+.fail {
+    background-color: #C20303;
+}

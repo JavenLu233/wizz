@@ -1,0 +1,6 @@
+<view class="my-custom-component">
+  <text class="header">{{ headerText }}</text>
+  <view class="content">
+    <slot></slot>
+  </view>
+</view>

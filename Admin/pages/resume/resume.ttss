@@ -1,0 +1,118 @@
+/* /pages/index/index.ttss */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.picker {
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+picker.project {
+    width: 25vw;
+}
+
+
+.table-wrapper {
+    width: 90vw;
+    height: 90vh;
+}
+
+.table-box {
+    width: 100%;
+    /* border: 2rpx solid #000; */
+    padding-bottom: 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.table-title {
+    height: 3rem;
+}
+
+
+
+
+
+
+
+.tbody {
+    /* 滑动的大盒子必须添加的两项 */
+    overflow: scroll;
+    white-space: nowrap;
+    
+    width: 100%;
+    max-height: 70vh;
+    
+    border-top: 1rpx solid #000;
+    border-left: 1rpx solid #000;
+    border-right: 1rpx solid #000;
+    border-bottom: none;
+    background-color: #fff;
+}
+
+.tbody .item{
+    white-space: nowrap;
+}
+
+.tbody .td{
+    display: inline-block;
+    overflow: scroll;
+    
+    height: 8vw;
+    line-height: 8vw;
+    text-align: center;
+    vertical-align: bottom;
+    
+    border-bottom: 1rpx solid #000;
+    border-left: 1rpx solid #000;
+
+    font-size: 0.8rem;
+}
+
+
+
+/* .td.id {
+    width: 15%;
+} */
+
+.td.name {
+    width: 40%;
+}
+
+.td.name.nav {
+    color: rgb(39, 96, 172);
+}
+
+.td.phone {
+    width: 40%;
+}
+
+.td.status {
+    width: 20%;
+}
+
+/* .td.operate {
+    width: 15%;
+} */
+
+
+.tbody .td:first-child {
+    border-left: none;
+}

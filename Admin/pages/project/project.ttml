@@ -1,0 +1,105 @@
+<view class="container">
+    <image class="backgroundImg" src="/images/管理员端背景.png"></image>
+    <view class="component-wrapper">
+        <login-header is-login="{{isLogin}}" avatar-url="{{feishuUserInfo.avatarUrl}}"
+            name="{{feishuUserInfo.nickName}}" bindtoLogin="toLogin"></login-header>
+    </view>
+
+    <view class="page-title">
+        <view class="title">{{pageTitle}}</view>
+    </view>
+
+
+    <view class="project-manage">
+        <view class="head-wrapper">
+
+            <button class="add-button" bindtap="addProject">添加项目</button>
+
+            <!-- <picker mode="selector" value="{{index}}" range="{{pickerList}}" bindchange="pickerUpdate">
+            <view class="picker">{{picked}}</view>
+        </picker> -->
+
+            <view class="search">
+                <input placeholder="输入搜索内容" bindblur="inputUpdate_project"></input>
+                <view class="searchIcon">
+                    <image src="/images/放大镜.png" bindtap="searchByKey_project"></image>
+                </view>
+            </view>
+
+        </view>
+
+
+        <scroll-view class="table-wrapper" scroll-y>
+            <view class="table-box project-data">
+
+
+                <view class="tbody itemBox">
+                    <view class="item" tt:for="{{projectDataList}}" tt:key="id">
+                        <view class="td id short">{{item.id}}</view>
+                        <view class="td name long">{{item.project_name}}</view>
+                        <view class="td deliver long">{{item.submit_cnt}}</view>
+                        <view class="td passNum short">{{item.pass_cnt}}</view>
+                        <view class="td failNum short">{{item.unpass_cnt}}</view>
+                    </view>
+                </view>
+            </view>
+
+
+
+        </scroll-view>
+    </view>
+
+
+    <!-- 上方为 项目管理 -->
+    <view class="br"></view>
+    <!-- 下方为 岗位管理 -->
+
+    <view class="position-manage">
+        <view class="head-wrapper">
+
+            <button class="add-button" bindtap="addPosition">添加岗位</button>
+
+            <!-- <picker mode="selector" value="{{index}}" range="{{pickerList}}" bindchange="pickerUpdate">
+            <view class="picker">{{picked}}</view>
+        </picker> -->
+
+            <view class="search">
+                <input placeholder="输入搜索内容" bindblur="inputUpdate_position"></input>
+                <view class="searchIcon">
+                    <image src="/images/放大镜.png" bindtap="searchByKey_position"></image>
+                </view>
+            </view>
+
+        </view>
+
+
+        <scroll-view class="table-wrapper" scroll-y>
+            <view class="table-box position-data">
+
+
+                <view class="tbody itemBox">
+                    <view class="item" tt:for="{{positionDataList}}" tt:key="id">
+                        <view class="td id">{{item.id}}</view>
+                        <view class="td name">{{item.name}}</view>
+                        <view class="td edit">
+                            <view tt:if="{{item.id==='序号'}}">{{item.edit}}</view>
+                            <view tt:if="{{item.id!=='序号'}}" class="edit-nav" data-id="{{item.id}}" data-name="{{item.name}}"
+                                bindtap="toPositionEdit">编辑</view>
+                        </view>
+                        <view class="td delete"><view tt:if="{{item.id==='序号'}}">{{item.delete}}</view>
+                            <view tt:if="{{item.id!=='序号'}}" class="delete-nav" data-id="{{item.id}}" data-name="{{item.name}}"
+                                bindtap="toPositionDelete">删除</view></view>
+                    </view>
+                </view>
+            </view>
+
+
+
+        </scroll-view>
+
+    </view>
+
+
+
+
+</view>

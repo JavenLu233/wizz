@@ -1,0 +1,31 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/index/resume/resume",
+    "pages/index/exchange/exchange",
+    "pages/index/evaluate/evaluate",
+    "pages/self/self",
+    "pages/self/setting/setting",
+    "pages/self/analysis/analysis",
+    "pages/self/feedback/feedback"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "招新小助手 - 面试官端",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "/images/主页icon.png", 
+      "selectedIconPath": "/images/主页icon.png", 
+      "text": "主页"
+    },{
+      "pagePath": "pages/self/self",
+      "iconPath": "/images/个人icon.png", 
+      "selectedIconPath": "/images/个人icon.png", 
+      "text": "个人"
+    }]
+  }
+}

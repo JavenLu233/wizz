@@ -1,0 +1,67 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: 100vw;
+  height: 6vh;
+  border-top: 1rpx solid #fff;
+  border-bottom: 1rpx solid #fff;
+  color: #000;
+  /* background-color: #bfa; */
+}
+
+.logo {
+  width: 50%;
+  float: left;
+  color: #000;
+  display: flex;
+  align-items: center;
+}
+
+.logo image {
+  margin-left: 2vh;
+  max-width: 15vh;
+  height: 4vh;
+}
+
+.floatRight {
+  width: 30%;
+  height: 100%;
+  margin-right: 2vw;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+
+
+.login {
+  padding: 0;
+  float: right;
+  width: 15vw;
+  height: 4vh;
+  text-align: center;
+  line-height: 4vh;
+  font-size: 2.2vh;
+  border-radius: 2.5vh;
+  border: 2rpx solid #000;
+}
+
+.haveLogined {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.haveLogined image {
+  margin-right: 1vh;
+  width: 4vh;
+  height: 4vh;
+  border-radius: 50%;
+}
+
+.haveLogined text {
+  white-space: nowrap;
+  font-size: 0.8rem;
+  color: #fff;
+}

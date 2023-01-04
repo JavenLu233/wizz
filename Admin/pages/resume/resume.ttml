@@ -1,0 +1,51 @@
+<view class="container">
+    <image class="backgroundImg" src="/images/管理员端背景.png"></image>
+    <view class="component-wrapper">
+        <login-header is-login="{{isLogin}}" avatar-url="{{feishuUserInfo.avatarUrl}}"
+            name="{{feishuUserInfo.nickName}}" bindtoLogin="toLogin"></login-header>
+    </view>
+
+    <view class="page-title">
+        <view class="title">{{pageTitle}}</view>
+    </view>
+
+    <view class="head-wrapper">
+        <picker class="project" mode="selector" value="{{index}}" range="{{picker_projectList}}" bindchange="pickerUpdate_project">
+            <view class="picker project">{{picked_project}}<image src="/images/picker.png" mode="aspectFit" style="width:30rpx; height:30rpx;"></image></view>
+        </picker>
+        
+        <picker mode="selector" value="{{index}}" range="{{picker_positionList}}" bindchange="pickerUpdate_position">
+            <view class="picker position">{{picked_position}}<image src="/images/picker.png" mode="aspectFit" style="width:30rpx; height:30rpx;"></image></view>
+        </picker>
+
+        <view class="search">
+            <input placeholder="输入搜索内容" bindblur="inputUpdate"></input>
+            <view class="searchIcon">
+                <image src="/images/放大镜.png" bindtap="searchProject"></image>
+            </view>
+        </view>
+        
+    </view>
+
+
+    <view class="table-wrapper">
+        <view class="table-box feedback-data">
+
+
+            <scroll-view class="tbody itemBox" scroll-x scroll-y>
+                <view class="item" tt:for="{{interviewDataList}}" tt:key="id">
+                    <!-- <view class="td id">{{item.interview_id}}</view> -->
+                    <view class="td name" tt:if="{{item.interview_id==='序号'}}"><text selectable="true">{{item.interviewee_name}}</text></view>
+                    <view class="td name nav" tt:if="{{item.interview_id!=='序号'}}" bindtap="toInterview" data-id="{{item.interview_id}}" data-interviewer="{{item.interviewer_name}}">{{item.interviewee_name}}</view>
+                    <view class="td status">{{item.interview_status}}</view>
+                    <view class="td phone"><text selectable="true">{{item.interviewee_phone}}</text></view>
+                </view>
+            </scroll-view>
+        </view>
+
+
+
+    </view>
+
+
+</view>

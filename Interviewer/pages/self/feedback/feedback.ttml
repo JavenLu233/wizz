@@ -1,0 +1,21 @@
+<view class="container">
+    <image class="backgroundImg" src="/images/面试官端背景.png"></image>
+    <view class="component-wrapper">
+        <login-header is-login="{{isLogin}}" avatar-url="{{userInfo.avatarUrl}}" name="{{userInfo.name}}"
+            bindtoLogin="toLogin"></login-header>
+    </view>
+
+    <view class="content">
+        <view class="title">意见反馈</view>
+        <view class="tip">您对我们有什么意见或改进建议吗</view>
+        
+        <form bindsubmit="formSubmit">
+            <textarea class="feedback" name="feedback" placeholder="意见反馈"></textarea>
+            <button class="submit" formType="submit">提交</button>
+        </form>
+        
+
+    </view>
+
+    
+</view>

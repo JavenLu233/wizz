@@ -1,0 +1,65 @@
+
+<view class="container">
+    <text class="title">简历详情</text>
+    <view class="resume-content">
+        <view class="media">
+            <text>了解渠道：{{resumeInfo.media}}</text>
+            <text>内推人:{{resumeInfo.referrer}}</text>
+        </view>
+
+        <view class="info">
+            <view class="line">
+                <view class="td">姓名</view>
+                <view class="td">{{resumeInfo.name}}</view>
+                <view class="td">年级</view>
+                <view class="td">{{resumeInfo.grade}}</view>
+            </view>
+            <view class="line">
+                <view class="td">姓名</view>
+                <view class="td">{{resumeInfo.name}}</view>
+                <view class="td">年级</view>
+                <view class="td">{{resumeInfo.grade}}</view>
+            </view>
+            <view class="line">
+                <view class="td">姓名</view>
+                <view class="td">{{resumeInfo.name}}</view>
+                <view class="td">年级</view>
+                <view class="td">{{resumeInfo.grade}}</view>
+            </view>
+            <view class="line">
+                <view class="td">姓名</view>
+                <view class="td">{{resumeInfo.name}}</view>
+                <view class="td">年级</view>
+                <view class="td">{{resumeInfo.grade}}</view>
+            </view>
+
+
+        </view>
+
+        <view class="detail">
+            <view class="experience">
+                <view class="key">
+                    <text>相关项目实习经历</text>
+                    <button type="default" size="mini">下载附件</button>
+                </view>
+                <view class="value">
+                    
+                    
+                </view>
+            </view>
+            <view class="reason">
+                <view class="key">
+                    <text>加入我们的原因</text>
+                    
+                </view>
+                <view class="value"></view>
+            </view>
+            
+
+
+
+        </view>
+
+    </view>
+    <button class="confirm" size="mini">确认并返回</button>
+</view>

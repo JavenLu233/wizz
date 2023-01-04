@@ -1,0 +1,142 @@
+@import "components/edit/edit.ttss";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* 背景的样式 */
+.backgroundImg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 40%;
+  z-index: -10;
+}
+
+
+/* 页面标题的样式 */
+
+.page-title {
+  width: 100vw;
+  border-bottom: 1rpx solid #fff;
+  text-align: center;
+}
+
+.page-title .title {
+    
+    font-size: 1.5rem;
+    margin: 10rpx 0;
+    color: #fff;
+    
+}
+
+/* 页面 head 栏的样式 */
+.head-wrapper {
+    width: 90vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10rpx 0;
+}
+
+.head-wrapper picker {
+  
+    margin: 0 2%;
+    width: 20vw;
+    height: 8vw;
+    border: 1rpx solid #000;
+    border-radius: 2vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    background-color: #fff;
+}
+
+.head-wrapper picker.project {
+    width: 25vw;
+}
+
+
+
+.head-wrapper .picker {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.head-wrapper .add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+
+  width: 25vw;
+  height: 8vw;
+  font-size: 0.8rem;
+
+  background-color: #fff;
+  color: #000;
+  border: 3rpx solid #000;
+}
+
+
+/* end - 页面 head 栏的样式 */
+
+
+/* 搜索框的样式 */
+.search {
+    display: flex;
+    align-items: center;
+    border: 2rpx solid #000;
+    border-radius: 20rpx;
+    background-color: #fff;
+}
+
+
+.search input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 2vw;
+    width: 25vw;
+    font-size: 0.8rem;
+}
+
+.searchIcon {
+  width: 4vh;
+  height: 4vh;
+  margin: 0 1vw;
+  
+}
+
+.searchIcon image {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* end - 搜索框的样式 */
+
+
+/* 设置"编辑", "删除" 和 "查看详情" 按钮的颜色 */
+.edit-nav {
+    color: rgb(39, 96, 172);
+}
+
+.delete-nav {
+    color: rgb(39, 96, 172);
+}
+
+.detail-nav {
+    color: rgb(39, 96, 172);
+}
+

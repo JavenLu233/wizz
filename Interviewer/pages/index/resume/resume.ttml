@@ -1,0 +1,92 @@
+<view class="container">
+    <image class="backgroundImg" src="/images/面试官端背景.png"></image>
+
+    <!-- test -->
+    <view class="component-wrapper">
+        <login-header is-login="{{isLogin}}" avatar-url="{{userInfo.avatarUrl}}" name="{{userInfo.name}}"
+            bindtoLogin="toLogin"></login-header>
+    </view>
+    <!-- test -->
+
+    <view class="content">
+        <text class="title">简历详情</text>
+        <view class="resume-content">
+            <view class="media">
+                <text selectable="true">了解渠道：{{resumeInfo.msg_from}}</text>
+                <text selectable="true">内推人:{{resumeInfo.referrer}}</text>
+            </view>
+
+            <view class="info">
+                <view class="line">
+                    <view class="td">姓名</view>
+                    <text class="td" selectable="true">{{resumeInfo.name}}</text>
+                    <view class="td">性别</view>
+                    <text class="td" selectable="true">{{resumeInfo.gender}}</text>
+                </view>
+                <view class="line">
+                    
+                    <view class="td">年级</view>
+                    <text class="td" selectable="true">{{resumeInfo.grade}}</text>
+                    <view class="td">生日</view>
+                    <text class="td" selectable="true">{{resumeInfo.birthday}}</text>
+                    
+                </view>
+                <view class="line">
+                    <view class="td">专业</view>
+                    <text class="td long" selectable="true">{{resumeInfo.major}}</text>
+                    
+                </view>
+                <view class="line">
+                    
+                    <view class="td">邮箱</view>
+                    <text class="td long" selectable="true">{{resumeInfo.email}}</text>
+                </view>
+
+                <view class="line">
+                    <view class="td">手机</view>
+                    <text class="td long" selectable="true">{{resumeInfo.phone}}</text>
+                </view>
+
+                <view class="line">
+                    <view class="td">岗位</view>
+                    <text class="td long" selectable="true">{{resumeInfo.target_position}}</text>
+                </view>
+
+            </view>
+
+            <view class="detail">
+                <view class="experience">
+                    <view class="key">
+                        <text>相关项目实习经历</text>
+                        <button type="default" size="mini">下载附件</button>
+                    </view>
+                    <scroll-view class="value" scroll-y>
+                        <text selectable="true">{{resumeInfo.experience}}</text>
+
+                    </scroll-view>
+                </view>
+                <view class="reason">
+                    <view class="key">
+                        <text>加入我们的原因</text>
+
+                    </view>
+                    <scroll-view class="value" scroll-y>
+                        <text selectable="true">{{resumeInfo.reason}}<text>
+                    </scroll-view>
+                </view>
+
+
+
+
+            </view>
+
+        </view>
+
+        <navigator open-type="navigateBack" delta="1">
+            <button class="confirm" size="mini">确认并返回</button>
+        </navigator>
+    </view>
+
+
+
+</view>

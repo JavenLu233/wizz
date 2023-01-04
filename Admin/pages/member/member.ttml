@@ -1,0 +1,76 @@
+<view class="container">
+    <image class="backgroundImg" src="/images/管理员端背景.png"></image>
+    <view class="component-wrapper">
+        <login-header is-login="{{isLogin}}" avatar-url="{{feishuUserInfo.avatarUrl}}"
+            name="{{feishuUserInfo.nickName}}" bindtoLogin="toLogin"></login-header>
+    </view>
+
+    <view class="page-title">
+        <view class="title">{{pageTitle}}</view>
+    </view>
+
+
+
+
+
+    <view class="head-wrapper">
+
+        <!-- <button class="add-button" bindtap="addPosition">添加成员</button> -->
+
+        <picker mode="selector" value="{{index}}" range="{{pickerList}}" bindchange="pickerUpdate">
+            <view class="picker">{{picked}}<image src="/images/picker.png" mode="aspectFit"
+                    style="width:30rpx; height:30rpx;"></image>
+            </view>
+        </picker>
+
+        <view class="search">
+            <input placeholder="输入搜索内容" bindblur="inputUpdate"></input>
+            <view class="searchIcon">
+                <image src="/images/放大镜.png" bindtap="searchByKey"></image>
+            </view>
+        </view>
+
+    </view>
+
+
+    <scroll-view class="table-wrapper" scroll-y>
+        <view class="table-box member-data">
+
+
+            <view class="tbody itemBox">
+                <view class="item" tt:for="{{memberDataList}}" tt:key="id">
+                    <view class="td name">
+                        <view tt:if="{{item.id==='序号'}}">{{item.name}}</view>
+                        <view tt:if="{{item.id!=='序号'}}" class="detail-nav" data-id="{{item.interview_result.id}}"
+                            data-name="{{item.name}}" data-interview="{{item.interview_result}}"
+                            data-grade="{{item.grade}}" data-major="{{item.major}}" bindtap="toDetail">{{item.name}}
+                        </view>
+                        <!-- <text selectable="true">{{item.name}}</text> -->
+                    </view>
+                    <view class="td phone"><text selectable="true">{{item.phone}}</text></view>
+                    <view class="td position">{{item.position}}</view>
+                    <!-- <view class="td detail">
+                            <view tt:if="{{item.id==='序号'}}">{{item.detail}}</view>
+                            <view tt:if="{{item.id!=='序号'}}" class="detail-nav" data-id="{{item.interview_result.id}}"
+                                data-name="{{item.name}}" data-interview="{{item.interview_result}}"
+                                data-grade="{{item.grade}}" data-major="{{item.major}}" bindtap="toDetail">详情</view>
+                        </view> -->
+
+                </view>
+            </view>
+
+
+
+
+        </view>
+
+
+
+    </scroll-view>
+
+
+
+
+
+
+</view>

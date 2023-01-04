@@ -1,0 +1,24 @@
+<view class="container">
+    <view class="table-box">
+        <view class="table-title">
+            <view class="title">投递数据</view>
+        </view>
+
+        <scroll-view class="tbody itemBox" scroll-y scroll-x>
+            <!-- <view class="projectItem" tt:for="{{projectList}}" tt:key="id"> -->
+                <view class="td project">1</view>
+                <view class="td position">2</view>
+                <view class="td module1">3</view>
+                <view class="td module2">4</view>
+                <view class="td module3">5</view>
+                <view class="td module4">6</view>
+                <view class="td module5">7</view>
+                <view class="td averageMark">8</view>
+                <view class="td deliverNum">9</view>
+                <view class="td passNum">10</view>
+                <view class="td passRate">11</view>
+            <!-- </view> -->
+        </scroll-view>
+
+    </view>
+</view>

@@ -1,0 +1,90 @@
+/* /pages/index/index.ttss */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.picker {
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+.table-wrapper {
+    width: 90vw;
+    height: 90vh;
+}
+
+.table-box {
+    width: 100%;
+    /* border: 2rpx solid #000; */
+    padding-bottom: 8%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.table-title {
+    height: 3rem;
+}
+
+
+
+
+
+
+
+.tbody {
+    display: flex;
+    flex-direction: column;
+    
+    width: 100%;
+    border-top: 1rpx solid #000;
+    border-left: 1rpx solid #000;
+    border-right: 1rpx solid #000;
+    border-bottom: none;
+    background-color: #fff;
+}
+
+.tbody .item{
+    white-space: nowrap;
+    display: flex;
+}
+
+.tbody .td{
+    height: 7vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    border-bottom: 1rpx solid #000;
+    border-left: 1rpx solid #000;
+
+    font-size: 0.8rem;
+}
+
+.td.short {
+  flex: 1;
+}
+
+.td.long {
+  flex: 2;
+}
+
+.tbody .td:first-child {
+    border-left: none;
+}

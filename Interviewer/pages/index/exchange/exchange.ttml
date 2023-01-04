@@ -1,0 +1,59 @@
+<view class="container">
+    <image class="backgroundImg" src="/images/面试官端背景.png"></image>
+
+    <!-- test -->
+    <view class="component-wrapper">
+        <login-header is-login="{{isLogin}}" avatar-url="{{userInfo.avatarUrl}}" name="{{userInfo.name}}"
+            bindtoLogin="toLogin"></login-header>
+    </view>
+    <!-- test -->
+
+    <view class="exchangeBox">
+        <view class="title">更换面试官</view>
+        <view class="tip">发送后不再向你推送该面试信息</view>
+
+        <view class="content">
+            <view class="head">
+
+                <view class="currentPosition">当前岗位
+                    <view class="picker">产品经理</view>
+                </view>
+
+
+                <view class="search">
+                    <input placeholder="输入搜索" bindblur="setInputValue"></input>
+                    <view class="searchIcon">
+                        <image src="/images/放大镜.png" bindtap="searchResume"></image>
+                    </view>
+                </view>
+
+            </view>
+
+            <view class="body">
+                <view class="thead">
+                    <view class="td number">序号</view>
+                    <view class="td name">姓名</view>
+                    <view class="td operate">操作</view>
+                </view>
+
+                <scroll-view class="itemBox" scroll-y>
+                    <view class="interviewerItem" tt:for="{{interviewerList}}" tt:key="id">
+                        <view class="td number">{{item.id}}</view>
+                        <view class="td name">{{item.name}}</view>
+                        <view class="td operate" data-id="{{item.id}}" bindtap="sendResume">发送</view>
+                    </view>
+                </scroll-view>
+
+            </view>
+
+
+        </view>
+
+
+
+
+    </view>
+
+
+
+</view>

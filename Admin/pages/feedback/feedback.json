@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "login-header": "/components/loginHeader/loginHeader"
+  }
+}

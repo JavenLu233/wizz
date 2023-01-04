@@ -1,0 +1,46 @@
+<view class="container">
+    <image class="backgroundImg" src="/images/面试官端背景.png"></image>
+    <view class="component-wrapper">
+        <login-header is-login="{{isLogin}}" avatar-url="{{userInfo.avatarUrl}}" name="{{userInfo.name}}"
+            bindtoLogin="toLogin"></login-header>
+    </view>
+
+    <view class="content">
+        <text class="title">编辑资料</text>
+
+        <form bindsubmit="updateInfo">
+            <view class="infoBox">
+                <view class="infoTitle">用户名</view>
+                <view class="infoValue">{{userInfo.name}}</view>
+            </view>
+            <view class="infoBox">
+                <view class="infoTitle">性别</view>
+                <input class="infoValue" name="gender" value="{{userInfo.gender}}"></input>
+            </view>
+            <view class="infoBox">
+                <view class="infoTitle">头像</view>
+                <image mode="scaleToFill" src="{{userInfo.avatarUrl}}"></image>
+            </view>
+            <view class="infoBox">
+                <view class="infoTitle">绑定手机号</view>
+                <view class="infoValue">{{userInfo.phone}}</view>
+                <!-- <input class="infoValue" name="phone" value="{{userInfo.phone}}"></input> -->
+            </view>
+            <view class="infoBox">
+                <view class="infoTitle">QQ号</view>
+                <input class="infoValue" name="qq" value="{{userInfo.qq}}"></input>
+            </view>
+            <view class="infoBox">
+                <view class="infoTitle">微信号</view>
+                <input class="infoValue" name="wechat" value="{{userInfo.wechat}}"></input>
+            </view>
+            <view class="infoBox">
+                <view class="infoTitle">负责岗位</view>
+                <view class="infoValue">{{userInfo.position}}</view>
+            </view>
+
+            <button class="confirmBtn" formType="submit">保存</button>
+        </form>
+
+    </view>
+</view>

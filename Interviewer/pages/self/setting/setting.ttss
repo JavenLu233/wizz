@@ -1,0 +1,42 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infoBox {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+
+    padding: 20rpx 40rpx;
+    border-bottom: 3rpx solid #000;
+}
+
+.infoBox:first-of-type {
+    border-top: 3rpx solid #000;
+}
+
+.infoBox input {
+    text-align: right;
+    max-width: 50%;
+}
+
+.infoBox image {
+  margin-right: 1vh;
+  width: 4vh;
+  height: 4vh;
+  border-radius: 50%;
+}
+
+.title {
+    font-weight: blod;
+    font-size: 1.5rem;
+    margin: 2vh 0;
+}
+
+.confirmBtn {
+    margin: 40rpx 0;
+    width: 100%;
+
+}

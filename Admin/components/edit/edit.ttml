@@ -1,0 +1,21 @@
+<view class="edit-window">
+
+    <view class="title-box"><text class="title">{{editTitle}}<title>
+    </view>
+    <scroll-view class="content-box" scroll-y>
+        
+        <!-- 自定义组件不支持默认的 form 提交 -->
+        <!-- 在引用该组件的 ttml 处手动写入表单项 -->
+        <!-- 即可自动插入在组件的 slot 处 -->
+        <slot></slot>
+
+    </scroll-view>
+    <view class="button-box">
+        <button tt:if="{{isCancel}}" class="cancel" bindtap="onCancelTap">{{cancelText}}</button>
+        <button tt:if="{{isDelete}}" class="delete" hover-class="confirm-hover" bindtap="onDeleteTap">{{deleteText}}</button>
+        <button tt:if="{{isConfirm}}" class="confirm" hover-class="confirm-hover" bindtap="onConfirmTap">{{confirmText}}</button>
+        
+
+    </view>
+
+</view>

@@ -1,0 +1,52 @@
+<view class="container">
+    <image class="backgroundImg" src="/images/面试官端背景.png"></image>
+    <view class="component-wrapper">
+        <login-header is-login="{{isLogin}}" avatar-url="{{userInfo.avatarUrl}}" name="{{userInfo.name}}"
+            bindtoLogin="toLogin"></login-header>
+    </view>
+
+    <view class="content">
+        <view class="title">数据分析</view>
+        <view class="head">
+
+            <picker mode="selector" value="{{index}}" range="{{projectPickerArray}}" bindchange="pickerChange">
+                <view class="picker">{{projectPicked}}</view>
+            </picker>
+
+
+
+
+            <view class="search">
+                <input placeholder="输入搜索内容" bindblur="setInputValue"></input>
+                <view class="searchIcon">
+                    <image src="/images/放大镜.png" bindtap="searchProject"></image>
+                </view>
+            </view>
+
+        </view>
+
+
+        <scroll-view class="tbody itemBox" scroll-y scroll-x>
+            <view class="projectItem" tt:for="{{projectDataList}}" tt:key="id">
+                <!-- <view class="td project">{{item.name}}</view> -->
+                <view class="td position">{{item.position}}</view>
+                <view class="td module1">{{item.score_1}}</view>
+                <view class="td module2">{{item.score_2}}</view>
+                <view class="td module3">{{item.score_3}}</view>
+                <view class="td module4">{{item.score_4}}</view>
+                <view class="td module5">{{item.score_5}}</view>
+                <view class="td averageMark">{{item.averageScore}}</view>
+                <view class="td deliverNum">{{item.submit_cnt}}</view>
+                <view class="td passNum">{{item.pass_cnt}}</view>
+                <view class="td passRate">{{item.pass_percent}}</view>
+            </view>
+        </scroll-view>
+
+
+
+
+
+    </view>
+
+
+</view>

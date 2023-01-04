@@ -1,0 +1,44 @@
+<view class="container">
+    <image class="backgroundImg" src="/images/面试官端背景.png"></image>
+
+    <!-- test -->
+    <view class="component-wrapper">
+        <login-header is-login="{{isLogin}}" avatar-url="{{userInfo.avatarUrl}}" name="{{userInfo.name}}"
+            bindtoLogin="toLogin"></login-header>
+    </view>
+    <!-- test -->
+
+    <view class="evaluateBox">
+        <view class="title">提交面评</view>
+        <view class="tip">简历投递者:{{name}}</view>
+        <view class="content">
+
+            <view class="thead">
+                <view class="td module">模块</view>
+                <view class="td mark">分数</view>
+                <view class="td explain">分数解释</view>
+            </view>
+
+            <form bindsubmit="formSubmit">
+                <view class="itemBox">
+                    <view class="evaluateItem" tt:for="{{evaluateList}}" tt:key="id">
+                        <view class="td module">{{item.module}}</view>
+                        <view class="td mark">
+                            <input class="markInput markValue" name="score" value="{{item.mark}}"></input>
+                        </view>
+                        <view class="td explain">
+                            <input class="explainInput explainValue" name="description" value="{{item.explain}}"></input>
+                        </view>
+                    </view>
+                </view>
+
+                <button class="pass" formType="submit" bindtap="pass">通过</button>
+                <button class="fail" formType="submit" bindtap="fail">不通过</button>
+            </form>
+
+
+        </view>
+
+    </view>
+
+</view>

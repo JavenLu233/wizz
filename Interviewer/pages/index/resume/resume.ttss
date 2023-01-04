@@ -1,0 +1,139 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.title {
+    margin: 2vh 0;
+    font-family: STXinwei;
+    font-size: 2rem;
+    color: #fff;
+}
+
+.resume-content {
+    display: flex;
+    flex-direction: column;
+
+    width: 96vw;
+    height: 70vh;
+    /* background-color: #bfa; */
+
+    border: 2rpx solid #000;
+    background-color: #fff;
+    
+}
+
+.media {
+    padding: 4rpx 30rpx;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1rpx solid #000
+}
+
+
+.info .line {
+    height: 6vh;
+    display: flex;
+}
+
+.info .line .td:first-child {
+    border-left: 1rpx solid #000;
+}
+
+.info .line .td:nth-child(odd) {
+    width: 18%;
+    font-family: STXinwei;
+}
+
+.info .line .td:nth-child(even) {
+    width: 32%;
+    white-space: nowrap;
+    overflow: scroll;
+    
+}
+
+.info .line .td.long {
+    width: 82%;
+}
+
+.info .line .td {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* border: 1rpx solid #000; */
+    border-right: 1rpx solid #000;
+    border-bottom: 1rpx solid #000;
+
+    
+}
+
+
+.detail {
+    flex: 1;
+    overflow: hidden;
+}
+
+
+.detail .key {
+    flex: 1;
+    /* border: 1rpx solid #000; */
+    border-left: 1rpx solid #000;
+    border-right: 1rpx solid #000;
+    border-bottom: 1rpx solid #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    font-family: STXinwei;
+}
+
+.detail .reason .key {
+    border-bottom: none;
+}
+
+.detail .reason .value {
+    border-bottom: none;
+}
+
+.detail .key text {
+    text-align: center;
+}
+
+.detail .key button {
+    text-align: center;
+    
+}
+
+.detail .experience {
+    display: flex;
+    height: 50%;
+}
+
+
+.detail .reason {
+    height: 50%;
+    display: flex;
+}
+
+.detail .value {
+    display: flex;
+    flex-direction: column;
+    padding: 8rpx;
+    width: 75%;
+    /* border: 1rpx solid #000; */
+    border-right: 1rpx solid #000;
+    border-bottom: 1rpx solid #000;
+}
+
+
+
+.confirm {
+    margin: 2vh auto;
+
+}
+

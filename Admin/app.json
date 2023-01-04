@@ -1,0 +1,67 @@
+{
+  "pages":[
+    "pages/project/project",
+    "pages/project/project/add/add",
+    "pages/project/position/add/add",
+    "pages/project/position/edit/edit",
+    "pages/project/position/delete/delete",
+    "pages/orientation/orientation",
+    "pages/orientation/detail/detail",
+    "pages/interviewer/interviewer",
+    "pages/interviewer/add/add",
+    "pages/interviewer/edit/edit",
+    "pages/interviewer/delete/delete",
+    "pages/member/member",
+    "pages/member/detail/detail",
+    "pages/resume/resume",
+    "pages/resume/interview/interview",
+
+    "components/table/table",
+    "components/edit/edit"
+
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "招新小助手 - 管理员端",
+    "navigationBarTextStyle":"black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/project/project",
+        "iconPath": "/images/tabbar/项目和岗位.png",
+        "selectedIconPath": "/images/tabbar/项目和岗位.png",
+        "text": "项目"
+      },
+      {
+        "pagePath": "pages/interviewer/interviewer",
+        "iconPath": "/images/tabbar/面试官管理.png",
+        "selectedIconPath": "/images/tabbar/面试官管理.png",
+        "text": "面试官"
+      },
+      {
+        "pagePath": "pages/orientation/orientation",
+        "iconPath": "/images/tabbar/招新数据及反馈.png",
+        "selectedIconPath": "/images/tabbar/招新数据及反馈.png",
+        "text": "招新数据"
+      },
+      
+      {
+        "pagePath": "pages/member/member",
+        "iconPath": "/images/tabbar/成员库.png",
+        "selectedIconPath": "/images/tabbar/成员库.png",
+        "text": "成员库"
+      },
+
+      {
+        "pagePath": "pages/resume/resume",
+        "iconPath": "/images/tabbar/简历管理.png",
+        "selectedIconPath": "/images/tabbar/简历管理.png",
+        "text": "简历"
+      }
+      
+    ]
+  }
+}

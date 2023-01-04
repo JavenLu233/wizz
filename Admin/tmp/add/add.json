@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "login-header": "/components/loginHeader/loginHeader",
+    "edit-form": "/components/edit/edit"
+  }
+}

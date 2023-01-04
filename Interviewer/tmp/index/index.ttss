@@ -1,0 +1,87 @@
+/* 通用类 */
+.inline-box {
+  display: inline-block;
+}
+
+
+
+.sift {
+  
+  margin: 10rpx 0;
+}
+
+picker {
+  border-top: 2rpx #999 solid;
+  border-bottom: 2rpx #999 solid;
+}
+
+input {
+  padding-left: 32rpx;
+  
+}
+
+.inputBox {
+  padding:19rpx 0;
+  border-top: 2rpx #999 solid;
+  border-bottom: 2rpx #999 solid;
+}
+
+
+.picker{
+  padding: 19rpx 32rpx;
+  background-color: #FFFFFF;
+}
+
+.section__title{
+  padding: 16rpx 32rpx 8rpx 32rpx;
+  font-size: medium;
+  color: #999999;
+}
+
+
+.content {
+  margin: 20rpx auto;
+  width: 96%;
+  background-color: rgb(58, 158, 153);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.content .resume-item {
+  margin: 4px;
+  width: 96%;
+  height: 40px;
+  border: 1px solid grey;
+  border-radius: 8px;
+  background-color: #fff;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  
+}
+
+.item-info text {
+  margin: 4px;
+}
+
+.item-action navigator{
+  padding: 4px;
+  font-size: 16px;
+  color: rgb(65, 135, 226);
+}
+
+
+
+.select-page {
+  float: right;
+  margin-right: 2%;
+  width: 300px;
+  height: 40px;
+  background-color: #bfa;
+
+}
+

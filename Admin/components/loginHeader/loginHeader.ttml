@@ -1,0 +1,25 @@
+<view class="loginHeader">
+  <view class="header">
+        <view class="logo">
+            <image src="/images/为之工作室.png" mode="aspectFit"></image>
+            
+            
+        </view>
+        <view class="floatRight">
+            
+            <view class="toLogin" tt-if="{{!isLogin}}">
+                <button class="login" bindtap="toLogin">登录</button>
+            </view>
+
+            
+
+            <view class="haveLogined" tt-if="{{isLogin}}">
+                <image mode="scaleToFill" src="{{avatarUrl}}"></image>
+                <text>您好，{{name}}</text>
+            </view>
+
+            
+        </view>
+
+    </view>
+</view>

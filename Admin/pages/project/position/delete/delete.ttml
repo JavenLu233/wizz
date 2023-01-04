@@ -1,0 +1,17 @@
+<view class="container">
+    <view class="component-wrapper">
+        <edit-form bindcancel="cancel" bindformsubmit="formSubmit" edit-title="{{editTitle}}" is-delete="{{true}}" is-confirm="{{false}}">
+
+
+            <view class="edit-item" tt:for="{{editList}}" tt:key="id">
+                <view class="key">{{item.name}}</view>
+                <view class="value">
+                    <view class="item-value">{{formData[item.key]!==null?formData[item.key]:''}}</view>
+                </view>
+
+            </view>
+
+        </edit-form>
+    </view>
+
+</view>

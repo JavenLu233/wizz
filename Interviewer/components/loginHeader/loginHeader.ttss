@@ -1,0 +1,43 @@
+.header {
+  display: flex;
+  justify-content: flex-end;
+  width: 100vw;
+  height: 7vh;
+  border-top: 1rpx solid rgb(177, 177, 177);
+  border-bottom: 1rpx solid rgb(177, 177, 177);
+  color: #fff;
+}
+
+.floatRight {
+  height: 100%;
+  margin-right: 2vw;
+
+  display: flex;
+  align-items: center;
+}
+
+
+
+.login {
+  padding: 0;
+  float: right;
+  width: 25vw;
+  height: 5vh;
+  text-align: center;
+  line-height: 5vh;
+  font-size:0.8rem;
+  border-radius: 2.5vh;
+  border: 2rpx solid #000;
+}
+
+.haveLogined {
+  display: flex;
+  align-items: center;
+}
+
+.haveLogined image {
+  margin-right: 1vh;
+  width: 4vh;
+  height: 4vh;
+  border-radius: 50%;
+}
