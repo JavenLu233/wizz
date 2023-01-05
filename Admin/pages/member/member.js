@@ -166,11 +166,7 @@ Page({
             url: _url,
             header: _header,
             method: "GET",
-            data: {
-                page: 1,
-                size: 2,
-                position: "ui"
-            },
+            
 
             success: (res) => {
                 console.log("获取所有数据请求发送成功", res);
@@ -207,7 +203,7 @@ Page({
 
 
     // 获取所有成员
-    getAllMembersByPageAndPosition: function () {
+    getMembersByPageAndPosition: function () {
         const _page = 1;
         const _size = 5;
         const _position = "后端";
@@ -308,9 +304,9 @@ Page({
     /* 搜索模块 */
     // 更新 picker 框中选取的内容到 data 中,并进行筛选
     pickerUpdate: function (e) {
-        // const _siftDataCallBackFunction = this.siftInterviewers;
-        // commonfuns.pickerUpdate(e, _siftDataCallBackFunction);
-        commonfuns.pickerUpdate(e);
+        const _siftDataCallBackFunction = this.siftMembers;
+        commonfuns.pickerUpdate(e, _siftDataCallBackFunction);
+        // commonfuns.pickerUpdate(e);
     },
 
 
@@ -338,13 +334,10 @@ Page({
             const item = items.interviewee;
             console.log("item = ", item);
 
-            // 对象的每一个键值
-            for (let key in item) {
-                if (String(item[key]).indexOf(keyword) >= 0) {
-                    console.log(item[key], "符合", keyword);
-                    _siftDataList.push(items);
-                    break;
-                }
+            // 如果姓名和岗位包含关键词，则加入待显示的列表中
+            if (item.target_position.indexOf(keyword) >= 0 || item.name.indexOf(keyword) >= 0) {
+                // 由于筛选的是raw中数据，所以应该压入 items 而不是 item
+                _siftDataList.push(items);
             }
         }
 

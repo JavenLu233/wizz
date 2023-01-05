@@ -11,17 +11,17 @@
 
     <view class="head-wrapper">
         <picker class="project" mode="selector" value="{{index}}" range="{{picker_projectList}}" bindchange="pickerUpdate_project">
-            <view class="picker project">{{picked_project}}<image src="/images/picker.png" mode="aspectFit" style="width:30rpx; height:30rpx;"></image></view>
+            <view class="picker project"><text>{{picked_project}}</text><image src="/images/picker.png" mode="aspectFit" style="width:30rpx; height:30rpx;"></image></view>
         </picker>
         
         <picker mode="selector" value="{{index}}" range="{{picker_positionList}}" bindchange="pickerUpdate_position">
-            <view class="picker position">{{picked_position}}<image src="/images/picker.png" mode="aspectFit" style="width:30rpx; height:30rpx;"></image></view>
+            <view class="picker position"><text>{{picked_position}}</text><image src="/images/picker.png" mode="aspectFit" style="width:30rpx; height:30rpx;"></image></view>
         </picker>
 
         <view class="search">
             <input placeholder="输入搜索内容" bindblur="inputUpdate"></input>
             <view class="searchIcon">
-                <image src="/images/放大镜.png" bindtap="searchProject"></image>
+                <image src="/images/放大镜.png" bindtap="searchInterview"></image>
             </view>
         </view>
         
@@ -29,10 +29,10 @@
 
 
     <view class="table-wrapper">
-        <view class="table-box feedback-data">
+        <view class="table-box interview-data">
 
 
-            <scroll-view class="tbody itemBox" scroll-x scroll-y>
+            <scroll-view class="tbody itemBox" scroll-x scroll-y bindscrolltolower="scrollToBottom">
                 <view class="item" tt:for="{{interviewDataList}}" tt:key="id">
                     <!-- <view class="td id">{{item.interview_id}}</view> -->
                     <view class="td name" tt:if="{{item.interview_id==='序号'}}"><text selectable="true">{{item.interviewee_name}}</text></view>

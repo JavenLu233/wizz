@@ -285,6 +285,20 @@ Page({
             raw_projectDataList: res.data
           });
 
+          // 将数据同步到全局数据
+          const _projectMap = {};
+          const _pickerList_project = [];
+          for (let item of this.data.raw_projectDataList) {
+            _pickerList_project.push(item.project_name);
+            _projectMap[item.project_name] = item.id;
+          }
+
+          app.globalData.projectMap = _projectMap;
+          app.globalData.pickerList_project = _pickerList_project;
+          console.log("同步全局数据中的项目信息", app.globalData);
+
+
+
           // 显示所有项目
           this.showAllProjects();
 
@@ -344,6 +358,15 @@ Page({
           this.setData({
             raw_positionDataList: res.data
           });
+
+          // 同步岗位信息到全局数据中
+          const _pickerList_position = ["全部"];
+          for (let item of this.data.raw_positionDataList) {
+            _pickerList_position.push(item.name);
+          }
+
+          app.globalData.pickerList_position = _pickerList_position;
+          console.log("同步全局数据中的岗位信息", app.globalData);
 
           // 显示所有岗位
           this.showAllPositions();

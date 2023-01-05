@@ -23,6 +23,13 @@
     font-size: 0.8rem;
 }
 
+.picker.project text {
+    width: 18vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 picker.project {
     width: 25vw;
 }
@@ -36,6 +43,7 @@ picker.project {
 .table-box {
     width: 100%;
     /* border: 2rpx solid #000; */
+    height: 100%;
     padding-bottom: 8%;
     display: flex;
     flex-direction: column;
@@ -73,7 +81,7 @@ picker.project {
 
 .tbody .td{
     display: inline-block;
-    overflow: scroll;
+    overflow: hidden;
     
     height: 8vw;
     line-height: 8vw;

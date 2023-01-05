@@ -15,7 +15,12 @@
 }
 
 
-
+.picker text {
+    width: 18vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
 
 
 .table-wrapper {

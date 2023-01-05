@@ -12,7 +12,7 @@ Page({
         editList: [
             {
                 id: 1,
-                name: "项目姓名",
+                name: "项目名称",
                 key: "name",
                 isInput: true,
                 isTextarea: false,

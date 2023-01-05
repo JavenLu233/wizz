@@ -8,6 +8,12 @@ Page({
      * 页面的初始数据
      */
     data: {
+        list: {
+            position: [],
+            grade: [
+                "大一", "大二", "大三", "大四", "研一", "研二", "研三", "博一", "博二", "博三"
+            ]
+        },
         editTitle: "编辑面试官",
         editList: [
             {
@@ -78,7 +84,23 @@ Page({
     },
 
     onShow: function () {
+        // 同步可供选择的岗位
+        let picker_g = app.globalData.pickerList_position;
+        picker_g = picker_g.slice(1, picker_g.length);
+        if (picker_g.length > 0) {
+            console.log(picker_g);
 
+            const _list = this.data.list;
+            _list.position = picker_g;
+
+
+            const _editList = this.data.editList;
+            _editList[1].range = picker_g;
+            this.setData({
+                list: _list,
+                editList: _editList
+            });
+        }
     },
 
 
@@ -231,7 +253,7 @@ Page({
         const _header = createHeader();
         // 不再是 json
         _header["content-type"] = "application/x-www-form-urlencoded";
-        
+
 
 
         // // 发送请求

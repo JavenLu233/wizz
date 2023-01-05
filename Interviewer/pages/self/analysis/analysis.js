@@ -6,22 +6,23 @@ const commonfuns = require('../../../functions/functions');
 Page({
   data: {
     projectPickerArray: [
-      "全部", "2021秋招", "2022春招", "2022秋招"
+      // "全部", "2021秋招", "2022春招", "2022秋招"
     ],
 
-    projectPicked: "全部",
+    projectPicked: "",
+    projectIdPicked: undefined,
 
     inputValue: "",
 
     projectDataListHead: {
       name: "项目",
       position: "岗位",
-      score_1: "模块1",
-      score_2: "模块2",
-      score_3: "模块3",
-      score_4: "模块4",
-      score_5: "模块5",
-      averageScore: "均分",
+      score_1: "模块1均分",
+      score_2: "模块2均分",
+      score_3: "模块3均分",
+      score_4: "模块4均分",
+      score_5: "模块5均分",
+      averageScore: "总均分",
       submit_cnt: "投递数",
       pass_cnt: "通过数",
       pass_percent: "通过率"
@@ -100,13 +101,17 @@ Page({
       return;
     }
 
-    // 获取数据
-    this.getAnalysisData();
+
+    // 获取所有项目信息
+    this.getprojectInfo();
+
+    // 获取最近一个项目的数据
+    this.getlatesProject();
   },
 
   onShow: function () {
     this.initData();
-    this.showAllProjects();
+    this.showAllProjectData();
   },
 
   initData: function () {
@@ -119,9 +124,79 @@ Page({
 
   },
 
-  // 测试
+  // 获取最近的一个项目
+  getlatesProject: function () {
+    const _url = url.analysis.getLatesProject;
+    const _header = createHeader();
+
+    tt.request({
+      url: _url,
+      header: _header,
+      method: "GET",
+      success: (res) => {
+        console.log(res);
+        if (res.statusCode === 200) {
+          // picker 选择最近的项目及其id
+          const _name = res.data.name;
+          const _id = res.data.id;
+          this.setData({
+            projectPicked: _name,
+            projectIdPicked: _id
+          });
+
+          // 获取最近项目的数据分析
+          this.getAnalysisData();
+
+        }
+
+
+      }
+    })
+
+  },
+
+
+  // 获取所有项目及其对应的id 
+  getprojectInfo: function () {
+    const _url = url.analysis.getProjectInfo;
+    const _header = createHeader();
+    console.log(_url, _header);
+
+    tt.request({
+      url: _url,
+      header: _header,
+      method: "GET",
+      success: (res) => {
+        console.log(res);
+
+        if (res.statusCode === 200) {
+          const _projectMap = {};
+          const _picker = [];
+
+          // 将项目名字与id 作为 map 的键和值
+          // 分别加入各项目名字到 projectPickerArray
+          for (let item of res.data) {
+            _projectMap[item.project_name] = item.id;
+            _picker.push(item.project_name);
+          }
+          this.setData({
+            projectMap: _projectMap,
+            projectPickerArray: _picker
+          });
+          
+
+        }
+
+
+      }
+    });
+
+  },
+
+  // 获取所选择项目的数据分析
   getAnalysisData: function () {
-    const _query = `?project_id=${1}`;
+    const _id = this.data.projectIdPicked;
+    const _query = `?project_id=${_id}`;
     const _url = url.analysis.getScoreData + _query;
     const _header = createHeader();
 
@@ -154,7 +229,7 @@ Page({
 
 
 
-          this.showAllProjects();
+          this.showAllProjectData();
 
         }
 
@@ -184,7 +259,7 @@ Page({
 
 
   // 显示所有项目
-  showAllProjects: function () {
+  showAllProjectData: function () {
     const _projectDataList = this.initProjectDataList(this.data.raw_projectDataList);
     this.setData({
       projectDataList: _projectDataList
@@ -196,12 +271,17 @@ Page({
   pickerChange: function (event) {
     const index = event.detail.value;
     console.log(event.detail.value);
+    
+    // 设置所选项目及其id
     const v = this.data.projectPickerArray[index];
+    const id = this.data.projectMap[v];
     this.setData({
-      projectPicked: v
+      projectPicked: v,
+      projectIdPicked: id
     });
 
-    this.searchWithValue(v);
+    // 获取所选项目的数据分析
+    this.getAnalysisData();
   },
 
 
@@ -213,45 +293,38 @@ Page({
     });
 
     if (event.detail.value === "")
-      this.showAllProjects();
+      this.showAllProjectData();
   },
 
-  // 搜索项目
+  // 搜索包含关键词的数据
   searchProject: function () {
     console.log("Searching！");
     console.log(this.data.inputValue);
     const v = this.data.inputValue;
     this.searchWithValue(v);
-    this.setData({
-      projectPicked: "搜索"
-    });
   },
 
-  // 根据值检索项目
+  // 根据关键词检索数据
   searchWithValue: function (v) {
     // 如果搜索值为空，则显示所有项目
     if (v === "" || v === undefined || v === "全部") {
-      this.showAllProjects();
+      this.showAllProjectData();
       return;
     }
 
-    // 检索包含搜索值的简历，并加入到待显示的简历数组中
-    projectListToShow = [this.data.thead];  // 添加表头
-
-    for (let project of this.data.originProjectList) {
-      const name = project.name;
-      const position = project.position;
-
-
-      if (name.indexOf(v) >= 0 || position.indexOf(v) >= 0) {
-        console.log(name);
-        projectListToShow.push(project);
+    // 在 raw 中检索
+    const _toShow = [];
+    for (let item of this.data.raw_projectDataList) {
+      if (item.position.indexOf(v) >= 0) {
+        _toShow.push(item);
       }
     }
 
+    const _projectDataList = this.initProjectDataList(_toShow);
     this.setData({
-      projectList: projectListToShow
+      projectDataList: _projectDataList
     });
+    
   },
 
 })

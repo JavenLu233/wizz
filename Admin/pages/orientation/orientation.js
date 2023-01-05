@@ -7,14 +7,10 @@ Page({
     data: {
         pageTitle: "招新数据",
         pickerList: [
-            "2021春招", "2021秋招", "2022春招", "2022秋招"
+            // "2021春招", "2021秋招", "2022春招", "2022秋招"
         ],
-        picked: "2021春招",
+        picked: "",
         projectMap: {
-            "2021春招": 1,
-            "2021秋招": 2,
-            "2022春招": 3,
-            "2022秋招": 4
         },
         searchKey: "",
 
@@ -112,6 +108,12 @@ Page({
         // 进行飞书登录并检验 session 
         this.larkLoginAndCheckSession();
 
+        // 获取最近一个项目及其数据
+        this.getLatesProject();
+
+        // 获取所有项目及对应的id
+        this.getProjectInfo();
+
         // 初始化待渲染的 dataList(添加表头)
         this.showAllSubmitData();
         this.showAllMsgFromData();
@@ -125,6 +127,7 @@ Page({
     onShow: function () {
         this.synchronizeLoginStatus();
 
+
         // 如果已经登录并且 raw 为空,则发请求获取所有数据
         if (this.data.isLogin && this.data.raw_submitDataList.length <= 0) {
             console.log("列表为空,自动获取");
@@ -135,6 +138,16 @@ Page({
         if (this.data.isLogin && this.data.raw_feedbackDataList.length <= 0) {
             console.log("列表为空,自动获取");
             this.getAllFeedbackData();
+        }
+
+        // 同步可供选择的项目
+        const picker_g = app.globalData.pickerList_project;
+        const project_map = app.globalData.projectMap;
+        if (picker_g.length > 0) {
+            this.setData({
+                pickerList: picker_g,
+                projectMap: project_map
+            })
         }
 
 
@@ -201,6 +214,75 @@ Page({
         _getAllDataCallBackFunction = this.getAllFeedbackData;
         commonfuns.fakeLogin(code, _getAllDataCallBackFunction);
     },
+
+    // 获取最近的一个项目
+    getLatesProject: function () {
+        const _url = url.info.getLatesProject;
+        const _header = createHeader();
+
+        tt.request({
+            url: _url,
+            header: _header,
+            method: "GET",
+            success: (res) => {
+                console.log(res);
+                if (res.statusCode === 200) {
+                    // picker 选择最近的项目及其id
+                    const _name = res.data.name;
+                    const _id = res.data.id;
+                    this.setData({
+                        picked: _name,
+                    });
+
+                    // 获取最近项目的数据分析
+                    // this.getAnalysisData();
+
+                }
+
+
+            }
+        })
+
+    },
+
+
+    // 获取所有项目及其对应的id 
+    getProjectInfo: function () {
+        const _url = url.info.getProjects;
+        const _header = createHeader();
+        console.log(_url, _header);
+
+        tt.request({
+            url: _url,
+            header: _header,
+            method: "GET",
+            success: (res) => {
+                console.log(res);
+
+                if (res.statusCode === 200) {
+                    const _projectMap = {};
+                    const _picker = [];
+
+                    // 将项目名字与id 作为 map 的键和值
+                    // 分别加入各项目名字到 projectPickerArray
+                    for (let item of res.data) {
+                        _projectMap[item.project_name] = item.id;
+                        _picker.push(item.project_name);
+                    }
+                    this.setData({
+                        projectMap: _projectMap,
+                        pickerList: _picker
+                    });
+
+
+                }
+
+
+            }
+        });
+
+    },
+
 
     // 获取所有数据
     getAllOrientationData: function () {
@@ -270,7 +352,7 @@ Page({
 
                 // 响应成功的情况
                 if (res.statusCode === 200) {
-                    
+
                     // 没有数据,补空数组
                     if (res.data.total_cnt <= 0) {
                         res.data.msg_from_data = []
@@ -494,7 +576,7 @@ Page({
     inputUpdate: function (e) {
 
         const v = e.detail.value;
-        
+
         this.setData({
             searchKey: v
         });
@@ -509,7 +591,7 @@ Page({
             this.showAllFeedbackData();
         }
 
-        
+
     },
 
 

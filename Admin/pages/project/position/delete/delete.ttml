@@ -1,6 +1,6 @@
 <view class="container">
     <view class="component-wrapper">
-        <edit-form bindcancel="cancel" bindformsubmit="formSubmit" edit-title="{{editTitle}}" is-delete="{{true}}" is-confirm="{{false}}">
+        <edit-form bindcancel="cancel" binddelete="formSubmit" edit-title="{{editTitle}}" is-delete="{{true}}" is-confirm="{{false}}">
 
 
             <view class="edit-item" tt:for="{{editList}}" tt:key="id">

@@ -8,6 +8,14 @@ Page({
      * 页面的初始数据
      */
     data: {
+        list: {
+            position: [1, 2, 3],
+            grade: [
+                "大一", "大二", "大三", "大四", "研一", "研二", "研三", "博一", "博二", "博三"
+            ],
+        },
+
+
         editTitle: "添加面试官",
         editList: [
             {
@@ -23,7 +31,7 @@ Page({
                 name: "岗位",
                 key: "position",
                 range: [
-                    "前端", "后端", "产品"
+
                     // {index: '1', item: '前端'},
                     // {index: '2', item: '后端'},
                     // {index: '3', item: '产品'},
@@ -54,11 +62,11 @@ Page({
 
         ],
 
-        
+
 
 
         formData: {
-            position: "",
+
         },
     },
 
@@ -71,20 +79,25 @@ Page({
 
     },
 
-    // onShow: function () {
-    //     // 同步可供选择的岗位
-    //     const picker_g = app.globalData.pickerList_position;
-    //     if (picker_g.length > 0) {
-    //         console.log(picker_g);
+    onShow: function () {
+        // 同步可供选择的岗位
+        let picker_g = app.globalData.pickerList_position;
+        picker_g = picker_g.slice(1, picker_g.length);
+        if (picker_g.length > 0) {
+            console.log(picker_g);
 
-    //         for (let item of this.data.editList) {
-    //             if (item.key === "position") {
-    //                 item.range = picker_g;
-    //                 break;
-    //             }
-    //         }
-    //     }
-    // },
+            const _list = this.data.list;
+            _list.position = picker_g;
+            
+
+            const _editList = this.data.editList;
+            _editList[1].range = picker_g;
+            this.setData({
+                list: _list,
+                editList: _editList
+            });
+        }
+    },
 
     /// 下方为自定义函数
 
@@ -162,14 +175,14 @@ Page({
 
                 fail: (res) => {
                     console.log("添加面试官请求发送失败", res);
-                    failTip("错误","请求发送失败");
+                    failTip("错误", "请求发送失败");
                 }
 
             });
 
 
-            
-            
+
+
 
         }
     },

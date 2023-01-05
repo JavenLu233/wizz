@@ -12,7 +12,7 @@
 
     <view class="head-wrapper">
         <picker class="project" mode="selector" value="{{index}}" range="{{pickerList}}" bindchange="pickerUpdate">
-            <view class="picker">{{picked}}<image src="/images/picker.png" mode="aspectFit"
+            <view class="picker"><text>{{picked}}</text><image src="/images/picker.png" mode="aspectFit"
                     style="width:30rpx; height:30rpx;"></image>
             </view>
         </picker>

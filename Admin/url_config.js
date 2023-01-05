@@ -59,6 +59,7 @@ let url = {
     // 用于成员库操作
     member: {
         "getAll": `${host}/api/admin/getMembers`,
+        "getByPage": `${host}/api/admin/getMembersByPage`,
         "getByPageAndPosition": `${host}/api/admin/getMemberByPageAndPosition`,
         "update": `${host}/api/admin/updateMember`
     },
@@ -77,7 +78,8 @@ let url = {
     // 用于获取通用信息
     info: {
         "getPositions": `${host}/api/info/getPositions`,
-        "getProjects": `${host}/api/info/getProjects`
+        "getProjects": `${host}/api/info/getProjects`,
+        "getLatesProject": `${host}/api/info/getLatestProject`
     }
 
 

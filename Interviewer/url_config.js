@@ -33,6 +33,8 @@ let url = {
 
     analysis: {
         // 需要 project_id 作为 query 参数
+        getProjectInfo: `${host}/api/info/getProjects`,
+        getLatesProject: `${host}/api/info/getLatestProject`,
         getSubmitData: `${host}/api/interviewer/getSubmitDataByProjectId`,
         getReferrerData: `${host}/api/interviewer/getRefererDataByProjectId`,
         getMsgFromData: `${host}/api/interviewer/getMsgFromDataByProjectId`,

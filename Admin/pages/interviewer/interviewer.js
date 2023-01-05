@@ -22,7 +22,7 @@ Page({
 
         ],
 
-        rawInterviewerDataList: [
+        raw_interviewerDataList: [
             // {
             //     name: "刘钊辰",
             //     phone: "13410006666",
@@ -73,7 +73,7 @@ Page({
         this.synchronizeLoginStatus();
 
         // 如果已经登录并且 raw 为空,则发请求获取所有数据
-        if (this.data.isLogin && this.data.rawInterviewerDataList.length <= 0) {
+        if (this.data.isLogin && this.data.raw_interviewerDataList.length <= 0) {
             console.log("列表为空,自动获取");
             this.getAllInterviewers();
         }
@@ -173,9 +173,9 @@ Page({
                 // 响应成功的情况
                 if (res.statusCode === 200) {
 
-                    // 将获取到的数据更新到 本页面data下的 rawInterviewerDataList 中
+                    // 将获取到的数据更新到 本页面data下的 raw_interviewerDataList 中
                     this.setData({
-                        rawInterviewerDataList: res.data
+                        raw_interviewerDataList: res.data
                     });
 
                     // 显示所有面试官
@@ -222,7 +222,7 @@ Page({
 
     // 显示所有面试官
     showAllInterviewers: function () {
-        const _interviewerDataList = this.initInterviewerDataList(this.data.rawInterviewerDataList);
+        const _interviewerDataList = this.initInterviewerDataList(this.data.raw_interviewerDataList);
         this.setData({
             interviewerDataList: _interviewerDataList
         });
@@ -262,14 +262,24 @@ Page({
             return;
         }
 
-
+        // 待检索的key
+        const _keys = {
+            name: true,
+            position: true,
+            id: true,
+            phone: true
+        }
 
         // raw 中的每一个对象
-        for (let item of this.data.rawInterviewerDataList) {
-
+        for (let item of this.data.raw_interviewerDataList) {
             // 每一个对象的每一个键值
             for (let key in item) {
                 console.log(item[key]);
+
+                // 如果不是待检索的 key，则跳过该key
+                if (!_keys[key]) {
+                    continue;
+                }
 
                 // 如果键值中包含关键词,则加入已筛选的列表中
                 if (String(item[key]).indexOf(keyWord) >= 0) {
