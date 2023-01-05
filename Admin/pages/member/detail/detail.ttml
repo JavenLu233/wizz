@@ -4,12 +4,20 @@
 
 
             <view class="edit-item" tt:for="{{editList}}" tt:key="id">
-                <view class="key">{{item.name}}</view>
+                <view class="key">
+                    <text>{{item.name}}</text>
+                </view>
                 <view class="value">
+                    <view tt:if="{{item.isView}}" class="score">分数 {{formData[item.score]}}</view>
                     <input tt:if="{{item.isInput}}" id="{{item.key}}" bindblur="inputUpdate" value="{{formData[item.key]}}"></input>
                     <textarea tt:if="{{item.isTextarea}}" id="{{item.key}}" bindblur="textareaUpdate" value="{{formData[item.key]}}"></textarea>
-                    <picker tt:if="{{item.isPicker}}" range="{{list[item.key]}}" id="{{item.key}}" bindchange="pickerUpdate">
-                        <view class="picker">{{formData[item.key]!==null?formData[item.key]:""}}</view>
+                    <picker tt:if="{{item.isPicker}}" range="{{list[item.key]}}" id="{{item.key}}"
+                        bindchange="pickerUpdate">
+                        <view class="picker">
+                            <text>{{formData[item.key]!==null?formData[item.key]:""}}</text>
+                            <image src="/images/picker.png" mode="aspectFit" style="width:30rpx; height:30rpx;">
+                        </view>
+
                     </picker>
                 </view>
 

@@ -34,7 +34,8 @@ let url = {
         "getByPosition": `${host}/api/admin/getInterviewersByPosition`,
         "create": `${host}/api/admin/createInterviewer`,
         "delete": `${host}/api/admin/deleteInterviewerById`,
-        "update": `${host}/api/admin/updateInterviewer`
+        "update": `${host}/api/admin/updateInterviewer`,
+        "changeStatus": `${host}/api/admin/changInterviewerStatus`
     },
 
     // 用于面试操作

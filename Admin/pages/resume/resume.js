@@ -80,11 +80,7 @@ Page({
     onShow: function () {
         this.synchronizeLoginStatus();
 
-        // 如果已经登录并且 raw 为空,则发请求获取所有数据
-        if (this.data.isLogin && this.data.raw_interviewDataList.length <= 0) {
-            console.log("列表为空,自动获取");
-            this.getInterviews();
-        }
+        
 
         // 同步可供选择的岗位
         let picker_g = app.globalData.pickerList_position;
@@ -115,6 +111,12 @@ Page({
         }
         else {
             this.getLatesProject();
+        }
+
+        // 如果已经登录并且 raw 为空,则发请求获取所有数据
+        if (this.data.isLogin && this.data.raw_interviewDataList.length <= 0) {
+            console.log("列表为空,自动获取");
+            this.getInterviews();
         }
 
     },

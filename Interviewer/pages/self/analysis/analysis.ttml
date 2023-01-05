@@ -10,7 +10,10 @@
         <view class="head">
 
             <picker mode="selector" value="{{index}}" range="{{projectPickerArray}}" bindchange="pickerChange">
-                <view class="picker">{{projectPicked}}</view>
+                <view class="picker">
+                    <text>{{projectPicked}}</text>
+                    <image src="/images/picker.png" mode="aspectFit" style="width:30rpx; height:30rpx;"></image>
+                </view>
             </picker>
 
 

@@ -31,7 +31,7 @@ Page({
             },
             {
                 id: 3,
-                name: "模块1名称",
+                name: "面评模块1名称",
                 key: "score_1_description",
                 isInput: true,
                 isTextarea: false,
@@ -39,7 +39,7 @@ Page({
             },
             {
                 id: 4,
-                name: "模块2名称",
+                name: "面评模块2名称",
                 key: "score_2_description",
                 isInput: true,
                 isTextarea: false,
@@ -47,7 +47,7 @@ Page({
             },
             {
                 id: 5,
-                name: "模块3名称",
+                name: "面评模块3名称",
                 key: "score_3_description",
                 isInput: true,
                 isTextarea: false,
@@ -55,7 +55,7 @@ Page({
             },
             {
                 id: 6,
-                name: "模块4名称",
+                name: "面评模块4名称",
                 key: "score_4_description",
                 isInput: true,
                 isTextarea: false,
@@ -63,7 +63,7 @@ Page({
             },
             {
                 id: 7,
-                name: "模块5名称",
+                name: "面评模块5名称",
                 key: "score_5_description",
                 isInput: true,
                 isTextarea: false,

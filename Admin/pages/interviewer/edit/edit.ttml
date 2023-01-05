@@ -9,7 +9,10 @@
                     <input tt:if="{{item.isInput}}" id="{{item.key}}" bindblur="inputUpdate" value="{{formData[item.key]}}"></input>
                     <textarea tt:if="{{item.isTextarea}}" id="{{item.key}}" bindblur="textareaUpdate"></textarea>
                     <picker tt:if="{{item.isPicker}}" range="{{list[item.key]}}" id="{{item.key}}" bindchange="pickerUpdate">
-                        <view class="picker">{{formData[item.key]!==null?formData[item.key]:""}}</view>
+                        <view class="picker">
+                            <text>{{formData[item.key]!==null?formData[item.key]:""}}</text>
+                            <image src="/images/picker.png" mode="aspectFit" style="width:30rpx; height:30rpx;">
+                        </view>
                     </picker>
                 </view>
 

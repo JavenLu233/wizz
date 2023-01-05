@@ -16,3 +16,16 @@ body {
     width: 90%;
     height: 90%;
 }
+
+.picker {
+    width: 68vw;
+    height: 100%;
+    /* background-color: #bfa; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.picker text {
+    min-width: 20vw;
+}

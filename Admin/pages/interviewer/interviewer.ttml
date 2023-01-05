@@ -31,17 +31,16 @@
             <scroll-view class="tbody itemBox" scroll-x scroll-y>
 
                 <view class="item" tt:for="{{interviewerDataList}}" tt:key="id">
+                    
                     <view class="td name"><text selectable="true">{{item.name}}</text></view>
+                    <view class="td is-activate">
+                        <view tt:if="{{item.is_activate === '接收简历'}}">{{item.is_activate}}</view>
+                        <switch tt:if="{{item.is_activate !== '接收简历'}}" checked="{{item.is_activate}}" bindchange="switchUpdate" data-id="{{item.id}}"></switch>
+                    </view>
                     <view class="td phone">{{item.phone}}</view>
                     <view class="td total_interview">{{item.total_interview}}</view>
                     
-                    <!-- <view class="td is_activate">
-                        <view tt:if="{{item.is_activate==='接收简历'}}">{{item.is_activate}}</view>
-                        <view tt:if="{{item.is_activate!=='接收简历'}}" class="switch-box">
-                            <switch checked="{{item.is_activate===true}}" bindchange="switchUpdate"
-                                data-id="{{item.id}}"></switch>
-                        </view>
-                    </view> -->
+                    
                     <view class="td operate_1">
                         <view tt:if="{{item.operate_1==='操作1'}}">编辑</view>
                         <view tt:if="{{item.operate_1!=='操作1'}}" class="edit-nav" data-id="{{item.id}}"

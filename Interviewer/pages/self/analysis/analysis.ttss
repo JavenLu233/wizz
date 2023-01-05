@@ -34,7 +34,7 @@
     margin-left: 10rpx;
 
     width: 30vw;
-    height: 8vw;
+    height: 6vw;
     font-size: 0.8rem;
     border: 2rpx solid #000;
     border-radius: 20rpx;
@@ -42,8 +42,16 @@
     background-color: #fff;
 }
 
+.picker text {
+    width: 22vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    /* background-color: #bfa; */
+}
+
 .search {
-    height: 8vw;
+    height: 6vw;
     display: flex;
     align-items: center;
     border: 2rpx solid #000;

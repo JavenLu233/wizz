@@ -66,7 +66,7 @@ Page({
 
 
         formData: {
-
+            
         },
     },
 
@@ -109,6 +109,11 @@ Page({
         for (let item of _editList) {
             _formData[item.key] = '';
         }
+
+        // // 初始化岗位和年级
+        // _formData.position = "前端";
+        // _formData.grade = "大一";
+
         this.setData({
             formData: _formData
         })

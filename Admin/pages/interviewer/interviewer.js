@@ -322,7 +322,34 @@ Page({
         console.log(_interviewer_id, _is_activate);
 
 
-        // todo: 修改状态
+        // 发送请求修改状态
+        const _url = url.interviewer.changeStatus + `?interviewer_id=${_interviewer_id}&is_activate=${_is_activate}`;
+        const _header = createHeader();
+        console.log(_url, _header);
+        tt.request({
+            url: _url,
+            header: _header,
+            method: "POST",
+            success: (res) => {
+                console.log(res);
+
+                if (res.statusCode === 200) {
+                    successTip("状态修改成功");
+                }
+
+                else {
+                    failTip("错误", "状态修改失败");
+
+                    
+                }
+            },
+
+            fail: (res) => {
+                failTip("错误", "请求发送失败");
+
+            }
+        })
+
     },
 
 
