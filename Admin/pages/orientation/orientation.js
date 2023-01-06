@@ -491,7 +491,7 @@ Page({
         const _page = 1;
         const _size = 100;
         const _id = this.data.projectMap[this.data.picked];
-        const _url = url.orientation.getFeedbackBypage + `?page=${_page}&page_size=${_size}&project_id=${_id}`;
+        const _url = url.orientation.getFeedbackByPage + `?page=${_page}&page_size=${_size}&project_id=${_id}`;
         const _header = createHeader();
         console.log(_url, _header);
 
@@ -511,7 +511,7 @@ Page({
 
                     // 将获取到的数据更新到 本页面data下的 feedbackData 中
                     this.setData({
-                        raw_feedbackDataList: res.data
+                        raw_feedbackDataList: res.data.data
                     });
 
                     // 显示所有数据
