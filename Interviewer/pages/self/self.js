@@ -188,8 +188,8 @@ Page({
 
   larkLogin: function (code) {
 
-    const _url = url.interviewer.fakeLogin;
-    // const _url = url.interviewer.larkLogin + `?code=${code}`;
+    // const _url = url.interviewer.fakeLogin;
+    const _url = url.interviewer.larkLogin + `?code=${code}`;
     const _header = createHeader();
 
     tt.request({

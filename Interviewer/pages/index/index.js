@@ -224,8 +224,8 @@ Page({
 
   larkLogin: function (code) {
     // const _url = 'http://104.208.108.134:8000/api/interviewer/larkLogin' + `?code=${code}`;
-    // const _url = url.interviewer.larkLogin + `?code=${code}`;
-    const _url = url.interviewer.fakeLogin;
+    const _url = url.interviewer.larkLogin + `?code=${code}`;
+    // const _url = url.interviewer.fakeLogin;
     console.log(_url);
 
     tt.request({

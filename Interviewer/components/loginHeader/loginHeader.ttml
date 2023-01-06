@@ -3,7 +3,7 @@
         <view class="floatRight">
             
             <view class="toLogin" tt-if="{{!isLogin}}">
-                <button class="login" bindtap="toLogin">登录/注册</button>
+                <button class="login" bindtap="toLogin">登录</button>
             </view>
 
             

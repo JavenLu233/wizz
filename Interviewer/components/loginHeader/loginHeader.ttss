@@ -21,12 +21,12 @@
 .login {
   padding: 0;
   float: right;
-  width: 25vw;
-  height: 5vh;
+  width: 16vw;
+  height: 6vw;
   text-align: center;
-  line-height: 5vh;
+  line-height: 6vw;
   font-size:0.8rem;
-  border-radius: 2.5vh;
+  border-radius: 2.5vw;
   border: 2rpx solid #000;
 }
 
