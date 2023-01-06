@@ -190,7 +190,7 @@ function toLogin() {
 
             // 进行工作室管理员登录
             // page.larkLogin(res.code);
-            page.fakeLogin(res.code);
+            page.larkLogin(res.code);
             console.log("获取到的code为", res.code);
 
         },
@@ -212,6 +212,70 @@ function fakeLogin(code, getAllDataCallBackFunction) {
     // 修改此处即可更改Login方式为 fake 或 lark
     const _url = url.test.fakeAdminLogin;
     // const _url = url.login.larkLogin + `?code=${code}`;
+
+
+
+    const _header = createHeader();
+
+    console.log("commonfuns - fakeLogin 内部的 _url为", _url, "内部的code为", code);
+
+    tt.request({
+        url: _url,
+        method: "POST",
+        header: _header,
+        
+        //
+        data: {
+            code
+        },
+        //
+
+
+        success: (res) => {
+            console.log("fakeLogin:", res);
+            if (res.statusCode === 200) {
+                successTip("登录成功");
+            }
+
+            else {
+                failTip("错误", "登录失败");
+            }
+
+            // 将 token 存入本地存储
+            tt.setStorageSync("token", res.data.access_token.access_token);
+            // 修改本页面和全局的登录状态
+            page.setData({
+                isLogin: true
+            });
+            app.globalData.isLogin = true;
+
+            // (如果传入了回调函数)获取所有数据并渲染
+            getAllDataCallBackFunction && getAllDataCallBackFunction();
+
+        },
+
+        fail: (res) => {
+            console.log("登录请求发送失败", res);
+            failTip("错误", "登录请求发送失败");
+        }
+
+    });
+
+}
+
+
+// 工作室管理员登录 (fake名字待改)
+function larkLogin(code, getAllDataCallBackFunction) {
+    // 获取 app 和 page 实例
+    const app = getApp();
+    const pages = getCurrentPages();
+    const page = pages[pages.length - 1];
+
+    console.log("code为", code, "callback为", getAllDataCallBackFunction);
+
+    // 修改此处即可更改Login方式为 fake 或 lark
+    // const _url = url.test.fakeAdminLogin;
+    const _url = url.login.larkLogin + `?code=${code}`;
 
 
 
@@ -449,6 +513,7 @@ module.exports = {
     synchronizeLoginStatus,
     toLogin,
     fakeLogin,
+    larkLogin,
     pickerUpdate,
     inputUpdate,
     siftData,

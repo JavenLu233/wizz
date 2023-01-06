@@ -207,12 +207,12 @@ Page({
     toLogin: commonfuns.toLogin,
 
     // 测试用的管理员登录
-    fakeLogin: function (code) {
-        let _getAllDataCallBackFunction = this.getAllOrientationData;
-        commonfuns.fakeLogin(code, _getAllDataCallBackFunction);
-
-        _getAllDataCallBackFunction = this.getAllFeedbackData;
-        commonfuns.fakeLogin(code, _getAllDataCallBackFunction);
+    larkLogin: function (code) {
+        let _getAllDataCallBackFunction = () => {
+            this.getAllOrientationData();
+            this.getAllFeedbackData();
+        }
+        commonfuns.larkLogin(code, _getAllDataCallBackFunction);
     },
 
     // 获取最近的一个项目
@@ -488,7 +488,10 @@ Page({
 
     /* 以下为反馈信息 */
     getAllFeedbackData: function () {
-        const _url = url.orientation.getFeedbackData;
+        const _page = 1;
+        const _size = 100;
+        const _id = this.data.projectMap[this.data.picked];
+        const _url = url.orientation.getFeedbackBypage + `?page=${_page}&page_size=${_size}&project_id=${_id}`;
         const _header = createHeader();
         console.log(_url, _header);
 

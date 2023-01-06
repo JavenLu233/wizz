@@ -53,7 +53,8 @@ let url = {
         "getSubmitData": `${host}/api/admin/getSubmitDataByProjectId`,
         "getRefferrerData": `${host}/api/admin/getRefererDataByProjectId`,
         "getMsgFromData": `${host}/api/admin/getMsgFromDataByProjectId`,
-        "getFeedbackData": `${host}/api/admin/getFeedbacks`
+        "getFeedbackData": `${host}/api/admin/getFeedbacks`,
+        "getFeedbackByPage": `${host}/api/admin/getFeedbackByPage`
     },
 
 

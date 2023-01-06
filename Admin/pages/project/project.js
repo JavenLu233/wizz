@@ -247,17 +247,14 @@ Page({
   toLogin: commonfuns.toLogin,
 
   // 测试用的管理员登录
-  fakeLogin: function (code) {
+  larkLogin: function (code) {
     // 获取 项目数据
     let _getAllDataCallBackFunction =  () => {
       this.getAllProjects();
       this.getAllPositions();
     }
-    commonfuns.fakeLogin(code, _getAllDataCallBackFunction);
+    commonfuns.larkLogin(code, _getAllDataCallBackFunction);
 
-    // // 获取 岗位数据
-    // _getAllDataCallBackFunction = this.getAllPositions;
-    // commonfuns.fakeLogin(code, _getAllDataCallBackFunction);
   },
 
 

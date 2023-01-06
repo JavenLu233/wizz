@@ -146,9 +146,9 @@ Page({
     toLogin: commonfuns.toLogin,
 
     // 测试用的管理员登录
-    fakeLogin: function (code) {
+    larkLogin: function (code) {
         const _getAllDataCallBackFunction = this.getAllInterviewers;
-        commonfuns.fakeLogin(code, _getAllDataCallBackFunction);
+        commonfuns.larkLogin(code, _getAllDataCallBackFunction);
     },
 
 
