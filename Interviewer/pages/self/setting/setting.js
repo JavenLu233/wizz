@@ -96,7 +96,18 @@ Page({
     const _qq = e.detail.value.qq;
     const _wechat = e.detail.value.wechat;
     const _gender = e.detail.value.gender;
+
+    const _data = {
+      qq: _qq,
+      wechat: _wechat
+    };
+
+    if (_gender) {
+      _data.gender = _gender;
+    }
+
     console.log("这里的gender为", _gender);
+
     // const _phone = e.detail.value.phone;
 
     const _url = url.interviewer.updateInfo;
@@ -108,12 +119,7 @@ Page({
       url: _url,
       method: 'POST',
       header: _header,
-      data: {
-        "gender": _gender,
-        "qq": _qq,
-        "wechat": _wechat
-        // "phone": _phone
-      },
+      data: _data,
 
       success: (res) => {
         console.log(res);

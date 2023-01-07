@@ -128,6 +128,9 @@ Page({
         // 如果有数据更新，则自动刷新
         if (app.globalData.isFormUpdate) {
             this.getAllInterviewers();
+            this.setData({
+                picked: "全部"
+            });
             app.globalData.isFormUpdate = false;
         }
 

@@ -137,6 +137,9 @@ Page({
         if (app.globalData.isFormUpdate) {
 
             this.getAllMembers();
+            this.setData({
+                picked: "全部"
+            });
             app.globalData.isFormUpdate = false;
         }
 
