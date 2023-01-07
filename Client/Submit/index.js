@@ -90,14 +90,25 @@ function submitResume(url, api) {
 
 // 保存已填写的表单数据
 function saveFormData() {
-    // 获取填入的表单信息
-    const formData = getFormData()
+    try {
+        // 获取填入的表单信息
+        const formData = getFormData()
 
-    // 将表单信息存储到本地
-    localStorage.setItem("data", JSON.stringify(formData))
+        // 将表单信息存储到本地
+        localStorage.setItem("data", JSON.stringify(formData))
 
-    // 删除在岗位展示页面存储的目标岗位信息
-    localStorage.removeItem("target_position")
+        // 删除在岗位展示页面存储的目标岗位信息
+        localStorage.removeItem("target_position")
+
+        // 提示保存成功
+        save_succeed()
+    } catch (e) {
+        console.log(e);
+        save_fail()
+    }
+
+
+
 }
 
 
@@ -119,6 +130,43 @@ const sTip = document.getElementById("succeed")
 const fTip = document.getElementById("fail")
 const closeBtn = document.getElementById("close")
 
+
+const saveTip = document.getElementById("saveTip")
+const saveSucceed = document.getElementById("saveSucceed")
+const saveFail = document.getElementById("saveFail")
+const saveCloseBtn = document.getElementById("saveClose")
+
+
+// 绑定 关闭 保存提示框 按钮的单击事件 
+saveCloseBtn.onclick = () => {
+    message.style.display = "none"
+    saveTip.style.display = "none"
+    saveSucceed.style.display = "none"
+    saveFail.style.display = "none"
+}
+
+
+
+
+// 保存成功 显示提示框
+function save_succeed() {
+    message.style.display = "flex"
+    saveTip.style.display = "flex"
+    saveSucceed.style.display = "block"
+    saveFail.style.display = "none"
+}
+
+// 保存失败 显示提示框
+function save_fail() {
+    message.style.display = "flex"
+    saveTip.style.display = "flex"
+    saveSucceed.style.display = "none"
+    saveFail.style.display = "block"
+}
+
+
+
+
 // 绑定 关闭按钮 的单击事件 - 关闭提示框
 closeBtn.onclick = () => {
     message.style.display = "none"
@@ -126,6 +174,7 @@ closeBtn.onclick = () => {
     sTip.style.display = "none"
     fTip.style.display = "none"
 }
+
 
 // 显示 提交成功 的提示框
 function succeed() {
@@ -331,6 +380,9 @@ function getFormData() {
         }
 
     }
+
+    // 单独拼接生日
+    formData["birthday"] = `${formData["month"]}月${formData["day"]}日`
 
     return formData
 }

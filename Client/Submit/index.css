@@ -291,11 +291,14 @@ body {
 .content #month,
 .content #day {
     margin-left: 5px;
-    width: 30px;
+    width: 40px;
     text-align: center;
 }
 
-
+.birthday_td {
+    display: flex;
+    justify-content: space-around;
+}
 
 
 .content table tr.exp td,
