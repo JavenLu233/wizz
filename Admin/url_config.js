@@ -1,5 +1,6 @@
 // 主机域名
-let host = "http://az.ccdesue.tech";
+// let host = "http://az.ccdesue.tech";
+let host = "https://dob.ccdesue.tech";
 
 // 各个接口的url
 let url = {

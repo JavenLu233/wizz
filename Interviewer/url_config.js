@@ -1,6 +1,7 @@
 // 主机域名
 // let host = "http://104.208.108.134:8000";
-let host = "http://az.ccdesue.tech";
+// let host = "http://az.ccdesue.tech";
+let host = "https://dob.ccdesue.tech";
 
 // 各个接口的url
 let url = {
