@@ -111,8 +111,8 @@ Page({
         // 获取最近一个项目及其数据
         this.getLatesProject();
 
-        // 获取所有项目及对应的id
-        this.getProjectInfo();
+        // // 获取所有项目及对应的id
+        // this.getProjectInfo();
 
         // 初始化待渲染的 dataList(添加表头)
         this.showAllSubmitData();
@@ -126,6 +126,27 @@ Page({
      */
     onShow: function () {
         this.synchronizeLoginStatus();
+
+        // 同步可供选择的项目
+        const picker_g = app.globalData.pickerList_project;
+        const project_map = app.globalData.projectMap;
+        const latesProject = app.globalData.latesProject;
+        if (picker_g.length > 0) {
+            this.setData({
+                pickerList: picker_g,
+                projectMap: project_map,
+                picked: latesProject
+            })
+        }
+        else {
+            console.log("空！");
+            this.getLatesProject();
+            this.getProjectInfo();
+        }
+
+        
+
+
         const _s = this.data.submit_fetched;
         const _m = this.data.msgFrom_fetched;
         const _r = this.data.referrer_fetched;
@@ -159,15 +180,7 @@ Page({
 
 
 
-        // 同步可供选择的项目
-        const picker_g = app.globalData.pickerList_project;
-        const project_map = app.globalData.projectMap;
-        if (picker_g.length > 0) {
-            this.setData({
-                pickerList: picker_g,
-                projectMap: project_map
-            })
-        }
+        
 
 
     },
@@ -340,9 +353,9 @@ Page({
         const _header = createHeader();
         const _id = this.data.projectMap[this.data.picked];
         console.log("project_id=", _id);
+        console.log("picked=", this.data.picked, "map=", this.data.projectMap);
 
-
-
+        
 
         // 向后台发起请求获取 submitData
         tt.request({

@@ -17,12 +17,12 @@ App({
 
 
   onLaunch: function () {
-    // 获取所有可选的岗位
-    this.getAllPickerPositions();
-    // 获取所有可选的项目
-    this.getProjectInfo();
-    // 获取最近的一个项目名称
-    this.getLatesProject();
+    // // 获取所有可选的岗位
+    // this.getAllPickerPositions();
+    // // 获取所有可选的项目
+    // this.getProjectInfo();
+    // // 获取最近的一个项目名称
+    // this.getLatesProject();
   },
 
   getAllPickerPositions: function () {

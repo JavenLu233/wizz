@@ -156,6 +156,14 @@ function larkLoginAndCheckSession() {
         }
     });
 
+    // 获取常用数据
+    // 获取所有可选的岗位
+    app.getAllPickerPositions();
+    // 获取所有可选的项目
+    app.getProjectInfo();
+    // 获取最近的一个项目名称
+    app.getLatesProject();
+
 }
 
 

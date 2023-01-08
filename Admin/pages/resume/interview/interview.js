@@ -350,7 +350,7 @@ Page({
 
             },
             fail(res) {
-                console.log("调用失败", res.errMsg);
+                console.log("调用失败", res);
                 failTip("导出失败", res.errCode + res.errMsg)
             },
         });
