@@ -213,7 +213,7 @@ confirmBtn.onclick = () => {
     console.log("点击确认按钮")
     const token = localStorage.getItem("token")
     deleteResume(serverURL, deleteAPI, token)
-    submitResume(serverURL, submitResumeAPI)
+    // submitResume(serverURL, submitResumeAPI)
 }
 
 // 取消覆盖
