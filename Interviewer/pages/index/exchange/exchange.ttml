@@ -16,7 +16,7 @@
             <view class="head">
 
                 <view class="currentPosition">当前岗位
-                    <view class="picker">产品经理</view>
+                    <view class="picker">{{userInfo.position}}</view>
                 </view>
 
 

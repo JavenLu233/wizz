@@ -169,7 +169,9 @@ function synchronizeLoginStatus() {
     page.setData({
         isLogin: app.globalData.isLogin,
         userInfo: app.globalData.userInfo,
-        feishuUserInfo: app.globalData.feishuUserInfo
+        feishuUserInfo: app.globalData.feishuUserInfo,
+        access_token: app.globalData.access_token,
+        app_token: app.globalData.app_token
     });
 
 }
@@ -296,7 +298,7 @@ function larkLogin(code, getAllDataCallBackFunction) {
 
 
         success: (res) => {
-            console.log("fakeLogin:", res);
+            console.log("larkLogin:", res);
             if (res.statusCode === 200) {
                 successTip("登录成功");
             }
@@ -312,6 +314,12 @@ function larkLogin(code, getAllDataCallBackFunction) {
                 isLogin: true
             });
             app.globalData.isLogin = true;
+
+            // 将 token 保存在本地和全局
+            page.setData(res.data);
+            app.globalData.access_token = res.data.access_token;
+            app.globalData.app_token = res.data.app_token;
+            // console.log("token已存储在全局", app.globalData);
 
             // (如果传入了回调函数)获取所有数据并渲染
             getAllDataCallBackFunction && getAllDataCallBackFunction();

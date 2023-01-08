@@ -54,7 +54,7 @@
                             <view class="experience">
                                 <view class="key">
                                     <text>相关项目实习经历</text>
-                                    <button type="default" size="mini">下载附件</button>
+                                    <button type="default" size="mini" bindtap="getToken" tt:if="{{resumeInfo.resume_url}}">下载附件</button>
                                 </view>
                                 <scroll-view class="value" scroll-y>
                                     <text selectable="true">{{resumeInfo.experience}}</text>

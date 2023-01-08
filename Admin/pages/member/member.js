@@ -406,7 +406,7 @@ Page({
             url: _url,
             header: _header,
             method: "GET",
-            responseType: "arraybuffer",  // 必须指定请求文件流
+            responseType: "arraybuffer",  // 指定请求文件流, 必须带有的属性
             success: (res) => {
 
 
@@ -429,7 +429,7 @@ Page({
     // 调用 API 写入文件并读取文件
     writeFile: function (data) {
         console.log("接收到的二进制数据：", data);
-        
+
         // 获取全局的文件管理器
         const fileSystemManager = tt.getFileSystemManager();
         const date = new Date().getTime();
@@ -445,7 +445,7 @@ Page({
                 console.log("调用成功");
                 const _data = fileSystemManager.readFileSync(filePath);
                 console.log("写入的内容为:", _data);
-                
+
                 // 打开文件
                 tt.openDocument({
                     filePath,

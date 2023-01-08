@@ -292,6 +292,10 @@ Page({
 
         }
 
+        else if (res.statusCode === 400) {
+          failTip("登录失败", "您没有面试官的权限")
+        }
+
         else {
           // 提示登录失败
           tt.showModal({

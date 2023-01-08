@@ -257,9 +257,10 @@ Page({
       header: _header,
       success: (res) => {
         console.log(res);
+        const list = this.excludeSelf(res.data);
         this.setData({
           originInterviewerList: res.data,
-          interviewerList: res.data
+          interviewerList: list
         });
       },
 
@@ -271,5 +272,15 @@ Page({
 
   },
 
+  // 排除面试官本人
+  excludeSelf: function (list) {
+    const user_phone = this.data.userInfo.phone;
+    list = list.filter( ele => ele.phone != user_phone);
+    console.log("筛选后的list", list)
+    return list;
+  },
+
+
+  
 
 })
