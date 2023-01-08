@@ -1,5 +1,6 @@
 // const serverURL = "http://104.208.108.134:8000"
-const serverURL = "http://az.ccdesue.tech"
+// const serverURL = "http://az.ccdesue.tech"
+const serverURL = "https://dob.ccdesue.tech"
 const getPositionsAPI = "/api/info/getPositions"
 const getStatusAPI = "/api/interviewee/getInterviewStatusResult"
 const getResultAPI = "/api/interviewee/getInterviewResult"
