@@ -7,13 +7,18 @@
 }
 
 .container {
-    position: relative;
+    /* position: relative; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100vw;
+    height: 100vh;
 }
 
 img {
     position: fixed;
-    width: 100%;
+    /* width: 100%; */
     height: 100%;
     z-index: -1;
     left: 0;
@@ -21,11 +26,14 @@ img {
     min-height: 800px;
 }
 
-.title {
+.head {
     position: absolute;
+    width: 100vw;
+}
 
-    left: 10%;
-    padding-top: 40px;
+.title {
+
+    margin: 30px auto;
     width: 260px;
 
 
@@ -33,29 +41,23 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #fff;
+    color: #000;
 
 }
 
 
 .text {
 
-    position: absolute;
-
-    top: 25%;
-    right: 15%;
-
-
 
     width: 500px;
     height: 350px;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.85);
     border-radius: 15px;
     text-align: center;
 }
 
 .text h2 {
-    font-size: 30px;
+    font-size: 25px;
     margin-top: 30px;
     margin-bottom: 20px;
 }
