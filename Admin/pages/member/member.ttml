@@ -23,6 +23,8 @@
             </view>
         </picker>
 
+        <button class="export" bindtap="exportMembers">导出</button>
+
         <view class="search">
             <input placeholder="输入搜索内容" bindblur="inputUpdate"></input>
             <view class="searchIcon">

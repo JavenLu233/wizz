@@ -169,7 +169,7 @@ Page({
             url: _url,
             header: _header,
             method: "GET",
-            
+
 
             success: (res) => {
                 console.log("获取所有数据请求发送成功", res);
@@ -386,11 +386,92 @@ Page({
             url: './detail/detail'
         });
 
-    }
+    },
+
+
+    // 导出 members Excel
+    exportMembers: function () {
+        if (!this.data.isLogin) {
+            failTip("错误", "您还未登录");
+            return;
+        }
+
+        console.log("export!");
+
+        const _url = url.member.exportExcel;
+        const _header = createHeader();
+        console.log(_url, _header);
+
+        tt.request({
+            url: _url,
+            header: _header,
+            method: "GET",
+            responseType: "arraybuffer",  // 必须指定请求文件流
+            success: (res) => {
+
+
+                if (res.statusCode === 200) {
+                    console.log(res);
+                    this.writeFile(res.data);
+                }
+
+                else {
+                    console.log("导出数据失败", res);
+                    failTip("错误", "导出数据失败");
+                }
+            }
+
+        })
+
+
+    },
+
+    // 调用 API 写入文件并读取文件
+    writeFile: function (data) {
+        console.log("接收到的二进制数据：", data);
+        
+        // 获取全局的文件管理器
+        const fileSystemManager = tt.getFileSystemManager();
+        const date = new Date().getTime();
+        const filePath = `ttfile://user/example_${date}.xlsx`;
+        console.log(filePath);
+
+        // 写入文件
+        fileSystemManager.writeFile({
+            filePath,
+            encoding: "binary",
+            data,
+            success(res) {
+                console.log("调用成功");
+                const _data = fileSystemManager.readFileSync(filePath);
+                console.log("写入的内容为:", _data);
+                
+                // 打开文件
+                tt.openDocument({
+                    filePath,
+                    showMenu: true,
+                    success: (res) => {
+                        console.log(JSON.stringify(res));
+                        successTip(JSON.stringify(res));
+                    },
+                    fail: (res) => {
+                        console.log(`openDocument fail: ${JSON.stringify(res)}`);
+                        failTip("错误", `openDocument fail: ${JSON.stringify(res)}`);
+                    }
+
+                })
+
+
+            },
+            fail(res) {
+                console.log("调用失败", res.errMsg);
+                failTip("导出失败", res.errCode + res.errMsg)
+            },
+        });
 
 
 
-
+    },
 
 
 })

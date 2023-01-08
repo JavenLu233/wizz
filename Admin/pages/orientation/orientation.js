@@ -126,19 +126,38 @@ Page({
      */
     onShow: function () {
         this.synchronizeLoginStatus();
-
+        const _s = this.data.submit_fetched;
+        const _m = this.data.msgFrom_fetched;
+        const _r = this.data.referrer_fetched;
+        const _f = this.data.feedback_fetched;
 
         // 如果已经登录并且 raw 为空,则发请求获取所有数据
-        if (this.data.isLogin && this.data.raw_submitDataList.length <= 0) {
+        if (this.data.isLogin && !(_s && _m && _r && _f) ) {
             console.log("列表为空,自动获取");
             this.getAllOrientationData();
+            this.getAllFeedbackData();
+
+
+            // 设置定时器 用于判断是否获取数据成功
+            setTimeout(() => {
+                console.log("timeout!");
+                const _s = this.data.submit_fetched;
+                const _m = this.data.msgFrom_fetched;
+                const _r = this.data.referrer_fetched;
+                const _f = this.data.feedback_fetched;
+
+                if (_s && _m && _r && _f) {
+                    successTip("获取数据成功");
+                }
+
+                else {
+                    failTip("错误", "部分数据获取失败，请下拉刷新重试");
+                }
+
+            }, 1000);
         }
 
-        // 如果已经登录并且 raw 为空,则发请求获取所有数据
-        if (this.data.isLogin && this.data.raw_feedbackDataList.length <= 0) {
-            console.log("列表为空,自动获取");
-            this.getAllFeedbackData();
-        }
+
 
         // 同步可供选择的项目
         const picker_g = app.globalData.pickerList_project;
@@ -165,10 +184,23 @@ Page({
             this.getAllFeedbackData();
 
 
-            // // 将 picker 所选改为 "全部"
-            // this.setData({
-            //   picked: "全部"
-            // });
+            // 设置定时器 用于判断是否获取数据成功
+            setTimeout(() => {
+                console.log("timeout!");
+                const _s = this.data.submit_fetched;
+                const _m = this.data.msgFrom_fetched;
+                const _r = this.data.referrer_fetched;
+                const _f = this.data.feedback_fetched;
+
+                if (_s && _m && _r && _f) {
+                    successTip("获取数据成功");
+                }
+
+                else {
+                    failTip("错误", "部分数据获取失败，请下拉刷新重试");
+                }
+
+            }, 1000);
         }
 
         tt.stopPullDownRefresh();
@@ -211,6 +243,24 @@ Page({
         let _getAllDataCallBackFunction = () => {
             this.getAllOrientationData();
             this.getAllFeedbackData();
+
+            // 设置定时器 用于判断是否获取数据成功
+            setTimeout(() => {
+                console.log("timeout!");
+                const _s = this.data.submit_fetched;
+                const _m = this.data.msgFrom_fetched;
+                const _r = this.data.referrer_fetched;
+                const _f = this.data.feedback_fetched;
+
+                if (_s && _m && _r && _f) {
+                    successTip("获取数据成功");
+                }
+
+                else {
+                    failTip("错误", "部分数据获取失败，请下拉刷新重试");
+                }
+
+            }, 1000);
         }
         commonfuns.larkLogin(code, _getAllDataCallBackFunction);
     },
@@ -291,6 +341,9 @@ Page({
         const _id = this.data.projectMap[this.data.picked];
         console.log("project_id=", _id);
 
+
+
+
         // 向后台发起请求获取 submitData
         tt.request({
             url: url.orientation.getSubmitData + `?project_id=${_id}`,
@@ -319,22 +372,27 @@ Page({
                     this.showAllSubmitData();
 
                     // 提示获取数据成功
-                    successTip("获取数据成功");
+                    // successTip("获取数据成功");
+
+                    // 更新获取状态
+                    this.setData({
+                        submit_fetched: true
+                    })
 
                 }
 
                 // 响应失败的情况
                 else {
-                    console.log("获取数据失败", res);
-                    failTip("错误", "获取数据失败");
+                    console.log("获取submit数据失败", res);
+                    // failTip("错误", "获取数据失败");
                 }
 
             },
 
             // 请求发送失败的回调函数
             fail: (res) => {
-                console.log("获取数据请求失败", res);
-                failTip("错误", "获取数据请求发送失败");
+                console.log("获取submit数据请求失败", res);
+                // failTip("错误", "获取数据请求发送失败");
             },
 
         });
@@ -369,28 +427,33 @@ Page({
                     this.showAllMsgFromData();
 
                     // 提示获取数据成功
-                    successTip("获取数据成功");
+                    // successTip("获取数据成功");
+
+                    // 更新获取状态
+                    this.setData({
+                        msgFrom_fetched: true
+                    })
 
                 }
 
                 // 响应失败的情况
                 else {
-                    console.log("获取数据失败", res);
-                    failTip("错误", "获取数据失败");
+                    console.log("获取msgFrom数据失败", res);
+                    // failTip("错误", "获取数据失败");
                 }
 
             },
 
             // 请求发送失败的回调函数
             fail: (res) => {
-                console.log("获取数据请求失败", res);
-                failTip("错误", "获取数据请求发送失败");
+                console.log("获取msgFrom数据请求失败", res);
+                // failTip("错误", "获取数据请求发送失败");
             },
 
         });
 
 
-        // 向后台发起请求获取 refferrerData
+        // 向后台发起请求获取 referrerData
         tt.request({
             url: url.orientation.getRefferrerData + `?project_id=${_id}`,
             header: _header,
@@ -418,22 +481,27 @@ Page({
                     this.showAllReferrerData();
 
                     // 提示获取数据成功
-                    successTip("获取数据成功");
+                    // successTip("获取数据成功");
+
+                    // 更新获取状态
+                    this.setData({
+                        referrer_fetched: true
+                    })
 
                 }
 
                 // 响应失败的情况
                 else {
-                    console.log("获取数据失败", res);
-                    failTip("错误", "获取数据失败");
+                    console.log("获取referrer数据失败", res);
+                    // failTip("错误", "获取数据失败");
                 }
 
             },
 
             // 请求发送失败的回调函数
             fail: (res) => {
-                console.log("获取数据请求失败", res);
-                failTip("错误", "获取数据请求发送失败");
+                console.log("获取referrer数据请求失败", res);
+                // failTip("错误", "获取数据请求发送失败");
             },
 
         });
@@ -518,22 +586,27 @@ Page({
                     this.showAllFeedbackData();
 
                     // 提示获取数据成功
-                    successTip("获取数据成功");
+                    // successTip("获取数据成功");
+
+                    // 更新获取状态
+                    this.setData({
+                        feedback_fetched: true
+                    })
 
                 }
 
                 // 响应失败的情况
                 else {
-                    console.log("获取数据失败", res);
-                    failTip("错误", "获取数据失败");
+                    console.log("获取feedback数据失败", res);
+                    // failTip("错误", "获取feedback数据失败");
                 }
 
             },
 
             // 请求发送失败的回调函数
             fail: (res) => {
-                console.log("获取数据请求失败", res);
-                failTip("错误", "获取数据请求发送失败");
+                console.log("获取feedback数据请求失败", res);
+                // failTip("错误", "获取feedback数据请求发送失败");
             },
 
         });

@@ -47,6 +47,22 @@
     font-size: 0.8rem;
 } */
 
+.head-wrapper .export {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+
+  width: 20vw;
+  height: 8vw;
+  font-size: 0.8rem;
+
+  background-color: #fff;
+  color: #000;
+  border: 3rpx solid #000;
+  border-radius: 2vw;
+}
+
 .table-wrapper {
     width: 90vw;
     height: 70vh;

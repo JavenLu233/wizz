@@ -64,7 +64,8 @@ let url = {
         "getAll": `${host}/api/admin/getMembers`,
         "getByPage": `${host}/api/admin/getMembersByPage`,
         "getByPageAndPosition": `${host}/api/admin/getMemberByPageAndPosition`,
-        "update": `${host}/api/admin/updateMember`
+        "update": `${host}/api/admin/updateMember`,
+        "exportExcel": `${host}/api/admin/getMemberExcel`
     },
 
     // 用于测试
