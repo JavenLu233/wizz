@@ -18,13 +18,13 @@
   "tabBar": {
     "list": [{
       "pagePath": "pages/index/index",
-      "iconPath": "/images/主页icon.png", 
-      "selectedIconPath": "/images/主页icon.png", 
+      "iconPath": "/images/主页.png", 
+      "selectedIconPath": "/images/主页_focus.png", 
       "text": "主页"
     },{
       "pagePath": "pages/self/self",
-      "iconPath": "/images/个人icon.png", 
-      "selectedIconPath": "/images/个人icon.png", 
+      "iconPath": "/images/个人.png", 
+      "selectedIconPath": "/images/个人_focus.png", 
       "text": "个人"
     }]
   }

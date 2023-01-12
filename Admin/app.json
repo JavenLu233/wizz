@@ -31,35 +31,36 @@
     "list": [
       {
         "pagePath": "pages/project/project",
-        "iconPath": "/images/tabbar/项目和岗位.png",
-        "selectedIconPath": "/images/tabbar/项目和岗位.png",
+        "iconPath": "/images/tabbar/项目.png",
+        "selectedIconPath": "/images/tabbar/项目_focus.png",
         "text": "项目"
       },
       {
         "pagePath": "pages/interviewer/interviewer",
-        "iconPath": "/images/tabbar/面试官管理.png",
-        "selectedIconPath": "/images/tabbar/面试官管理.png",
+        "iconPath": "/images/tabbar/面试官.png",
+        "selectedIconPath": "/images/tabbar/面试官_focus.png",
         "text": "面试官"
       },
+
+      {
+        "pagePath": "pages/resume/resume",
+        "iconPath": "/images/tabbar/简历.png",
+        "selectedIconPath": "/images/tabbar/简历_focus.png",
+        "text": "简历"
+      },
+      
       {
         "pagePath": "pages/orientation/orientation",
-        "iconPath": "/images/tabbar/招新数据及反馈.png",
-        "selectedIconPath": "/images/tabbar/招新数据及反馈.png",
+        "iconPath": "/images/tabbar/招新数据.png",
+        "selectedIconPath": "/images/tabbar/招新数据_focus.png",
         "text": "招新数据"
       },
       
       {
         "pagePath": "pages/member/member",
         "iconPath": "/images/tabbar/成员库.png",
-        "selectedIconPath": "/images/tabbar/成员库.png",
+        "selectedIconPath": "/images/tabbar/成员库_focus.png",
         "text": "成员库"
-      },
-
-      {
-        "pagePath": "pages/resume/resume",
-        "iconPath": "/images/tabbar/简历管理.png",
-        "selectedIconPath": "/images/tabbar/简历管理.png",
-        "text": "简历"
       }
       
     ]
