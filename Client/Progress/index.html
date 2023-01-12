@@ -87,15 +87,26 @@
 
     <div class="message" id="message">
         <div class="login">
-            <h2>请输入递交简历时的手机号：</h2>
-            <input type="text" class="phone" id="phone">
-            <h2>请选择投递的岗位：</h2>
-            <select class="target_position formVal" id="target_position" required>
-            </select>
-            <span class="errTip" id="errTip">输入有误，请重试</span>
+            <div class="titleBox">
+                <span class="title">验证身份</span>
+                <img id="close" src="../images/关闭.png"></img>
+            </div>
+
+            <div class="wrapper">
+                <h2>请输入递交简历时的手机号：</h2>
+                <input type="text" class="phone" id="phone">
+                <h2>请选择投递的岗位：</h2>
+                <select class="target_position formVal" id="target_position" required>
+                </select>
+                <span class="errTip" id="errTip">输入有误，请重试</span>
+            </div>
+
+
+
             <div class="btnBox">
-                <button class="submit" id="submit">提交</button>
                 <button class="cancel" id="cancel">取消</button>
+                <div class="btnWall" id="btnWall"></div>
+                <button class="submit blueBtn" id="submit">提交</button>
             </div>
 
         </div>

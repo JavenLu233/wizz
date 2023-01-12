@@ -130,46 +130,18 @@ const tip = document.getElementById("tip")
 const sTip = document.getElementById("succeed")
 const fTip = document.getElementById("fail")
 const closeBtn = document.getElementById("close")
-
-
-const saveTip = document.getElementById("saveTip")
-const saveSucceed = document.getElementById("saveSucceed")
-const saveFail = document.getElementById("saveFail")
-const saveCloseBtn = document.getElementById("saveClose")
-
-
-// 绑定 关闭 保存提示框 按钮的单击事件 
-saveCloseBtn.onclick = () => {
-    message.style.display = "none"
-    saveTip.style.display = "none"
-    saveSucceed.style.display = "none"
-    saveFail.style.display = "none"
-}
-
-
-
-
-// 保存成功 显示提示框
-function save_succeed() {
-    message.style.display = "flex"
-    saveTip.style.display = "flex"
-    saveSucceed.style.display = "block"
-    saveFail.style.display = "none"
-}
-
-// 保存失败 显示提示框
-function save_fail() {
-    message.style.display = "flex"
-    saveTip.style.display = "flex"
-    saveSucceed.style.display = "none"
-    saveFail.style.display = "block"
-}
-
-
-
+const closeSubmitImg = document.getElementById("closeSubmitTip")
 
 // 绑定 关闭按钮 的单击事件 - 关闭提示框
 closeBtn.onclick = () => {
+    message.style.display = "none"
+    tip.style.display = "none"
+    sTip.style.display = "none"
+    fTip.style.display = "none"
+}
+
+// 绑定 关闭图标 的单击事件 - 关闭提示框
+closeSubmitImg.onclick = () => {
     message.style.display = "none"
     tip.style.display = "none"
     sTip.style.display = "none"
@@ -194,18 +166,73 @@ function fail() {
 }
 
 
+
+
+
+const saveTip = document.getElementById("saveTip")
+const saveSucceed = document.getElementById("saveSucceed")
+const saveFail = document.getElementById("saveFail")
+const saveCloseBtn = document.getElementById("saveClose")
+const saveCloseImg = document.getElementById("closeSaveTip")
+
+// 绑定 关闭 保存提示框 按钮的单击事件 
+saveCloseBtn.onclick = () => {
+    message.style.display = "none"
+    saveTip.style.display = "none"
+    saveSucceed.style.display = "none"
+    saveFail.style.display = "none"
+}
+
+// 绑定 关闭 保存提示框 图标的单击事件
+saveCloseImg.onclick = () => {
+    message.style.display = "none"
+    saveTip.style.display = "none"
+    saveSucceed.style.display = "none"
+    saveFail.style.display = "none"
+}
+
+
+
+// 保存成功 显示提示框
+function save_succeed() {
+    message.style.display = "flex"
+    saveTip.style.display = "flex"
+    saveSucceed.style.display = "block"
+    saveFail.style.display = "none"
+}
+
+// 保存失败 显示提示框
+function save_fail() {
+    message.style.display = "flex"
+    saveTip.style.display = "flex"
+    saveSucceed.style.display = "none"
+    saveFail.style.display = "block"
+}
+
+
+
+
+
+
 const replace = document.getElementById("replace")
 const confirmBtn = document.getElementById("confirm")
 const cancelBtn = document.getElementById("cancel")
+const replaceTip = document.getElementById("replaceTip")
+const closeReplaceImg = document.getElementById("closeReplaceTip")
+const btnWall = document.getElementById("btnWall")
+
 // 显示 是否覆盖 的提示框
 function isReplace() {
     message.style.display = "flex"
     replace.style.display = "flex"
+    confirmBtn.style.display = "block"
+    btnWall.style.display = "block"
 }
 
 function hideReplace() {
     message.style.display = "none"
     replace.style.display = "none"
+    replaceTip.style.display = "none"
 }
 
 // 确认覆盖
@@ -217,11 +244,10 @@ confirmBtn.onclick = () => {
 }
 
 // 取消覆盖
-cancelBtn.onclick = () => {
-    message.style.display = "none"
-    replace.style.display = "none"
-}
+cancelBtn.onclick = hideReplace;
 
+// 点击图标关闭 覆盖提示框 
+closeReplaceImg.onclick = hideReplace;
 
 
 // 获取删除相同简历的 token
@@ -259,7 +285,7 @@ function getDeleteToken(url, api) {
 
 // 删除简历
 function deleteResume(url, api, token) {
-    const replaceTip = document.getElementById("replaceTip")
+
     replaceTip.style.display = 'none'
     fetch(`${url}${api}`, {
         method: "delete",
@@ -285,6 +311,7 @@ function deleteResume(url, api, token) {
         .catch(err => {
             replaceTip.style.display = "block"
             confirmBtn.style.display = "none"
+            btnWall.style.display = "none"
             console.log(err)
         })
 

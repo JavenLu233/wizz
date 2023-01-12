@@ -20,13 +20,14 @@ window.onload = () => {
 
     cancelBtn.onclick = () => {
         console.log("取消按钮点击！")
-        message.style.display = "none"
+        hideLogin()
     }
 
     // 获取当前可以投递简历的岗位
     getPositions(serverURL, getPositionsAPI)
 
 }
+
 
 
 
@@ -39,9 +40,20 @@ const cancelBtn = document.getElementById("cancel")
 const message = document.getElementById("message")
 const errTip = document.getElementById("errTip")
 const phoneEle = document.getElementById("phone")
+const closeImg = document.getElementById("close")
+
+function hideLogin() {
+    message.style.display = "none"
+}
+
+closeImg.onclick = hideLogin
 
 // 获取面试状态
 function getStatus(url, api) {
+
+    // 隐藏原先的提示信息
+    errTip.style.display = "none"
+
     const phone = phoneEle.value
     const position = positionEle.value
 
@@ -51,7 +63,7 @@ function getStatus(url, api) {
     fetch(targetURL)
         .then(res => {
             if (res.status === 200) {
-                message.style.display = "none"
+                hideLogin()
                 return res.json()
             }
             else if (res.status === 404) {

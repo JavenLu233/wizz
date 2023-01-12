@@ -111,7 +111,7 @@
                     </tr>
                 </table>
 
-                <div class="btnBox">
+                <div class="resumeBtnBox">
                     <button id="submit">提交</button>
                     <button type="button" id="save">保存</button>
                     <button type="reset" id="reset">重置</button>
@@ -126,24 +126,43 @@
 
 
         <div class="tip" id="tip">
+            <div class="titleBox">
+                <span class="title">提示</span>
+                <img id="closeSubmitTip" src="../images/关闭.png"></img>
+            </div>
             <h2 class="succeed" id="succeed">发送成功</h2>
             <h2 class="fail" id="fail">发送失败</h2>
-            <button class="close" id="close">关闭</button>
+            <div class="btnBox">
+                <button class="close blueBtn" id="close">确定</button>
+            </div>
+
         </div>
 
         <div class="tip" id="saveTip">
+            <div class="titleBox">
+                <span class="title">提示</span>
+                <img id="closeSaveTip" src="../images/关闭.png"></img>
+            </div>
             <h2 class="succeed" id="saveSucceed">保存成功</h2>
             <h2 class="fail" id="saveFail">保存失败</h2>
-            <button class="close" id="saveClose">关闭</button>
+            <div class="btnBox">
+                <button class="close blueBtn" id="saveClose">确定</button>
+            </div>
+
         </div>
 
         <div class="replace" id="replace">
-            <h2>重复提交简历，是否覆盖？</h2>
-            <span id="replaceTip">覆盖失败！</span>
-            <div class="btnBox">
-                <button class="confirm" id="confirm">确定</button>
-
+            <div class="titleBox">
+                <span class="title">提示</span>
+                <img id="closeReplaceTip" src="../images/关闭.png"></img>
+            </div>
+            <h2 class="replaceTip">重复提交简历，是否覆盖？</h2>
+            <span class="replaceTip" id="replaceTip">覆盖失败，请取消后重试！</span>
+            <div class="btnBox double">
                 <button class="cancel" id="cancel">取消</button>
+                <div class="btnWall" id="btnWall"></div>
+                <button class="confirm blueBtn" id="confirm">确定</button>
+
             </div>
 
         </div>
