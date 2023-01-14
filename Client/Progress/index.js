@@ -7,9 +7,9 @@ const getResultAPI = "/api/interviewee/getInterviewResult"
 
 
 window.onload = () => {
-    const bkg = document.getElementById("background")
-    const sWidth = screen.availWidth
-    bkg.style.width = sWidth + "px"
+    // const bkg = document.getElementById("background")
+    // const sWidth = screen.availWidth
+    // bkg.style.width = sWidth + "px"
 
 
 
