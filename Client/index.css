@@ -6,6 +6,8 @@
     font-family: Microsoft YaHei;
 }
 
+
+
 .container {
     /* position: relative; */
     display: flex;
@@ -18,17 +20,28 @@
 
 img {
     position: fixed;
-    /* width: 100%; */
-    height: 100%;
+    min-width: 100%;
+    
     z-index: -1;
     left: 0;
     top: 0;
-    min-height: 800px;
+    
 }
+
+.pc {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
 
 .head {
     position: absolute;
+    
     width: 100vw;
+
 }
 
 .title {
@@ -49,10 +62,10 @@ img {
 .text {
 
 
-    width: 500px;
-    height: 350px;
+    width: 31.25rem;
+    /* height: 21.875rem; */
     background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 15px;
+    border-radius: 1rem;
     text-align: center;
 }
 
@@ -79,5 +92,60 @@ img {
     color: #fff;
     font-weight: 700;
     cursor: pointer;
+
+}
+
+@media screen and (max-width: 1000px) {
+    img {
+        min-width: 100vw;
+        height: auto;
+    }
+    
+    .pc {
+        display: none;
+    }
+    
+    .mobile {
+        display: block;
+    }
+
+   
+
+    .title {
+        
+        width: 80vw;
+        color: #fff;
+    }
+
+    .title>h1 {
+        font-size: 8vw;
+    }
+
+    .text {
+        width: 80vw;
+        /* height: 56vw; */
+        background-color: rgba(207, 207, 207, 0.8);
+        backdrop-filter: blur(6px);
+    }
+
+    .text h2 {
+        font-size: 6vw;
+        margin: 5vw 0;
+    }
+
+    .text p {
+        font-size: 4vw;
+        margin: 2vw auto;
+    }
+
+    .button {
+        margin: 6vw auto;
+        width: 25vw;
+        height: 10vw;
+        line-height: 10vw;
+        font-size: 4vw;
+
+    }
+
 
 }

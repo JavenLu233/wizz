@@ -38,6 +38,7 @@ function fillPositions(data) {
     const postboard = document.getElementById("postboard")
 
     // 插入 HTML 代码块
+    // postboard.innerHTML = "";
     for (let position of data) {
         postboard.insertAdjacentHTML("beforeend",
             `<li>
@@ -108,3 +109,21 @@ function bind() {
     }
 
 }
+
+
+function test () {
+    const data = [
+        {
+            name: "前端",
+            description: "前端描述"
+        },
+        {
+            name: "后端",
+            description: "后端描述"
+        }
+    ];
+
+    fillPositions(data);
+    bind();
+}
+

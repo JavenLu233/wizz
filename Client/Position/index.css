@@ -7,6 +7,14 @@
     user-select: none;
 }
 
+.pc {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
 .background {
     position: fixed;
     min-width: 100%;
@@ -105,12 +113,16 @@ body {
 
 
 .post {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     margin-bottom: 10px;
     /* margin-left: 10%; */
 
     width: 900px;
     height: 46px;
-    /* box-sizing: unset; */
+    
     background-color: #fff;
 
     border-radius: 16px;
@@ -118,7 +130,7 @@ body {
 }
 
 .post span {
-    float: left;
+    
 
     margin: 0 10px;
     line-height: 40px;
@@ -127,21 +139,27 @@ body {
 }
 
 .post ul {
-    float: right;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     margin-right: 20px;
-
+    
 }
 
 .post ul li {
-    float: left;
+    
     margin: 5px 20px;
 }
 
 .post a div {
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 0 16px;
-    line-height: 28px;
+    
     border-radius: 14px;
     font-size: 22px;
 }
@@ -188,20 +206,20 @@ body {
     position: relative;
 }
 
-.request::after {
+/* .request::after {
     content: '';
     position: absolute;
     top: 50px;
     left: 50px;
     width: 20px;
-    /* height: 20px; */
+    
     transition: 0.7s;
     opacity: 0;
 
     background-color: #fff;
     transform: rotate(45deg);
     box-shadow: 0 0 5px black;
-}
+} */
 
 .request.active::after {
     height: 20px;
@@ -221,4 +239,144 @@ body {
     transform: scale(1);
     opacity: 1;
     display: block;
+}
+
+@media screen and (max-width: 480px) {
+    .pc {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+
+    /* .background {
+
+    } */
+
+    body {
+        display: flex;
+        flex-direction: column;
+
+        min-width: 0;
+        max-width: 100vw;
+        width: 100vw;
+    }
+
+    .background.mobile {
+        height: 70vw;
+    }
+
+    header.mobile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 14vw;
+        border-top: #fff 1px solid;
+        border-bottom: #fff 1px solid;
+        
+    }
+
+    .logo.mobile {
+        
+        max-height: 8vw;
+        filter: invert(95%) sepia(95%) saturate(20%) hue-rotate(15deg) brightness(106%) contrast(104%);
+        
+    }
+
+    header>.wall {
+        margin: 3vw;
+        width: 1px;
+        height: 70%;
+        border-right: #fff 2px solid;
+    }
+
+    header>a {
+        color: #fff;
+        font-size: 4.5vw;
+        font-weight: 700;
+    }
+
+    nav.mobile {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+
+        height: 12vw;
+        border-bottom: #fff 1px solid;
+        
+    }
+
+    nav>a {
+        color: #fff;
+    }
+
+
+    .content {
+        flex: 1;
+        overflow: scroll;
+
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 10vw;
+        width: 100vw;
+    }
+
+    .span01 {
+        margin: 0;
+        font-size: 7vw;
+    }
+
+    .span02 {
+        display: none;
+    }
+
+    .position {
+        width: 80vw;
+    }
+
+    .postboard {
+        width: 80vw;
+    }
+
+    .post {
+        width: 80vw;
+        height: 10vw;
+        border: #000 0.3vw solid;
+    }
+
+    .post span {
+        font-size: 5vw;
+        
+    }
+
+    .post ul {
+        width: 60vw;
+        margin-right: 0;
+    }
+
+    .post ul li {
+        width: 24vw;
+        margin: 0 2vw;
+    }
+
+    .post a {
+        
+        width: 30vw;
+    }
+
+    .post a div {
+        padding: 0;
+        font-size: 4vw;
+    }
+
+    .info {
+        width: 80vw;
+    }
+
+    .info.active {
+        width: 80vw;
+    }
+
 }
