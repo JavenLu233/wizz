@@ -10,9 +10,23 @@
 </head>
 
 <body>
+    <img class="background mobile" src="../images/半弧线背景.png" alt="">
+
+    <header class="mobile">
+        <img class="logo mobile" src="../images/为之logo.png" alt="">
+        <div class="wall"></div>
+        <a href="../index.html">招新小助手</a>
+    </header>
+    
+    <nav class="mobile">
+        <a href="../Position/index.html">岗位展示</a>
+        <a href="../Submit/index.html">投递简历</a>
+        <a href="../Progress/index.html">面试进度查询</a>
+    </nav>
+
     <div class="container">
-        <img class="background" src="../images/蓝色弧线背景.png" alt="">
-        <div class="header">
+        <img class="background pc" src="../images/蓝色弧线背景.png" alt="">
+        <div class="header pc">
             <ul class="menu">
                 <li class="icon"><img class="logo" src="../images/为之logo.png" alt=""></li>
                 <li class="helper"><a href="../index.html">招新小助手</a></li>
@@ -27,6 +41,7 @@
 
         <div class="content">
             <h2>投递简历</h2>
+                        
             <form id="form" target="myIframe">
                 <table>
                     <thead></thead>
@@ -42,6 +57,7 @@
                         </td>
                         <td><input type="text" class="formVal refferrerInput" id="referrer"></td>
                     </tr>
+
                     <tr>
                         <td class="key">姓名</td>
                         <td><input type="text" class="formVal longtext" name="name" id="name" required></td>
@@ -52,18 +68,17 @@
                                 <option value="女">女</option>
                             </select required>
                         </td>
-                        <td class="key">生日</td>
-                        <td class="birthday_td">
-                            <!-- <select name="birthday" id="birthday" class="formVal">
-                                <option value="gre">阳历</option>
-                                <option value="lun">阴历</option>
-                            </select> -->
-                            <input type="text" class="formVal" id="month">月
-                            <input type="text" class="formVal" id="day">日
-
-                        </td>
-
-                        <td class="key">岗位</td>
+                        
+                            <td class="key">生日</td>
+                            <td class="birthday_td">
+                                <input type="text" class="formVal" id="month">月
+                                <input type="text" class="formVal" id="day">日
+    
+                            </td>
+    
+                            <td class="key">岗位</td>
+                        
+                        
                         <td>
                             <select class="position formVal" id="target_position" required>
 
@@ -99,8 +114,9 @@
                         <td>相关项目实习经历</td>
                         <td colspan="7">
                             <textarea class="detail formVal" id="experience" required></textarea>
-                            <span>上传附件(3MB以内的 pdf文件):</span>
-                            <input type="file" id="file" accept=".pdf">
+                            <div class="file"><span>上传附件(3MB以内的 pdf文件):</span>
+                                <input type="file" id="file" accept=".pdf"></div>
+                            
                         </td>
                     </tr>
                     <tr class="reason">
@@ -116,11 +132,23 @@
                     <button type="button" id="save">保存</button>
                     <button type="reset" id="reset">重置</button>
                 </div>
+                
             </form>
+
+
+
+
+
 
             <iframe id="myIframe" name="myIframe" style="display: none;"></iframe>
         </div>
     </div>
+
+
+
+
+
+
 
     <div class="message" id="message">
 

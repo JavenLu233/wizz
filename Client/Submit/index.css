@@ -16,6 +16,15 @@
     z-index: -1;
 }
 
+.pc {
+    display: block;
+}
+
+.mobile {
+    display: none;
+}
+
+
 body {
     min-width: 1200px;
     min-height: 100vh;
@@ -231,7 +240,6 @@ body {
 
     margin: 20px auto;
     width: 1000px;
-    height: 400px;
     font-family: STZhongSong;
 
 }
@@ -239,17 +247,19 @@ body {
 
 
 .content table,
+.content tr,
 .content table tr td {
     background-color: #fff;
     border-collapse: collapse;
     text-align: center;
+    
 }
 
 .content table tr {
     border: #000 1px solid;
 }
 
-.content table tr td.key {
+tr td.key {
     width: 80px;
     font-size: 20px;
 
@@ -264,17 +274,17 @@ body {
 }
 
 .media td {
-    font-size: 16px;
+    /* font-size: 16px; */
     border-left: none;
     border-right: none;
 }
 
 .media #refferrer_key {
-    font-size: 16px;
+    /* font-size: 16px; */
 }
 
 .refferrerInput {
-    width: 80%;
+    /* width: 80%; */
     text-align: center;
     font-family: STZhongSong;
 }
@@ -307,7 +317,7 @@ body {
     text-align: center;
     width: 170px;
     height: 40px;
-    font-size: 16px;
+    /* font-size: 16px; */
 }
 
 .content input:focus {
@@ -327,14 +337,14 @@ body {
 .content .position,
 .content .grade,
 .content .gender {
-    width: 170px;
-    height: 40px;
+    width: 100%;
     font-size: 20px;
 }
 
 .content .birthday_td {
     display: flex;
     align-items: center;
+    justify-content: center;
     border: none;
 }
 
@@ -361,7 +371,7 @@ body {
 .content table tr.exp td,
 .content table tr.reason td {
     height: 140px;
-    font-size: 16px;
+    /* font-size: 16px; */
 }
 
 
@@ -372,7 +382,15 @@ body {
     width: 920px;
     height: 140px;
     font-size: 18px;
+    border: 0;
 }
+
+.file {
+    display: flex;
+    align-items: center;
+    border-top: #000 1px solid;
+}
+
 
 .content table .detail:focus {
     outline: none;
@@ -384,13 +402,11 @@ body {
     font-size: 18px;
 }
 
-.content table .experience input[type=file] {
-    width: 600px;
-}
+
 
 .resumeBtnBox {
     width: 1000px;
-    margin: 10px auto;
+    margin: 25px auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -411,3 +427,5 @@ body {
 .content button:hover {
     box-shadow: 2px 2px 5px #555;
 }
+
+

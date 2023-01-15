@@ -354,8 +354,13 @@ select:focus {
 
     nav>a {
         color: #fff;
+        font-size: 5vw;
     }
 
+    .container {
+        flex: 1;
+        overflow: scroll;
+    }
 
     .content {
         flex: 1;

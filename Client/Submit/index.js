@@ -5,11 +5,131 @@ const submitResumeAPI = "/api/interviewee/submitResume"
 const getPositionsAPI = "/api/info/getPositions"
 const getDeleteTokenAPI = "/api/interviewee/confirmSubmit"
 const deleteAPI = "/api/interviewee/deleteIntervieweeById"
-getPositions(serverURL, getPositionsAPI)
+
 
 const form = document.getElementById("form")
 const subBtn = document.getElementById("submit")
 const saveBtn = document.getElementById("save")
+
+
+window.onload = () => {
+    console.log(navigator.userAgent)
+
+    if (/(Android|iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+        console.log("移动端")
+        document.head.insertAdjacentHTML("beforeend", `<link rel="stylesheet" href="./mobile.css">`)
+        form.innerHTML = `<form id="form" target="myIframe">
+        <table>
+            <thead></thead>
+            <tr class="media">
+                <td colspan="4">
+                    <span>了解渠道：</span>
+                    <label><input type="radio" name="access" id="posters" class="formVal" required>海报</label>
+                    <label><input type="radio" name="access" id="camps" class="formVal">冬/夏令营</label>
+                    <label><input type="radio" name="access" id="others" class="formVal">其他</label>
+                </td>
+                
+            </tr>
+
+            <tr class="referrer">
+                <td colspan="4" class="key" id="refferrer_key">
+                    <span>内推人:</span>
+                    <input type="text" class="formVal refferrerInput" id="referrer">
+                </td>
+            </tr>
+
+            <tr>
+                <td class="key first">姓名</td>
+                <td><input type="text" class="formVal longtext" name="name" id="name" required></td>
+                <td class="key">性别</td>
+                <td>
+                    <select class="gender formVal" id="gender">
+                        <option value="男">男</option>
+                        <option value="女">女</option>
+                    </select required>
+                </td>
+                <tr>
+                    <td class="key">生日</td>
+                    <td class="birthday_td">
+                        <input type="text" class="formVal" id="month">月
+                        <input type="text" class="formVal" id="day">日
+
+                    </td>
+
+                    <td class="key">岗位</td>
+                    <td>
+                        <select class="position formVal" id="target_position" required>
+
+                        </select>
+                    </td>
+                </tr>
+                
+                
+            </tr>
+
+            <tr>
+
+                <td class="key">专业</td>
+                <td><input type="text" class="formVal longtext" id="major" required></td>
+                <td class="key">年级</td>
+                <td>
+                    <select class="grade formVal" id="grade">
+                        <option value="大一">大一</option>
+                        <option value="大二">大二</option>
+                        <option value="大三">大三</option>
+                        <option value="大四">大四</option>
+                        <option value="研一">研一</option>
+                        <option value="研二">研二</option>
+                        <option value="研三">研三</option>
+                        <option value="博一">博一</option>
+                        <option value="博二">博二</option>
+                        <option value="博三">博三</option>
+                    </select>
+                </td>
+                
+
+            </tr>
+
+            <tr>
+                <td class="key">邮箱</td>
+                <td><input type="email" class="formVal longtext" id="email" required></td>
+                <td class="key phone ">手机</td>
+                <td><input type="text" class="formVal longtext" id="phone" required></td>
+            </tr>
+
+
+
+
+            <tr class="experience">
+                <td>相关项目实习经历</td>
+                <td colspan="3">
+                    <textarea class="detail formVal" id="experience" required></textarea>
+                    <div class="file"><span>上传附件(3MB以内的 pdf文件):</span>
+                        <input type="file" id="file" accept=".pdf"></div>
+                    
+                </td>
+            </tr>
+            <tr class="reason">
+                <td>加入我们的原因</td>
+                <td colspan="3">
+                    <textarea class="detail formVal" id="reason" required></textarea>
+                </td>
+            </tr>
+        </table>
+
+        <div class="resumeBtnBox">
+            <button id="submit">提交</button>
+            <button type="button" id="save">保存</button>
+            <button type="reset" id="reset">重置</button>
+        </div>
+        
+    </form>`
+    }
+
+    getPositions(serverURL, getPositionsAPI)
+
+}
+
 
 
 
@@ -44,23 +164,22 @@ function submitResume(url, api) {
 
 
         fetch(`${url}${api}`, {
-            method: "post",
+                method: "post",
 
-            headers: {
+                headers: {
 
-                "Content-type": "application/json"
-            },
+                    "Content-type": "application/json"
+                },
 
-            body: JSON.stringify({
-                data: formData
+                body: JSON.stringify({
+                    data: formData
+                })
             })
-        })
             .then(res => {
                 console.log(res.status)
                 if (res.status === 200) {
                     succeed()
-                }
-                else if (res.status === 400) {
+                } else if (res.status === 400) {
 
                     // 提示已经相同岗位下已经投递过简历
 
@@ -68,8 +187,7 @@ function submitResume(url, api) {
                     confirmBtn.style.display = "block"
                     isReplace()
                     getDeleteToken(serverURL, getDeleteTokenAPI)
-                }
-                else {
+                } else {
                     fail()
                     throw new Error("发送失败！")
                 }
@@ -260,13 +378,13 @@ function getDeleteToken(url, api) {
     console.log(`${url}${api}?phone=${phone}&target_position=${target_position}`)
 
     fetch(`${url}${api}?phone=${phone}&target_position=${target_position}`, {
-        method: "get",
+            method: "get",
 
-        headers: {
+            headers: {
 
-            "Content-type": "application/json"
-        }
-    })
+                "Content-type": "application/json"
+            }
+        })
         .then(res => {
             // console.log("res = ", res.json())
             return res.json()
@@ -288,17 +406,16 @@ function deleteResume(url, api, token) {
 
     replaceTip.style.display = 'none'
     fetch(`${url}${api}`, {
-        method: "delete",
-        headers: {
-            "Authorization": `bearer ${token}`
-        }
-    })
+            method: "delete",
+            headers: {
+                "Authorization": `bearer ${token}`
+            }
+        })
         .then(res => {
             if (res.status === 200) {
                 console.log(res)
                 console.log("已删除！")
-            }
-            else {
+            } else {
                 throw new Error("覆盖失败！")
             }
         })
@@ -394,16 +511,13 @@ function getFormData() {
             if (ele.checked === true) {
                 if (formData["msg_from"]) {
                     formData["msg_from"] += " " + ele.nextSibling.textContent
-                }
-                else {
+                } else {
                     formData["msg_from"] = ele.nextSibling.textContent
                 }
             }
 
             formData[ele.id] = ele.checked
-        }
-
-        else {
+        } else {
             formData[ele.id] = ele.value
         }
 
@@ -454,8 +568,7 @@ function getPositions(url, api) {
         .then(res => {
             if (res.status === 200) {
                 return res.json()
-            }
-            else {
+            } else {
                 throw new Error("获取岗位信息失败！")
             }
         })
@@ -485,4 +598,3 @@ function fillPositions(data) {
 
     }
 }
-
