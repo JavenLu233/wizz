@@ -112,7 +112,7 @@
 
     .content td {
         width: 20vw;
-        height: 5vw;
+        height: 6vw;
         
     }
 
@@ -126,12 +126,15 @@
     #referrer {
         width: 15vw;
         height: 70%;
+        line-height: 3vw;
     }
 
     .content #month,
     .content #day {
-        width: 30%;
-        height: 70%;
+        margin: 0;
+        width: 40%;
+        height: 80%;
+
     }
 
     .table_head,
@@ -147,6 +150,7 @@
     .content table .experience span,
     .content table .experience input[type=file] {
         font-size: 3vw;
+        
     }
     
 
@@ -175,11 +179,34 @@
     }
 
 
-    .first {
-        width: 20vw;
+    .experience td {
+        height: 100px;
+    }
+
+    .file {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 20vw;
+    }
+
+    .content table .experience span {
+        margin: 0;
+    }
+
+    .file input {
+        margin: 0 auto;
+        width: 80%;
     }
     
+    
+    .content table tr.reason td {
+    height: 100px;
+    /* font-size: 16px; */
+    }
 
+
+    
 
     
 }

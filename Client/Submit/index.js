@@ -6,10 +6,9 @@ const getPositionsAPI = "/api/info/getPositions"
 const getDeleteTokenAPI = "/api/interviewee/confirmSubmit"
 const deleteAPI = "/api/interviewee/deleteIntervieweeById"
 
-
-const form = document.getElementById("form")
-const subBtn = document.getElementById("submit")
-const saveBtn = document.getElementById("save")
+let form = document.getElementById("form")
+let subBtn = document.getElementById("submit")
+let saveBtn = document.getElementById("save")
 
 
 window.onload = () => {
@@ -124,11 +123,43 @@ window.onload = () => {
         </div>
         
     </form>`
+
+        // 重新赋值和绑定
+        form = document.getElementById("form")
+        subBtn = document.getElementById("submit")
+        saveBtn = document.getElementById("save")
+
+        // 绑定 提交按钮 的单击事件 - 提交表单信息和附件
+        subBtn.onclick = () => {
+            submitResume(serverURL, submitResumeAPI)
+        }
+
+
+
+        // 绑定 保存按钮 的单击事件
+        saveBtn.onclick = () => {
+
+            // 保存已填写的表单数据
+            saveFormData()
+
+            // 取消表单按钮的默认行为
+            return false
+        }
+
+
     }
 
     getPositions(serverURL, getPositionsAPI)
 
+
 }
+
+
+
+
+
+
+
 
 
 
