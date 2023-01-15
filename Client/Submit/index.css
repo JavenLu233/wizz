@@ -279,9 +279,7 @@ tr td.key {
     border-right: none;
 }
 
-.media #refferrer_key {
-    /* font-size: 16px; */
-}
+
 
 .refferrerInput {
     /* width: 80%; */
@@ -368,7 +366,7 @@ tr td.key {
 }
 
 
-.content table tr.exp td,
+
 .content table tr.reason td {
     height: 140px;
     /* font-size: 16px; */
