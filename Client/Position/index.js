@@ -1,7 +1,7 @@
 // const serverURL = "http://104.208.108.134:8000"
 // const serverURL = "http://az.ccdesue.tech"
-// const serverURL = "https://dob.ccdesue.tech"
-const serverURL = "https://recruit-system.be.wizzstudio.com"
+const serverURL = "https://recruit.ccds.live"
+// const serverURL = "https://recruit-system.be.wizzstudio.com"
 const getPositionsAPI = "/api/info/getPositions"
 
 // 窗口加载完毕就发送请求获取岗位信息

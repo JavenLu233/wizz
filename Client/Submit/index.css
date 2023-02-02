@@ -10,9 +10,9 @@
 .background {
     position: fixed;
     width: 100%;
-    height: 100%;
+    /* height: 100%; */
     min-width: 1000px;
-    min-height: 600px;
+    /* min-height: 600px; */
     z-index: -1;
 }
 
@@ -313,8 +313,12 @@ tr td.key {
 
     border: none;
     text-align: center;
-    width: 170px;
-    height: 40px;
+    
+    width: 95%;
+    height: 95%;
+
+    /* width: 170px; */
+    /* height: 40px; */
     /* font-size: 16px; */
 }
 
@@ -335,7 +339,7 @@ tr td.key {
 .content .position,
 .content .grade,
 .content .gender {
-    width: 100%;
+    width: 95%;
     font-size: 20px;
 }
 
@@ -343,6 +347,7 @@ tr td.key {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
     border: none;
 }
 
@@ -353,8 +358,8 @@ tr td.key {
     float: left;
 }
 
-.content #month,
-.content #day {
+#month,
+#day {
     margin-left: 5px;
     width: 40px;
     text-align: center;
@@ -426,4 +431,11 @@ tr td.key {
     box-shadow: 2px 2px 5px #555;
 }
 
+
+/* for pad */
+.referrer-box {
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
 

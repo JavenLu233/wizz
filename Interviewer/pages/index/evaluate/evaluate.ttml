@@ -16,7 +16,7 @@
             <view class="thead">
                 <view class="td module">模块</view>
                 <view class="td mark">分数</view>
-                <view class="td explain">分数解释</view>
+                <view class="td explain">分数解释(满分10分)</view>
             </view>
 
             <form bindsubmit="formSubmit">

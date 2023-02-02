@@ -1,7 +1,7 @@
 // const serverURL = "http://104.208.108.134:8000"
 // const serverURL = "http://az.ccdesue.tech"
-// const serverURL = "https://dob.ccdesue.tech"
-const serverURL = "https://recruit-system.be.wizzstudio.com"
+const serverURL = "https://recruit.ccds.live"
+// const serverURL = "https://recruit-system.be.wizzstudio.com"
 const submitResumeAPI = "/api/interviewee/submitResume"
 const getPositionsAPI = "/api/info/getPositions"
 const getDeleteTokenAPI = "/api/interviewee/confirmSubmit"
@@ -14,8 +14,22 @@ let saveBtn = document.getElementById("save")
 
 window.onload = () => {
     console.log(navigator.userAgent)
-
+    console.log(window.devicePixelRatio)
     if (/(Android|iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+
+        // 校正 css 像素
+        const scale = 1 / window.devicePixelRatio;
+        const viewport = document.querySelector('meta[name="viewport"]');
+        if (!viewport) {
+            viewport = document.createElement('meta');
+            viewport.setAttribute('name', 'viewport');
+            window.document.head.appendChild(viewport);
+        }
+
+        viewport.setAttribute('content', 'width=device-width,initial-scale=' + 1.0);
+
+
+
         console.log("移动端")
         document.head.insertAdjacentHTML("beforeend", `<link rel="stylesheet" href="./mobile.css">`)
         form.innerHTML = `<form id="form" target="myIframe">
@@ -33,8 +47,11 @@ window.onload = () => {
 
             <tr class="referrer">
                 <td colspan="4" class="key" id="refferrer_key">
-                    <span>内推人:</span>
-                    <input type="text" class="formVal refferrerInput" id="referrer">
+                    <div class="referrer-box">
+                        <span>内推人:</span>
+                        <input type="text" class="formVal refferrerInput" id="referrer">
+                    </div>
+                    
                 </td>
             </tr>
 
@@ -51,9 +68,10 @@ window.onload = () => {
                 <tr>
                     <td class="key">生日</td>
                     <td class="birthday_td">
-                        <input type="text" class="formVal" id="month">月
-                        <input type="text" class="formVal" id="day">日
-
+                        
+                            <input type="text" class="formVal" id="month" placeholder="月" required> -
+                            <input type="text" class="formVal" id="day" placeholder="日" required>
+                        
                     </td>
 
                     <td class="key">岗位</td>

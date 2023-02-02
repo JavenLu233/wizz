@@ -10,14 +10,14 @@
 </head>
 
 <body>
-    <img class="background mobile" src="../images/半弧线背景.png" alt="">
+    <img class="background mobile" src="../images/background_mobile.png" alt="">
 
     <header class="mobile">
-        <img class="logo mobile" src="../images/为之logo.png" alt="">
+        <img class="logo mobile" src="../images/logo_wizz.png" alt="">
         <div class="wall"></div>
         <a href="../index.html">招新小助手</a>
     </header>
-    
+
     <nav class="mobile">
         <a href="../Position/index.html">岗位展示</a>
         <a href="../Submit/index.html">投递简历</a>
@@ -25,10 +25,10 @@
     </nav>
 
     <div class="container">
-        <img class="background pc" src="../images/蓝色弧线背景.png" alt="">
+        <img class="background pc" src="../images/background_pc.png" alt="">
         <div class="header pc">
             <ul class="menu">
-                <li class="icon"><img class="logo" src="../images/为之logo.png" alt=""></li>
+                <li class="icon"><img class="logo" src="../images/logo_wizz.png" alt=""></li>
                 <li class="helper"><a href="../index.html">招新小助手</a></li>
                 <li><a href="../Position/index.html">岗位展示</a>
                 </li>
@@ -41,7 +41,7 @@
 
         <div class="content">
             <h2>投递简历</h2>
-                        
+
             <form id="form" target="myIframe">
                 <table>
                     <thead></thead>
@@ -52,10 +52,13 @@
                             <label><input type="radio" name="access" id="camps" class="formVal">冬/夏令营</label>
                             <label><input type="radio" name="access" id="others" class="formVal">其他</label>
                         </td>
-                        <td colspan="1" class="key" id="refferrer_key">
-                            内推人:
+                        <td colspan="2" class="key" id="refferrer_key">
+                            <div>
+                                内推人:<input type="text" class="formVal refferrerInput" id="referrer">
+                            </div>
+
                         </td>
-                        <td><input type="text" class="formVal refferrerInput" id="referrer"></td>
+
                     </tr>
 
                     <tr>
@@ -68,17 +71,17 @@
                                 <option value="女">女</option>
                             </select required>
                         </td>
-                        
-                            <td class="key">生日</td>
-                            <td class="birthday_td">
-                                <input type="text" class="formVal" id="month">月
-                                <input type="text" class="formVal" id="day">日
-    
-                            </td>
-    
-                            <td class="key">岗位</td>
-                        
-                        
+
+                        <td class="key">生日</td>
+                        <td class="birthday_td">
+                            <input type="text" class="formVal" id="month" required>月
+                            <input type="text" class="formVal" id="day" required>日
+
+                        </td>
+
+                        <td class="key">岗位</td>
+
+
                         <td>
                             <select class="position formVal" id="target_position" required>
 
@@ -116,7 +119,7 @@
                             <textarea class="detail formVal" id="experience" required></textarea>
                             <div class="file"><span>上传附件(3MB以内的 pdf文件):</span>
                                 <input type="file" id="file" accept=".pdf"></div>
-                            
+
                         </td>
                     </tr>
                     <tr class="reason">
@@ -132,7 +135,7 @@
                     <button type="button" id="save">保存</button>
                     <button type="reset" id="reset">重置</button>
                 </div>
-                
+
             </form>
 
 
@@ -156,7 +159,7 @@
         <div class="tip" id="tip">
             <div class="titleBox">
                 <span class="title">提示</span>
-                <img id="closeSubmitTip" src="../images/关闭.png"></img>
+                <img id="closeSubmitTip" src="../images/icon_close.png"></img>
             </div>
             <h2 class="succeed" id="succeed">发送成功</h2>
             <h2 class="fail" id="fail">发送失败</h2>
@@ -169,7 +172,7 @@
         <div class="tip" id="saveTip">
             <div class="titleBox">
                 <span class="title">提示</span>
-                <img id="closeSaveTip" src="../images/关闭.png"></img>
+                <img id="closeSaveTip" src="../images/icon_close.png"></img>
             </div>
             <h2 class="succeed" id="saveSucceed">保存成功</h2>
             <h2 class="fail" id="saveFail">保存失败</h2>
@@ -182,7 +185,7 @@
         <div class="replace" id="replace">
             <div class="titleBox">
                 <span class="title">提示</span>
-                <img id="closeReplaceTip" src="../images/关闭.png"></img>
+                <img id="closeReplaceTip" src="../images/icon_close.png"></img>
             </div>
             <h2 class="replaceTip">重复提交简历，是否覆盖？</h2>
             <span class="replaceTip" id="replaceTip">覆盖失败，请取消后重试！</span>
