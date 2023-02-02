@@ -1,6 +1,7 @@
 // 主机域名
 // let host = "http://az.ccdesue.tech";
-let host = "https://dob.ccdesue.tech";
+// let host = "https://dob.ccdesue.tech";
+let host = "https://recruit-system.be.wizzstudio.com";
 
 // 各个接口的url
 let url = {

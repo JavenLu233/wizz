@@ -7,7 +7,7 @@
                 <view class="key">{{item.name}}</view>
                 <view class="value">
                     <input tt:if="{{item.isInput}}" id="{{item.key}}" bindblur="inputUpdate"></input>
-                    <textarea tt:if="{{item.isTextarea}}" id="{{item.key}}" bindblur="textareaUpdate"></textarea>
+                    <textarea tt:if="{{item.isTextarea}}" id="{{item.key}}" bindblur="textareaUpdate" auto-height maxlength="-1"></textarea>
                     <picker tt:if="{{item.isPicker}}" range="{{item.range}}" id="{{item.key}}" bindchange="pickerUpdate">
                         <view class="picker">{{formData[item.key]}}</view>
                     </picker>

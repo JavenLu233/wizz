@@ -180,26 +180,27 @@ body {
     position: relative;
 
     display: flex;
-    justify-content: center;
     align-items: center;
-
     width: 900px;
-    height: 0;
+    max-height: 0;
     margin: 0 auto;
     background-color: #fff;
     border-radius: 20px;
-    transition: 0.3s;
-    opacity: 0.3;
+    transition: 0.5s;
+    opacity: 0;
     box-shadow: 0 0 5px black;
 }
 
 .info.active {
     margin: 20px auto;
     width: 900px;
-    height: 200px;
+    max-height: 800px;
     opacity: 1;
 }
 
+.info p {
+    white-space: pre-line;
+}
 
 
 .request {
@@ -227,7 +228,7 @@ body {
 }
 
 .info .content {
-    padding: 40px;
+    padding: 20px;
     color: rgb(0, 0, 0);
     transition: 0.5s;
 
@@ -313,7 +314,7 @@ body {
     }
 
 
-    .content {
+    .container>.content {
         flex: 1;
         overflow: scroll;
 
@@ -349,7 +350,7 @@ body {
 
     .post span {
         font-size: 5vw;
-        
+        white-space: nowrap;
     }
 
     .post ul {
@@ -358,7 +359,7 @@ body {
     }
 
     .post ul li {
-        width: 24vw;
+        width: 20vw;
         margin: 0 2vw;
     }
 
@@ -378,6 +379,10 @@ body {
 
     .info.active {
         width: 80vw;
+    }
+
+    .info .content {
+        padding: 2.5vw;
     }
 
 }

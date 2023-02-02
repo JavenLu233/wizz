@@ -1,6 +1,7 @@
 // const serverURL = "http://104.208.108.134:8000"
 // const serverURL = "http://az.ccdesue.tech"
-const serverURL = "https://dob.ccdesue.tech"
+// const serverURL = "https://dob.ccdesue.tech"
+const serverURL = "https://recruit-system.be.wizzstudio.com"
 const getPositionsAPI = "/api/info/getPositions"
 const getStatusAPI = "/api/interviewee/getInterviewStatusResult"
 const getResultAPI = "/api/interviewee/getInterviewResult"
@@ -65,13 +66,11 @@ function getStatus(url, api) {
             if (res.status === 200) {
                 hideLogin()
                 return res.json()
-            }
-            else if (res.status === 404) {
+            } else if (res.status === 404) {
                 errTip.innerText = "输入有误！"
                 console.log("fetch时，输入有误")
                 throw new Error("输入有误！")
-            }
-            else {
+            } else {
                 errTip.innerText = "出错了！"
                 console.log("fetch时，出错了")
                 throw new Error("出错了！")
@@ -100,8 +99,7 @@ function getPositions(url, api) {
         .then(res => {
             if (res.status === 200) {
                 return res.json()
-            }
-            else {
+            } else {
                 throw new Error("获取岗位信息失败！")
             }
         })
@@ -146,8 +144,7 @@ function getResult(url, api, id) {
             // console.log("res:", res)
             if (res.status === 200) {
                 return res.json()
-            }
-            else {
+            } else {
                 throw new Error("获取面试评价失败！")
             }
         })
@@ -183,8 +180,7 @@ function fillForm(value) {
     if (value["is_pass"] === 1) {
         markEleArr[5].innerText = "已录取"
         explainEleArr[5].innerText = "恭喜你！"
-    }
-    else {
+    } else {
         markEleArr[5].innerText = "未录取"
         explainEleArr[5].innerText = "请再接再厉"
     }
@@ -192,4 +188,3 @@ function fillForm(value) {
 
 
 }
-

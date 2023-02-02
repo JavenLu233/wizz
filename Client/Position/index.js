@@ -1,6 +1,7 @@
 // const serverURL = "http://104.208.108.134:8000"
 // const serverURL = "http://az.ccdesue.tech"
-const serverURL = "https://dob.ccdesue.tech"
+// const serverURL = "https://dob.ccdesue.tech"
+const serverURL = "https://recruit-system.be.wizzstudio.com"
 const getPositionsAPI = "/api/info/getPositions"
 
 // 窗口加载完毕就发送请求获取岗位信息
@@ -15,8 +16,7 @@ function getPositions(url, api) {
         .then(res => {
             if (res.status === 200) {
                 return res.json()
-            }
-            else {
+            } else {
                 throw new Error("获取岗位信息失败！")
             }
         })
@@ -111,9 +111,8 @@ function bind() {
 }
 
 
-function test () {
-    const data = [
-        {
+function test() {
+    const data = [{
             name: "前端",
             description: "前端描述"
         },
@@ -126,4 +125,3 @@ function test () {
     fillPositions(data);
     bind();
 }
-
