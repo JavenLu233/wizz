@@ -6,6 +6,12 @@ const getPositionsAPI = "/api/info/getPositions"
 
 // 窗口加载完毕就发送请求获取岗位信息
 window.onload = () => {
+    if (/(Android|iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
+
+        document.head.insertAdjacentHTML("beforeend", `<link rel="stylesheet" href="./mobile.css">`)
+
+    }
+
     getPositions(serverURL, getPositionsAPI)
 }
 

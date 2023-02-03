@@ -1,4 +1,4 @@
-@media screen  {
+@media screen {
     .pc {
         display: none;
     }
@@ -7,7 +7,13 @@
         display: block;
     }
 
-   
+    /* .background {
+
+    } */
+
+    .container {
+        max-height: 80vh;
+    }
 
     body {
         display: flex;
@@ -68,88 +74,77 @@
         font-size: 5vw;
     }
 
-    .container {
-        flex: 1;
-        overflow: scroll;
-    }
 
-    .content {
+    .container>.content {
         flex: 1;
         overflow: scroll;
 
         display: flex;
-        justify-content: center;
         align-items: center;
         flex-direction: column;
-        
+        margin-top: 10vw;
         width: 100vw;
     }
 
-
-    .text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    .span01 {
         margin: 0;
-        width: 100vw;
-    }
-    
-    .text .tip {
-        margin: 4vw 0 0 0;
-        font-size: 8vw;
+        font-size: 7vw;
     }
 
-    .text .result {
-        margin: 2vw 0;
-        padding: 0 2vw;
-        min-width: 20vw;
-        min-height: 8vw;
-        border: #000 2px solid;
-        border-radius: 5vw;
-        font-size: 6vw;
-        background-color: #fff;
-        color: #000;
+    .span02 {
+        display: none;
     }
 
-    .appraise {
-        margin: 0;
+    .position {
         width: 80vw;
-        max-width: 80vw;
-        
     }
 
-    .appraise table{
-        max-width: 80vw;
+    .postboard {
+        width: 80vw;
+        height: 60vh;
     }
-    
-    .appraise td {
-        padding: 2vw;
+
+    .post {
+        width: 80vw;
+        height: 10vw;
+        border: #000 0.3vw solid;
+    }
+
+    .post span {
         font-size: 5vw;
-    }
-    
-    .message .login {
-        width: 90vw;
-        min-height: 65vw;
+        white-space: nowrap;
     }
 
-
-
-    .titleBox .title,
-    .message .login h2,
-    .message button{
-        font-size: 6vw;
-    }
-    
-    .titleBox img {
-        width: 6vw;
+    .post ul {
+        width: 60vw;
+        margin-right: 0;
     }
 
-    .message .login input[type="text"],
-    .message .login select {
+    .post ul li {
+        width: 20vw;
+        margin: 0 2vw;
+    }
+
+    .post a {
+        
+        width: 30vw;
+    }
+
+    .post a div {
+        padding: 0;
+        font-size: 4vw;
+    }
+
+    .info {
         width: 80vw;
-        height: 8vw;
-        font-size: 6vw;
+    }
+
+    .info.active {
+        width: 80vw;
+    }
+
+    .info .content {
+        padding: 2.5vw;
     }
 
 }

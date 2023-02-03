@@ -10,53 +10,219 @@ const deleteAPI = "/api/interviewee/deleteIntervieweeById"
 let form = document.getElementById("form")
 let subBtn = document.getElementById("submit")
 let saveBtn = document.getElementById("save")
-
+let fileEle = document.getElementById("file")
+let flag_get = true
 
 window.onload = () => {
     console.log(navigator.userAgent)
-    console.log(window.devicePixelRatio)
     if (/(Android|iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent)) {
 
-        // 校正 css 像素
-        const scale = 1 / window.devicePixelRatio;
-        const viewport = document.querySelector('meta[name="viewport"]');
-        if (!viewport) {
-            viewport = document.createElement('meta');
-            viewport.setAttribute('name', 'viewport');
-            window.document.head.appendChild(viewport);
+        console.log("移动端")
+
+        form.innerHTML = `<form id="form" target="myIframe">
+            <div class="part-box_m">
+                <span class="part-name_m">了解渠道</span>
+                <div class="value-box_m">
+                    <p class="title_m required">了解渠道</p>
+                    <div class="value_m">
+                        <select class="formVal" id="msg_from">
+                            <option value="海报">海报</option>
+                            <option value="冬/夏令营">冬/夏令营</option>
+                            <option value="其他">其他</option>
+                        </select required>
+                    </div>
+
+                </div>
+                <div class="value-box_m">
+                    <p class="title_m">内推人</p>
+                    <div class="value_m">
+                        <input type="text" class="formVal no-border" placeholder="请输入" id="referrer">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="part-box_m">
+                <span class="part-name_m">基础信息</span>
+                <div class="value-box_m">
+                    <p class="title_m required">姓名</p>
+                    <div class="value_m">
+                        <input type="text" class="formVal no-border" placeholder="请输入" id="name" required>
+                    </div>
+                </div>
+                <div class="value-box_m">
+                    <p class="title_m required">性别</p>
+                    <div class="value_m">
+                        <select class="formVal" id="gender">
+                            <option value="男">男</option>
+                            <option value="女">女</option>
+                        </select required>
+                    </div>
+                </div>
+                <div class="value-box_m">
+                    <p class="title_m required">生日</p>
+                    <div class="value_m" id="birthday">
+                        <input type="text" class="formVal" id="month" placeholder="月" required>
+                        -
+                        <input type="text" class="formVal" id="day" placeholder="日" required>
+                    </div>
+                </div>
+                <div class="value-box_m">
+                    <p class="title_m required">专业</p>
+                    <div class="value_m">
+                        <input type="text" class="formVal no-border" placeholder="请输入" id="major" required>
+                    </div>
+                </div>
+                <div class="value-box_m">
+                    <p class="title_m required">年级</p>
+                    <div class="value_m">
+                        <select class="grade formVal" id="grade">
+                            <option value="大一">大一</option>
+                            <option value="大二">大二</option>
+                            <option value="大三">大三</option>
+                            <option value="大四">大四</option>
+                            <option value="研一">研一</option>
+                            <option value="研二">研二</option>
+                            <option value="研三">研三</option>
+                            <option value="博一">博一</option>
+                            <option value="博二">博二</option>
+                            <option value="博三">博三</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="value-box_m">
+                    <p class="title_m required">手机号码</p>
+                    <div class="value_m">
+                        <input type="text" class="formVal no-border" placeholder="请输入" id="phone" required>
+                    </div>
+                </div>
+                <div class="value-box_m">
+                    <p class="title_m required">邮箱</p>
+                    <div class="value_m">
+                        <input type="email" class="formVal no-border" placeholder="请输入" id="email" required>
+                    </div>
+                </div>
+                <div class="value-box_m">
+                    <p class="title_m required">意向岗位</p>
+                    <div class="value_m">
+                        <select class="position formVal" id="target_position" required>
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="part-box_m">
+                <span class="part-name_m">相关项目/实习经历</span>
+                <div class="dsp-box_m">
+                    <p class="title_m required">描述</p>
+                    <div class="value_m">
+                        <textarea class="no-border formVal" placeholder="请输入" id="experience" required></textarea>
+                    </div>
+                </div>
+                <div class="dsp-box_m">
+                    <div class="file-box_m">
+                        <label>
+                            <img src="../images/file_upload.png">
+                            <p>上传项目/实习经历文件</p>
+                            <p style="color:#acacac">支持格式: PDF</p>
+                            <p id="fileName_m"></p>
+                            <input type="file" style="display:none;" id="file" accept=".pdf">
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="part-box_m">
+                <span class="part-name_m">想要加入我们的原因</span>
+                <div class="dsp-box_m">
+                    <p class="title_m required">描述</p>
+                    <div class="value_m">
+                        <textarea class="no-border formVal" placeholder="请输入" id="reason" required></textarea>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="resumeBtnBox">
+                <button id="submit">提交</button>
+            </div>
+
+        </form>`
+
+        document.head.insertAdjacentHTML("beforeend", `<link rel="stylesheet" href="./mobile.css">`)
+
+        // 重新赋值和绑定
+        form = document.getElementById("form")
+        subBtn = document.getElementById("submit")
+        saveBtn = document.getElementById("save")
+        fileEle = document.getElementById("file")
+
+        // 绑定 提交按钮 的单击事件 - 提交表单信息和附件
+        if (subBtn) {
+            subBtn.onclick = () => {
+                submitResume(serverURL, submitResumeAPI)
+                console.log("点击提交按钮")
+            }
         }
 
-        viewport.setAttribute('content', 'width=device-width,initial-scale=' + 1.0);
 
 
 
-        console.log("移动端")
-        document.head.insertAdjacentHTML("beforeend", `<link rel="stylesheet" href="./mobile.css">`)
+        // 绑定 保存按钮 的单击事件
+        if (saveBtn) {
+            saveBtn.onclick = () => {
+
+                // 保存已填写的表单数据
+                saveFormData()
+
+                // 取消表单按钮的默认行为
+                return false
+            }
+        }
+
+        // 绑定 上传文件栏 的变化事件 - 进行附件转码
+        if (fileEle) {
+            fileEle.onchange = () => {
+                flag = 0
+                index = 0
+                fileBase64Arr = []
+
+                files2Base64(fileEle)
+
+                // 移动端显示已选择的文件的名称
+                const p = document.querySelector("#fileName_m")
+                if (p) {
+                    p.innerText = "已选择：" + fileEle.files[0].name
+                }
+
+            }
+        }
+
+
+    } else {
         form.innerHTML = `<form id="form" target="myIframe">
         <table>
             <thead></thead>
             <tr class="media">
-                <td colspan="4">
+                <td colspan="6">
                     <span>了解渠道：</span>
                     <label><input type="radio" name="access" id="posters" class="formVal" required>海报</label>
                     <label><input type="radio" name="access" id="camps" class="formVal">冬/夏令营</label>
                     <label><input type="radio" name="access" id="others" class="formVal">其他</label>
                 </td>
-                
-            </tr>
-
-            <tr class="referrer">
-                <td colspan="4" class="key" id="refferrer_key">
-                    <div class="referrer-box">
-                        <span>内推人:</span>
-                        <input type="text" class="formVal refferrerInput" id="referrer">
+                <td colspan="2" class="key" id="refferrer_key">
+                    <div>
+                        内推人:<input type="text" class="formVal refferrerInput" id="referrer">
                     </div>
-                    
+
                 </td>
+
             </tr>
 
             <tr>
-                <td class="key first">姓名</td>
+                <td class="key">姓名</td>
                 <td><input type="text" class="formVal longtext" name="name" id="name" required></td>
                 <td class="key">性别</td>
                 <td>
@@ -65,26 +231,23 @@ window.onload = () => {
                         <option value="女">女</option>
                     </select required>
                 </td>
-                <tr>
-                    <td class="key">生日</td>
-                    <td class="birthday_td">
-                        
-                            <input type="text" class="formVal" id="month" placeholder="月" required> -
-                            <input type="text" class="formVal" id="day" placeholder="日" required>
-                        
-                    </td>
 
-                    <td class="key">岗位</td>
-                    <td>
-                        <select class="position formVal" id="target_position" required>
+                <td class="key">生日</td>
+                <td class="birthday_td">
+                    <input type="text" class="formVal" id="month" required>月
+                    <input type="text" class="formVal" id="day" required>日
 
-                        </select>
-                    </td>
-                </tr>
-                
-                
+                </td>
+
+                <td class="key">岗位</td>
+
+
+                <td>
+                    <select class="position formVal" id="target_position" required>
+
+                    </select>
+                </td>
             </tr>
-
             <tr>
 
                 <td class="key">专业</td>
@@ -104,32 +267,24 @@ window.onload = () => {
                         <option value="博三">博三</option>
                     </select>
                 </td>
-                
-
-            </tr>
-
-            <tr>
                 <td class="key">邮箱</td>
                 <td><input type="email" class="formVal longtext" id="email" required></td>
                 <td class="key phone ">手机</td>
                 <td><input type="text" class="formVal longtext" id="phone" required></td>
+
             </tr>
-
-
-
-
             <tr class="experience">
                 <td>相关项目实习经历</td>
-                <td colspan="3">
+                <td colspan="7">
                     <textarea class="detail formVal" id="experience" required></textarea>
                     <div class="file"><span>上传附件(3MB以内的 pdf文件):</span>
                         <input type="file" id="file" accept=".pdf"></div>
-                    
+
                 </td>
             </tr>
             <tr class="reason">
                 <td>加入我们的原因</td>
-                <td colspan="3">
+                <td colspan="7">
                     <textarea class="detail formVal" id="reason" required></textarea>
                 </td>
             </tr>
@@ -140,56 +295,31 @@ window.onload = () => {
             <button type="button" id="save">保存</button>
             <button type="reset" id="reset">重置</button>
         </div>
-        
+
     </form>`
-
-        // 重新赋值和绑定
-        form = document.getElementById("form")
-        subBtn = document.getElementById("submit")
-        saveBtn = document.getElementById("save")
-
-        // 绑定 提交按钮 的单击事件 - 提交表单信息和附件
-        subBtn.onclick = () => {
-            submitResume(serverURL, submitResumeAPI)
-        }
-
-
-
-        // 绑定 保存按钮 的单击事件
-        saveBtn.onclick = () => {
-
-            // 保存已填写的表单数据
-            saveFormData()
-
-            // 取消表单按钮的默认行为
-            return false
-        }
-
-
     }
 
-    getPositions(serverURL, getPositionsAPI)
+    if (flag_get) {
+        console.log("获取岗位信息")
+        getPositions(serverURL, getPositionsAPI)
+        flag_get = false
+    }
+
 
 
 }
-
-
-
-
-
-
-
-
-
 
 
 // 最大上传文件尺寸为 3MB
 const maxFileSize = 3 * 1024000
 
 // 绑定 提交按钮 的单击事件 - 提交表单信息和附件
-subBtn.onclick = () => {
-    submitResume(serverURL, submitResumeAPI)
+if (subBtn) {
+    subBtn.onclick = () => {
+        submitResume(serverURL, submitResumeAPI)
+    }
 }
+
 
 
 // 提交表单信息
@@ -202,6 +332,7 @@ function submitResume(url, api) {
         return
     }
 
+    console.log("此次获取到的form为", form)
     // 当表单必填信息完整填入时，提交表单
     if (form.checkValidity()) {
         const formData = getFormData()
@@ -253,10 +384,6 @@ function submitResume(url, api) {
 }
 
 
-// 提示已经有相同的简历，是否覆盖？
-
-
-
 // 保存已填写的表单数据
 function saveFormData() {
     try {
@@ -282,14 +409,17 @@ function saveFormData() {
 
 
 // 绑定 保存按钮 的单击事件
-saveBtn.onclick = () => {
+if (saveBtn) {
+    saveBtn.onclick = () => {
 
-    // 保存已填写的表单数据
-    saveFormData()
+        // 保存已填写的表单数据
+        saveFormData()
 
-    // 取消表单按钮的默认行为
-    return false
+        // 取消表单按钮的默认行为
+        return false
+    }
 }
+
 
 
 
@@ -486,7 +616,7 @@ function deleteResume(url, api, token) {
 }
 
 
-const fileEle = document.getElementById("file")
+
 // 创建 FileReader 的实例
 let rd = new FileReader()
 // 当前待转码的文件下标
@@ -498,13 +628,23 @@ let fileBase64Arr = []
 let flag = 1
 
 // 绑定 上传文件栏 的变化事件 - 进行附件转码
-fileEle.onchange = () => {
-    flag = 0
-    index = 0
-    fileBase64Arr = []
+if (fileEle) {
+    fileEle.onchange = () => {
+        flag = 0
+        index = 0
+        fileBase64Arr = []
 
-    files2Base64(fileEle)
+        files2Base64(fileEle)
+
+        // 移动端显示已选择的文件的名称
+        const p = document.querySelector("#fileName_m")
+        if (p) {
+            p.innerText = "已选择：" + fileEle.files[0].name
+        }
+
+    }
 }
+
 
 // 将附件转码为 base64
 function files2Base64(f) {
