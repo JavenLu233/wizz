@@ -153,52 +153,7 @@ window.onload = () => {
 
         document.head.insertAdjacentHTML("beforeend", `<link rel="stylesheet" href="./mobile.css">`)
 
-        // 重新赋值和绑定
-        form = document.getElementById("form")
-        subBtn = document.getElementById("submit")
-        saveBtn = document.getElementById("save")
-        fileEle = document.getElementById("file")
 
-        // 绑定 提交按钮 的单击事件 - 提交表单信息和附件
-        if (subBtn) {
-            subBtn.onclick = () => {
-                submitResume(serverURL, submitResumeAPI)
-                console.log("点击提交按钮")
-            }
-        }
-
-
-
-
-        // 绑定 保存按钮 的单击事件
-        if (saveBtn) {
-            saveBtn.onclick = () => {
-
-                // 保存已填写的表单数据
-                saveFormData()
-
-                // 取消表单按钮的默认行为
-                return false
-            }
-        }
-
-        // 绑定 上传文件栏 的变化事件 - 进行附件转码
-        if (fileEle) {
-            fileEle.onchange = () => {
-                flag = 0
-                index = 0
-                fileBase64Arr = []
-
-                files2Base64(fileEle)
-
-                // 移动端显示已选择的文件的名称
-                const p = document.querySelector("#fileName_m")
-                if (p) {
-                    p.innerText = "已选择：" + fileEle.files[0].name
-                }
-
-            }
-        }
 
 
     } else {
@@ -297,6 +252,53 @@ window.onload = () => {
         </div>
 
     </form>`
+    }
+
+    // 重新赋值和绑定
+    form = document.getElementById("form")
+    subBtn = document.getElementById("submit")
+    saveBtn = document.getElementById("save")
+    fileEle = document.getElementById("file")
+
+    // 绑定 提交按钮 的单击事件 - 提交表单信息和附件
+    if (subBtn) {
+        subBtn.onclick = () => {
+            submitResume(serverURL, submitResumeAPI)
+            console.log("点击提交按钮")
+        }
+    }
+
+
+
+
+    // 绑定 保存按钮 的单击事件
+    if (saveBtn) {
+        saveBtn.onclick = () => {
+
+            // 保存已填写的表单数据
+            saveFormData()
+
+            // 取消表单按钮的默认行为
+            return false
+        }
+    }
+
+    // 绑定 上传文件栏 的变化事件 - 进行附件转码
+    if (fileEle) {
+        fileEle.onchange = () => {
+            flag = 0
+            index = 0
+            fileBase64Arr = []
+
+            files2Base64(fileEle)
+
+            // 移动端显示已选择的文件的名称
+            const p = document.querySelector("#fileName_m")
+            if (p) {
+                p.innerText = "已选择：" + fileEle.files[0].name
+            }
+
+        }
     }
 
     if (flag_get) {
