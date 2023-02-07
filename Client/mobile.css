@@ -1,7 +1,11 @@
 @media screen {
+    @font-face {
+        font-family: Weiti;
+        src: url(./font/Weiti.ttf);
+    }
+
     img {
-        min-width: 100vw;
-        height: auto;
+        width: 100vw;
     }
     
     .pc {
@@ -12,23 +16,31 @@
         display: block;
     }
 
+    
+
+    .title>h1,
+    .text>p,
+    .button{
+        font-family: Weiti;
+    }
    
 
     .title {
-        
         width: 80vw;
         color: #fff;
     }
 
     .title>h1 {
         font-size: 8vw;
+        font-weight: 300;
     }
 
     .text {
         width: 80vw;
         /* height: 56vw; */
-        background-color: rgba(207, 207, 207, 0.8);
+        background-color: rgba(207, 207, 207, 0.6);
         backdrop-filter: blur(6px);
+        color: #fff;
     }
 
     .text h2 {
@@ -37,16 +49,16 @@
     }
 
     .text p {
-        font-size: 4vw;
-        margin: 2vw auto;
+        font-size: 5vw;
+        margin: 6vw auto;
     }
 
     .button {
         margin: 6vw auto;
-        width: 25vw;
+        width: 30vw;
         height: 10vw;
         line-height: 10vw;
-        font-size: 4vw;
+        font-size: 5vw;
 
     }
 
