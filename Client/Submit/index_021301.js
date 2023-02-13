@@ -12,6 +12,7 @@ let subBtn = document.getElementById("submit")
 let saveBtn = document.getElementById("save")
 let fileEle = document.getElementById("file")
 let flag_get = true
+let flag_submit = true
 
 window.onload = () => {
     console.log(navigator.userAgent)
@@ -334,6 +335,14 @@ function submitResume(url, api) {
         return
     }
 
+    // 如果当前正在提交，返回
+    if (!flag_submit) {
+        alert('提交中，请勿重复点击！')
+        return
+    }
+
+
+
     console.log("此次获取到的form为", form)
     // 当表单必填信息完整填入时，提交表单
     if (form.checkValidity()) {
@@ -344,7 +353,8 @@ function submitResume(url, api) {
 
         console.log(formData)
 
-
+        // 禁止下一次提交
+        flag_submit = false
 
         fetch(`${url}${api}`, {
                 method: "post",
@@ -360,6 +370,10 @@ function submitResume(url, api) {
             })
             .then(res => {
                 console.log(res.status)
+
+                // 允许下一次提交
+                flag_submit = true
+
                 if (res.status === 200) {
                     succeed()
                 } else if (res.status === 400) {
