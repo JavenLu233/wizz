@@ -37,7 +37,7 @@
 }
 
 .td {
-    height: 6vh;
+    height: 10vh;
     border-bottom: 1rpx solid #000;
     border-right: 1rpx solid #000;
     text-align: center;

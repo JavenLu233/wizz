@@ -22,6 +22,7 @@ let url = {
         getByStatus: `${host}/api/interviewer/getInterviewsByStatus`,
         read: `${host}/api/interviewer/changeInterviewStatus`,
         finish: `${host}/api/interviewer/finishInterview`,
+        getPositionByName: `${host}/api/info/getPositionByName`,
         getResume: `${host}/api/interviewer/getDetailResumeById`,
         getResult: `${host}/api/interviewer/getInterviewResultByInterviewId`,
 

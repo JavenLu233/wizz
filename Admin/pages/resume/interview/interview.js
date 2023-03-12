@@ -73,17 +73,22 @@ Page({
         // 将跳转附带的 id 信息添加到 data
         this.setData({
             interview_id: options.id,
-            interviewer_name: options.interviewer
+            interviewer_name: options.interviewer,
+            position: options.position
         });
 
 
-
+        // console.log("@@@", this.data.position)
         // // 初始化 data 中的表单数据
         // this.initFormData();
 
         // 根据 interview_id 发送请求获取简历信息
         this.getResume();
         this.getResult();
+
+        // 获取面评模板的名称
+        this.getModules(this.data.position);
+
     },
 
     onShow: function () {
@@ -94,6 +99,35 @@ Page({
     // 下方为自定义函数
     // 同步全局登录状态和个人信息
     synchronizeLoginStatus: commonfuns.synchronizeLoginStatus,
+
+
+    // 获取面评模板名称
+    getModules: function (position) {
+        const _url = url.interview.getPositionByName + `?name=${position}`;
+        const _header = createHeader();
+        tt.request({
+            url: _url,
+            header: _header,
+            method: "GET",
+
+            success: (res) => {
+                // console.log("%%%", res.data)
+                
+                // 填充面评模块
+                const _evaluateList = this.data.evaluateList;
+                for (let i = 1; i <= 5; i++) {
+                    _evaluateList[i-1].module = res.data[`score_${i}_description`]
+                }
+
+                console.log("555", _evaluateList)
+                this.setData({
+                    evaluateList: _evaluateList
+                })
+
+            }
+        });
+
+    },
 
 
     // 获取简历信息

@@ -47,7 +47,8 @@ let url = {
         "getOfinterviewer": `${host}/api/admin/getInterviewsByProjectIdAndInterviewerIdAndStatus`,
         "change": `${host}/api/admin/changeInterviewer`,
         "getResumeByInterviewId": `${host}/api/admin/getIntervieweeDetailByInterviewId`,
-        "getResultByInterviewId": `${host}/api/admin/getInterviewResultByInterviewId`
+        "getResultByInterviewId": `${host}/api/admin/getInterviewResultByInterviewId`,
+        "getPositionByName": `${host}/api/info/getPositionByName`
     },
 
     // 用于招新数据操作

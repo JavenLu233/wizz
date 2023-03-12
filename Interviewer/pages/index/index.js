@@ -13,9 +13,11 @@ Page({
     inputValue: "",
     originResumeList: [
       // {
-      //   id: 1,
-      //   name: "李华华asjdfkljsadkfjklsa",
-      //   grade: "大一"
+      //   interviewee_id: "233",
+      //   interviewee_name: "lihua",
+      //   interviewee_grade: "大四",
+      //   interview_id: 1,
+      //   interview_status: "等待面试"
       // },
       // {
       //   id: 2,
@@ -79,7 +81,16 @@ Page({
       // },
     ],
 
-    resumeList: [],
+    
+    resumeList: [
+      // {
+      //   interviewee_id: 15,
+      //   name: "lihua",
+      //   grade: "大四",
+      //   id: 1,
+      //   status: "等待面试"
+      // }
+      ],
     // page: 1,
     // pageSize: 7,
     // total: 70
@@ -409,6 +420,7 @@ Page({
           for (let item of _data) {
             const _item = {
               id: item.interview_id,
+              interviewee_id: item.interviewee_id,
               name: item.interviewee_name,
               grade: item.interviewee_grade,
               status: item.interview_status
@@ -602,10 +614,11 @@ Page({
       const id = e.currentTarget.dataset.id;
       const name = e.currentTarget.dataset.name;
       const status = e.currentTarget.dataset.status;
+      const interviewee_id = e.currentTarget.dataset.interviewee_id;
       console.log(id);
 
       tt.navigateTo({
-        url: `evaluate/evaluate?id=${id}&name=${name}&status=${status}`,
+        url: `evaluate/evaluate?id=${id}&name=${name}&status=${status}&interviewee_id=${interviewee_id}`,
         success: () => {
           console.log("跳转成功");
         }

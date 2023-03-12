@@ -28,7 +28,8 @@ Page({
     // 获取跳转处的简历id
     this.setData({
       id: options.id,
-      status: options.status
+      status: options.status,
+      position: options.position
     });
 
     // 如果尚未登录就进入该页面, 则提示错误并返回
@@ -50,6 +51,9 @@ Page({
 
       return;
     }
+
+    // 获取面评模板名称
+    this.getModules(this.data.position);
 
     // 获取简历信息
     // tt.request({
@@ -93,11 +97,19 @@ Page({
 
   },
 
+  // 获取面评模板名称
+  getModules: function (position) {
+      console.log("###", position)
+
+  },
+
   // 通过id获取简历详情信息
   getResumeDetail: function (id) {
     const _url = url.interview.getResume + `?interviewee_id=${id}`;
     const _header = createHeader();
 
+    //*
+    //console.log("###", id)
     tt.request({
       url: _url,
       method: "GET",
@@ -136,7 +148,7 @@ Page({
         }
 
         else {
-          console.log("获取失败", res);
+          console.log("获取失败");
           failTip("错误", "获取失败");
         }
 

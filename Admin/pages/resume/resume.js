@@ -365,12 +365,13 @@ Page({
 
         const _id = e.currentTarget.dataset.id;
         const _interviewer = e.currentTarget.dataset.interviewer;
-
+        const _position = e.currentTarget.dataset.position;
+        // console.log("###", _position);
 
         if (this.data.isLogin) {
             console.log("跳转");
             tt.navigateTo({
-                url: `./interview/interview?id=${_id}&interviewer=${_interviewer}`,
+                url: `./interview/interview?id=${_id}&interviewer=${_interviewer}&position=${_position}`,
 
                 success: (res) => {
                     console.log("成功跳转");

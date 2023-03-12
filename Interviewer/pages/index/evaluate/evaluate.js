@@ -49,7 +49,8 @@ Page({
     this.setData({
       id: options.id,
       name: options.name,
-      status: options.status
+      status: options.status,
+      interviewee_id: options.interviewee_id
     });
 
     // 如果尚未登录就进入该页面, 则提示错误并返回
@@ -76,6 +77,12 @@ Page({
     if (this.data.status === "已完成") {
       this.getResult();
     }
+
+    // 获取岗位（待与后端优化）
+    this.getPosition(this.data.interviewee_id);
+
+    // // 获取面评模板名称
+    // this.getModules(position);
 
   },
 
@@ -117,6 +124,58 @@ Page({
     this.setData({
       is_pass: 0
     });
+  },
+
+  // 获取岗位
+  getPosition: function(id) {
+    const _url = url.interview.getResume + `?interviewee_id=${id}`;
+    const _header = createHeader();
+
+    tt.request({
+      url: _url,
+      header: _header,
+      method: "GET",
+
+      success: (res) => {
+        console.log("@@@", res)
+        if (res.statusCode === 200) {
+          this.setData({
+            position: res.data.target_position
+          });
+
+          this.getModules(this.data.position)
+        }
+      }
+
+    })
+
+  },
+
+  // 获取面评模板名称
+  getModules: function(position) {
+    console.log("^^^", position);
+    const _url = url.interview.getPositionByName + `?name=${position}`
+    const _header = createHeader();
+    tt.request({
+      url: _url,
+      header: _header,
+      mothod: "GET",
+      success: (res) => {
+        if (res.statusCode === 200) {
+          const _evaluateList = this.data.evaluateList;
+          for (let i = 1; i <= 5; i++) {
+            _evaluateList[i-1].module = res.data[`score_${i}_description`]
+          }
+
+          console.log("555", _evaluateList);
+          this.setData({
+            evaluateList: _evaluateList
+          })
+        }
+      }
+
+    })
+
   },
 
   // 获取面评信息

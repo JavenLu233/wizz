@@ -51,9 +51,9 @@
                 </view>
                 <view class="item-action">
 
-                    <view class="detail inline-box" bindtap="toResume" data-id="{{item.id}}" data-name="{{item.name}}" data-status="{{item.status}}">简历详情</view>
+                    <view class="detail inline-box" bindtap="toResume" data-id="{{item.interviewee_id}}" data-name="{{item.name}}" data-status="{{item.status}}">简历详情</view>
                     <view class="exchange inline-box" bindtap="toExchange" data-id="{{item.id}}" data-name="{{item.name}}" data-status="{{item.status}}">更换面试官</view>
-                    <view class="evaluate inline-box" bindtap="toEvaluate" data-id="{{item.id}}" data-name="{{item.name}}" data-status="{{item.status}}">填写面评</view>
+                    <view class="evaluate inline-box" bindtap="toEvaluate" data-id="{{item.id}}" data-name="{{item.name}}" data-status="{{item.status}}" data-interviewee_id="{{item.interviewee_id}}">填写面评</view>
                 </view>
             </view>
 
